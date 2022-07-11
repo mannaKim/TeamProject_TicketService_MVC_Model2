@@ -8,6 +8,7 @@
 	<title>TicketService</title>
 	<link href="css/ticket.css" rel="stylesheet">
 	<script src="member/member.js"></script>
+	<script src="mypage/mypage.js"></script>
 </head>
 <body>
 	<div id="wrap">	<!-- wrap : 페이지 전체를 감싸는 div의 css 아이디 --> 

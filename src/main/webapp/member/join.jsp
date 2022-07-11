@@ -26,8 +26,8 @@
     	</fieldset>
     	<div class="clear"></div>
     	<div id="buttons">
-      		<input type="button" value="회원가입" class="submit" onClick="go_join();">
-      		<input type="reset" value="취소" class="cancel">
+      		<input type="button" value="회원가입" onClick="go_join();">
+      		<input type="reset" value="취소">
     	</div>
   	</form>
 </article>

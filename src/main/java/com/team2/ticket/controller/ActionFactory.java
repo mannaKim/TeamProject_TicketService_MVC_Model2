@@ -12,7 +12,11 @@ import com.team2.ticket.controller.action.member.LoginFormAction;
 import com.team2.ticket.controller.action.member.LogoutAction;
 import com.team2.ticket.controller.action.member.ShowTermAction;
 import com.team2.ticket.controller.action.member.TermsAndConditionsAction;
+import com.team2.ticket.controller.action.mypage.CheckPwdAction;
+import com.team2.ticket.controller.action.mypage.CheckPwdFormAction;
+import com.team2.ticket.controller.action.mypage.ModifyMemberFormAction;
 import com.team2.ticket.controller.action.mypage.MypageAction;
+import com.team2.ticket.controller.action.mypage.WithdrawalFormAction;
 
 public class ActionFactory {
 	
@@ -39,6 +43,10 @@ public class ActionFactory {
 		else if(command.equals("completeJoin")) ac = new CompleteJoinAction();
 		
 		else if(command.equals("mypage")) ac = new MypageAction();
+		else if(command.equals("checkPwdForm")) ac = new CheckPwdFormAction();
+		else if(command.equals("checkPwd")) ac = new CheckPwdAction();
+		else if(command.equals("withdrawalForm")) ac = new WithdrawalFormAction();
+		else if(command.equals("modifyMemberForm")) ac = new ModifyMemberFormAction();
 		
 		
 		return ac;
