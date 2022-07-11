@@ -58,20 +58,20 @@ function go_joinForm(){
 }
 
 function idcheck(){
-	if(document.joinFrm.id.value==""){
+	if(document.frm.id.value==""){
 		alert("아이디를 입력하고 중복체크를 진행하세요.");
-		document.joinFrm.id.focus();
+		document.frm.id.focus();
 		return;
 	}
-	let url = "ticket.do?command=idCheckForm&id="+document.joinFrm.id.value;
+	let url = "ticket.do?command=idCheckForm&id="+document.frm.id.value;
 	let opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no,";
 	opt = opt +" top=300, left=300";
 	window.open(url,"IdCheck",opt);
 }
 
 function useId(id){
-	opener.joinFrm.id.value=id;
-	opener.joinFrm.idCheck.value=id;
+	opener.frm.id.value=id;
+	opener.frm.idCheck.value=id;
 	self.close();
 }
 
@@ -84,33 +84,33 @@ function find_address(){
 
 function save_address(zip_num,sido,gugun,dong){
 	//함수 호출 형태 : result('123-123','서울시','서대문구','대현동')
-	opener.document.joinFrm.zip_num.value=zip_num;
-	opener.document.joinFrm.address1.value=sido+" "+gugun+" "+dong;
+	opener.document.frm.zip_num.value=zip_num;
+	opener.document.frm.address1.value=sido+" "+gugun+" "+dong;
 	self.close();
 }
 
 function go_join(){
-	if(document.joinFrm.id.value==""){
+	if(document.frm.id.value==""){
 		alert("아이디를 입력하세요.")
-		document.joinFrm.id.focus();
-	}else if(document.joinFrm.idCheck.value!=document.joinFrm.id.value){
+		document.frm.id.focus();
+	}else if(document.frm.idCheck.value!=document.frm.id.value){
 		alert("아이디 중복확인을 하지 않았습니다.")
-		document.joinFrm.id.focus();
-	}else if(document.joinFrm.pwd.value==""){
+		document.frm.id.focus();
+	}else if(document.frm.pwd.value==""){
 		alert("비밀번호를 입력하세요.")
-		document.joinFrm.pwd.focus();
-	}else if(document.joinFrm.pwd.value!=document.joinFrm.pwdCheck.value){
+		document.frm.pwd.focus();
+	}else if(document.frm.pwd.value!=document.frm.pwdCheck.value){
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
-		document.joinFrm.pwd.focus();
-	}else if(document.joinFrm.name.value==""){
+		document.frm.pwd.focus();
+	}else if(document.frm.name.value==""){
 		alert("이름을 입력하세요.")
-		document.joinFrm.name.focus();
-	}else if(document.joinFrm.email.value==""){
+		document.frm.name.focus();
+	}else if(document.frm.email.value==""){
 		alert("이메일을 입력하세요.")
-		document.joinFrm.email.focus();
+		document.frm.email.focus();
 	}else {
-		document.joinFrm.action="ticket.do?command=join";
-		document.joinFrm.submit();
+		document.frm.action="ticket.do?command=join";
+		document.frm.submit();
 	}
 }
 

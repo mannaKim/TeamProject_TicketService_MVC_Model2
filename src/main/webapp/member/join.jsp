@@ -9,7 +9,7 @@
 </div>
 <div class="clear"></div>
 <article>
-	<form method="post" name="joinFrm">
+	<form method="post" name="frm">
 		<fieldset>
 			<label>아이디</label><input type="text" name="id" size="12">
 			<input type="hidden" name="idCheck">
