@@ -8,20 +8,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.team2.ticket.controller.action.Action;
+import com.team2.ticket.dao.MemberDao;
 import com.team2.ticket.dto.MemberVO;
 
-public class WithdrawalFormAction implements Action {
+public class WithdrawalAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "mypage/withdrawalForm.jsp";
+		String url = "ticket.do?command=index";
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo==null) {
 			url = "ticket.do?command=loginForm";
 		}else {
-			//진행중인 주문 정보 request에 담기
+			MemberDao mdao = MemberDao.getInstance();
+			mdao.deleteMember(mvo.getId());
+			session.removeAttribute("loginUser");
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);
