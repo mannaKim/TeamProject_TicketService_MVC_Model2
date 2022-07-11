@@ -12,11 +12,10 @@ public class IndexAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//1. 
+		//1. main에 띄울 전시정보 request에 담기
 		
 		//main.jsp로 이동
 		request.getRequestDispatcher("main.jsp").forward(request, response);
-
 	}
 
 }

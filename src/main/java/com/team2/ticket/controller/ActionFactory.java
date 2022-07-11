@@ -12,6 +12,7 @@ import com.team2.ticket.controller.action.member.LoginFormAction;
 import com.team2.ticket.controller.action.member.LogoutAction;
 import com.team2.ticket.controller.action.member.ShowTermAction;
 import com.team2.ticket.controller.action.member.TermsAndConditionsAction;
+import com.team2.ticket.controller.action.mypage.MypageAction;
 
 public class ActionFactory {
 	
@@ -37,7 +38,7 @@ public class ActionFactory {
 		else if(command.equals("join")) ac = new JoinAction();
 		else if(command.equals("completeJoin")) ac = new CompleteJoinAction();
 		
-		else if(command.equals("myPage")) ac = new CompleteJoinAction();
+		else if(command.equals("mypage")) ac = new MypageAction();
 		
 		
 		return ac;

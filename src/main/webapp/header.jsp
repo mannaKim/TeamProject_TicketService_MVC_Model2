@@ -30,7 +30,7 @@
 						<c:otherwise>
 							<li>${loginUser.name}(${loginUser.id})</li>
 							<li><a href="ticket.do?command=logout">LOGOUT</a></li>
-							<li><a href="ticket.do?command=myPage">MyPage</a></li>
+							<li><a href="ticket.do?command=mypage">My Page</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>
