@@ -11,29 +11,29 @@ function pwdCheck(){
 	return true;
 }
 
-/*function withdrawalConfirm(){
+function withdrawalConfirm(){
 	if(confirm('탈퇴하시겠습니까?')){
-		location.href = "ticket.do?command=withdrawalForm";
+		location.href = "ticket.do?command=withdrawal";
 	}else {
 		location.href = "ticket.do?command=mypage";
 	}
-}*/
+}
 
 function go_modify(){
-	if(document.modifyFrm.pwd.value==""){
+	if(document.frm.pwd.value==""){
 		alert("비밀번호를 입력하세요.")
-		document.modifyFrm.pwd.focus();
-	}else if(document.modifyFrm.pwd.value!=document.modifyFrm.pwdCheck.value){
+		document.frm.pwd.focus();
+	}else if(document.frm.pwd.value!=document.frm.pwdCheck.value){
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
-		document.modifyFrm.pwd.focus();
-	}else if(document.modifyFrm.name.value==""){
+		document.frm.pwd.focus();
+	}else if(document.frm.name.value==""){
 		alert("이름을 입력하세요.")
-		document.modifyFrm.name.focus();
-	}else if(document.modifyFrm.email.value==""){
+		document.frm.name.focus();
+	}else if(document.frm.email.value==""){
 		alert("이메일을 입력하세요.")
-		document.modifyFrm.email.focus();
+		document.frm.email.focus();
 	}else {
-		document.modifyFrm.action="ticket.do?command=modifyMember";
-		document.modifyFrm.submit();
+		document.frm.action="ticket.do?command=modifyMember";
+		document.frm.submit();
 	}
 }

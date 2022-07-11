@@ -2,9 +2,9 @@
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_image_menu.jsp" %>
 <article>
-	<form method="post" name="modifyFrm">
+	<form method="post" name="frm">
 		<fieldset>
-			<label>아이디</label><input type="text" name="id" size="12" value="${loginUser.id}" readonly>
+			<label>아이디</label><input type="text" name="id" size="12" value="${loginUser.id}" readonly><br>
 			<label>Password</label><input type="password" name="pwd"><br>
 			<label>Password확인</label><input type="password" name="pwdCheck"><br>
 			<label>Name</label><input type="text" name="name" value="${loginUser.name}"><br>
@@ -17,7 +17,7 @@
     	</fieldset>
     	<div class="clear"></div>
     	<div id="buttons">
-      		<input type="button" value="회원가입" onClick="go_modify();">
+      		<input type="button" value="수정" onClick="go_modify();">
       		<input type="reset" value="취소">
     	</div>
   	</form>

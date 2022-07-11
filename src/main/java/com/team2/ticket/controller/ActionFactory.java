@@ -14,8 +14,10 @@ import com.team2.ticket.controller.action.member.ShowTermAction;
 import com.team2.ticket.controller.action.member.TermsAndConditionsAction;
 import com.team2.ticket.controller.action.mypage.CheckPwdAction;
 import com.team2.ticket.controller.action.mypage.CheckPwdFormAction;
+import com.team2.ticket.controller.action.mypage.ModifyMemberAction;
 import com.team2.ticket.controller.action.mypage.ModifyMemberFormAction;
 import com.team2.ticket.controller.action.mypage.MypageAction;
+import com.team2.ticket.controller.action.mypage.WithdrawalAction;
 import com.team2.ticket.controller.action.mypage.WithdrawalFormAction;
 
 public class ActionFactory {
@@ -46,7 +48,9 @@ public class ActionFactory {
 		else if(command.equals("checkPwdForm")) ac = new CheckPwdFormAction();
 		else if(command.equals("checkPwd")) ac = new CheckPwdAction();
 		else if(command.equals("withdrawalForm")) ac = new WithdrawalFormAction();
+		else if(command.equals("withdrawal")) ac = new WithdrawalAction();
 		else if(command.equals("modifyMemberForm")) ac = new ModifyMemberFormAction();
+		else if(command.equals("modifyMember")) ac = new ModifyMemberAction();
 		
 		
 		return ac;
