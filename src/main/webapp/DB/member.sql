@@ -4,11 +4,6 @@ create sequence goods_seq start with 1;
 drop sequence goods_cart_seq;
 create sequence goods_cart_seq start with 1;
 
-drop sequence goods_orders_seq;
-create sequence goods_orders_seq start with 1;
-
-drop sequence goods_order_detail_seq;
-create sequence goods_order_detail_seq start with 1;
 
 select * from member;
 
