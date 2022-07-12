@@ -117,4 +117,30 @@ public class GoodsDao {
 		}
 		return gvo;
 	}
+
+	public ArrayList<GoodsVO> selectGoods(String search) {
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
+		String sql = "select * from goods where name like'%'||?||'%'";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, search);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				GoodsVO gvo = new GoodsVO();
+				gvo.setGseq(rs.getInt("gseq"));
+				gvo.setName(rs.getString("name"));
+				gvo.setPrice2(rs.getInt("price2"));
+				gvo.setImage(rs.getString("image"));
+				gvo.setDetail_img(rs.getString("detail_img"));
+				gvo.setContent(rs.getString("content"));
+				list.add(gvo);
+			}
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return list;
+	}
 }

@@ -3,9 +3,11 @@ package com.team2.ticket.controller;
 import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.controller.action.IndexAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
+import com.team2.ticket.controller.action.goods.GoodsCartListAction;
 import com.team2.ticket.controller.action.goods.GoodsCategoryAction;
 import com.team2.ticket.controller.action.goods.GoodsDetailAction;
 import com.team2.ticket.controller.action.goods.GoodsMainAction;
+import com.team2.ticket.controller.action.goods.GoodsSearchAction;
 import com.team2.ticket.controller.action.member.CompleteJoinAction;
 import com.team2.ticket.controller.action.member.FindAddressAction;
 import com.team2.ticket.controller.action.member.FindIdAction;
@@ -69,9 +71,11 @@ public class ActionFactory {
 		else if(command.equals("modifyMember")) ac = new ModifyMemberAction();
 		
 		else if(command.equals("goodsMain")) ac = new GoodsMainAction();
+		else if(command.equals("goodsSearch")) ac = new GoodsSearchAction();
 		else if(command.equals("goodsCategory")) ac = new GoodsCategoryAction();
 		else if(command.equals("goodsDetail")) ac = new GoodsDetailAction();
 		else if(command.equals("goodsCartInsert")) ac = new GoodsCartInsertAction();
+		//else if(command.equals("goodsCartList")) ac = new GoodsCartListAction();
 		
 		
 		

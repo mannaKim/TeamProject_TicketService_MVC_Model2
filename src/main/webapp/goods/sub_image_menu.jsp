@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
+<form method="post" name="frm" action="ticket.do?command=goodsSearch">
+	<input type="text" name="search"><input type="submit" value="검색">
+</form>
 <table>
 	<tr>
 		<td><img src="goods/sub_images/gs_icon_01.png" onClick="location.href='ticket.do?command=goodsCategory&kind=1'"></td>
