@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<div>
+	<!-- 메인이미지 -->
+	<img src="goods/sub_images/main_image.png">
+</div>
 <%@ include file="sub_image_menu.jsp" %>
 
 <!-- 신상품 -->

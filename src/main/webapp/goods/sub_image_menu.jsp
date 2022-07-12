@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
-<div>
-	<!-- 메인이미지 -->
-	<img src="goods/sub_images/main_image.png">
-</div>
-
 <table>
 	<tr>
 		<td><img src="goods/sub_images/gs_icon_01.png" onClick="location.href='ticket.do?command=goodsCategory&kind=1'"></td>
