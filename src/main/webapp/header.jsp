@@ -9,6 +9,7 @@
 	<link href="css/ticket.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 	<script src="mypage/mypage.js"></script>
+	<script src="goods/goods.js"></script>
 </head>
 <body>
 	<div id="wrap">	<!-- wrap : 페이지 전체를 감싸는 div의 css 아이디 --> 
@@ -42,8 +43,8 @@
 				<ul>
 					<li><a href="ticket.do?command=">전시소개</a></li>
 					<li><a href="ticket.do?command=">전시예약</a></li>
-					<li><a href="ticket.do?command=">전시후기</a></li>
-					<li><a href="ticket.do?command=goods">굿즈</a></li>
+					<!-- <li><a href="ticket.do?command=">전시후기</a></li> -->
+					<li><a href="ticket.do?command=goodsMain">굿즈</a></li>
 					<li><a href="ticket.do?command=">Q &amp; A</a></li>
 				</ul>
 			</nav>
