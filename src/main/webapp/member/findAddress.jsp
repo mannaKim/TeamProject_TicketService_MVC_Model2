@@ -14,7 +14,7 @@
     <form method="post" name="frm" action="ticket.do">
       <input type="hidden" name="command" value="findAddress">
       동 이름 : <input type="text" name="dong">
-      <input type="submit" value="찾기" class="submit">
+      <input type="submit" value="찾기">
     </form>
     <!-- 검색된 우편번호와 동이 표시되는 곳 -->
     <table>
