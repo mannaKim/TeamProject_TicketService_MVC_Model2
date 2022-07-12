@@ -81,26 +81,26 @@ CREATE TABLE goods
 
 CREATE TABLE goods_cart
 (
-	g_cseq number(10) NOT NULL,
+	gcseq number(10) NOT NULL,
 	quantity number(5) DEFAULT 1,
 	result char(1) DEFAULT '1',
 	indate date DEFAULT SYSDATE,
 	id varchar2(20) NOT NULL,
 	gseq number(5) NOT NULL,
-	PRIMARY KEY (g_cseq)
+	PRIMARY KEY (gcseq)
 );
 
 
 CREATE TABLE goods_review
 (
-	g_rseq number(5) NOT NULL,
+	grseq number(5) NOT NULL,
 	subject varchar2(300) NOT NULL,
 	content varchar2(1000) NOT NULL,
 	indate date DEFAULT sysdate,
 	image varchar2(255),
 	id varchar2(20) NOT NULL,
 	gseq number(5) NOT NULL,
-	PRIMARY KEY (g_rseq)
+	PRIMARY KEY (grseq)
 );
 
 
@@ -165,13 +165,13 @@ CREATE TABLE orders
 
 CREATE TABLE order_detail
 (
-	g_odseq number(10) NOT NULL,
+	odseq number(10) NOT NULL,
 	quantity number(5) DEFAULT 1,
 	result char(1) DEFAULT '1',
 	oseq number(10) NOT NULL,
 	gseq number(5) NOT NULL,
 	tpseq number(7) NOT NULL,
-	PRIMARY KEY (g_odseq)
+	PRIMARY KEY (odseq)
 );
 
 
