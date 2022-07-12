@@ -14,8 +14,8 @@
       		<input type="submit" value="Login" class="submit" onClick="return loginCheck();">
     	</div>
     	<ul>
-    		<li><a href="#" onClick="findAccount(id);">아이디 찾기</a></li>
-    		<li><a href="#" onClick="findAccount(pwd);">비밀번호 찾기</a></li>
+    		<li><a href="#" onClick="findAccount('id');">아이디 찾기</a></li>
+    		<li><a href="#" onClick="findAccount('pwd');">비밀번호 찾기</a></li>
     	</ul>
 	</form>
 </article>

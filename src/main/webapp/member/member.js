@@ -115,5 +115,33 @@ function go_join(){
 }
 
 function findAccount(comm){
-	
+	if(comm=='id'){
+		var url="ticket.do?command=findIdForm";
+		var opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no,";
+		opt = opt +"  width=700, height=500, top=300, left=300";
+		window.open(url,"Find Id",opt);
+	}else if(comm=='pwd'){
+		var url="ticket.do?command=findPwdForm";
+		var opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no,";
+		opt = opt +"  width=700, height=500, top=300, left=300";
+		window.open(url,"Find Password",opt);
+	}
+}
+
+function go_login_after_FindAccount(){
+	opener.location.href="ticket.do?command=loginForm";
+	self.close();
+}
+
+function resetPwd(){
+	if(document.frm.pwd.value==""){
+		alert("비밀번호를 입력하세요.")
+		document.frm.pwd.focus();
+		return false;
+	}else if(document.frm.pwd.value!=document.frm.pwd_chk.value){
+		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
+		document.frm.pwd_chk.focus();
+		return false;
+	}
+	return true;
 }
