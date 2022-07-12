@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_image_menu.jsp" %>
+
 <article>
 	<div>
 		<h1>Item</h1>
@@ -12,7 +13,11 @@
         		</span>
         		<h2>${GoodsVO.name}</h2>
         		<label>가 격 : </label>${GoodsVO.price2}원<br>
-        		<label>수 량 : </label><input type="text" name="quantity" size="2" value="1"><br>
+        		<label>수 량 : </label>
+				<button type="button" onClick="count(-1);">-</button>
+				<input type="text" name="quantity" size="2" value="1" readonly>
+				<button type="button" onClick="count(1);">+</button>
+ 				<br>
       			<div id="buttons">
         			<input type="button" value="장바구니" onClick="go_cart();">
        				<input type="button" value="즉시구매" onClick="go_order();">
