@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
+<div>
+	<!-- 메인이미지 -->
+	<img src="goods/goods_images/main_image.png">
+</div>
 
 <table>
 	<tr>

@@ -43,8 +43,9 @@ create or replace view new_goods_view
 as
 select * from
 (select rownum,gseq,name,price2,image from goods where useyn='y' order by indate desc)
-where rownum<=4;
+where rownum<=8;
 
+select * from new_goods_view;
 
 -- 베스트 상품 view 생성
 create or replace view best_goods_view
@@ -52,3 +53,5 @@ as
 select * from
 (select rownum,gseq,name,price2,image from goods where bestyn='y' order by indate desc)
 where rownum<=4;
+
+select * from best_goods_view;
