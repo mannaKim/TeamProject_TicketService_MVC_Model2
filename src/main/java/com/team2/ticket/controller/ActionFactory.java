@@ -2,6 +2,8 @@ package com.team2.ticket.controller;
 
 import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.controller.action.IndexAction;
+import com.team2.ticket.controller.action.goods.GoodsCategoryAction;
+import com.team2.ticket.controller.action.goods.GoodsDetailAction;
 import com.team2.ticket.controller.action.goods.GoodsMainAction;
 import com.team2.ticket.controller.action.member.CompleteJoinAction;
 import com.team2.ticket.controller.action.member.FindAddressAction;
@@ -66,6 +68,8 @@ public class ActionFactory {
 		else if(command.equals("modifyMember")) ac = new ModifyMemberAction();
 		
 		else if(command.equals("goodsMain")) ac = new GoodsMainAction();
+		else if(command.equals("goodsCategory")) ac = new GoodsCategoryAction();
+		else if(command.equals("goodsDetail")) ac = new GoodsDetailAction();
 		
 		
 		return ac;
