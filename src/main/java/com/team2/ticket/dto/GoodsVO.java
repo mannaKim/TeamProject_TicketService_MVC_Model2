@@ -11,6 +11,7 @@ public class GoodsVO {
 	private int price3;
 	private String content;
 	private String image;
+	private String detail_img;
 	private String useyn;
 	private String bestyn;
 	private Timestamp indate;
@@ -62,6 +63,12 @@ public class GoodsVO {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public String getDetail_img() {
+		return detail_img;
+	}
+	public void setDetail_img(String detail_img) {
+		this.detail_img = detail_img;
 	}
 	public String getUseyn() {
 		return useyn;

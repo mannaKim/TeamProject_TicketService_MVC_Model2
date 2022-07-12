@@ -1,10 +1,3 @@
-drop sequence goods_seq;
-create sequence goods_seq start with 1;
-
-drop sequence goods_cart_seq;
-create sequence goods_cart_seq start with 1;
-
-
 select * from member;
 
 insert into member(id,pwd,name,zip_num,address1,address2,phone,email) values

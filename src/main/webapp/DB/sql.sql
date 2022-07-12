@@ -5,12 +5,12 @@ DROP TABLE address CASCADE CONSTRAINTS;
 DROP TABLE reply CASCADE CONSTRAINTS;
 DROP TABLE event CASCADE CONSTRAINTS;
 DROP TABLE goods_cart CASCADE CONSTRAINTS;
+DROP TABLE goods_review CASCADE CONSTRAINTS;
 DROP TABLE order_detail CASCADE CONSTRAINTS;
 DROP TABLE goods CASCADE CONSTRAINTS;
 DROP TABLE introduce CASCADE CONSTRAINTS;
 DROP TABLE orders CASCADE CONSTRAINTS;
 DROP TABLE qna CASCADE CONSTRAINTS;
-DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE ticket_cart CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
 DROP TABLE notice CASCADE CONSTRAINTS;
@@ -69,6 +69,7 @@ CREATE TABLE goods
 	price3 number(7),
 	content varchar2(1000),
 	image varchar2(255),
+	detail_img varchar2(255),
 	-- 상품 판매 유효 여부
 	useyn char(1) DEFAULT 'y',
 	bestyn char(1) DEFAULT 'n',
@@ -87,6 +88,19 @@ CREATE TABLE goods_cart
 	id varchar2(20) NOT NULL,
 	gseq number(5) NOT NULL,
 	PRIMARY KEY (g_cseq)
+);
+
+
+CREATE TABLE goods_review
+(
+	g_rseq number(5) NOT NULL,
+	subject varchar2(300) NOT NULL,
+	content varchar2(1000) NOT NULL,
+	indate date DEFAULT sysdate,
+	image varchar2(255),
+	id varchar2(20) NOT NULL,
+	gseq number(5) NOT NULL,
+	PRIMARY KEY (g_rseq)
 );
 
 
@@ -189,20 +203,6 @@ CREATE TABLE reply
 );
 
 
-CREATE TABLE review
-(
-	rseq number(5) NOT NULL,
-	subject varchar2(300) NOT NULL,
-	content varchar2(1000) NOT NULL,
-	reply varchar2(1000),
-	rep char(1) DEFAULT '1',
-	indate date DEFAULT sysdate,
-	kind char(1),
-	id varchar2(20) NOT NULL,
-	PRIMARY KEY (rseq)
-);
-
-
 CREATE TABLE ticket_cart
 (
 	cseq number(7) NOT NULL,
@@ -262,6 +262,12 @@ ALTER TABLE goods_cart
 ;
 
 
+ALTER TABLE goods_review
+	ADD FOREIGN KEY (gseq)
+	REFERENCES goods (gseq)
+;
+
+
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (gseq)
 	REFERENCES goods (gseq)
@@ -269,6 +275,12 @@ ALTER TABLE order_detail
 
 
 ALTER TABLE goods_cart
+	ADD FOREIGN KEY (id)
+	REFERENCES member (id)
+;
+
+
+ALTER TABLE goods_review
 	ADD FOREIGN KEY (id)
 	REFERENCES member (id)
 ;
@@ -287,12 +299,6 @@ ALTER TABLE qna
 
 
 ALTER TABLE reply
-	ADD FOREIGN KEY (id)
-	REFERENCES member (id)
-;
-
-
-ALTER TABLE review
 	ADD FOREIGN KEY (id)
 	REFERENCES member (id)
 ;
@@ -374,4 +380,4 @@ COMMENT ON COLUMN ticket_product.daytime IS '공연입장시간/날짜 같이표
 COMMENT ON COLUMN ticket_product.place IS '공연장소';
 
 
-select * from member;
+
