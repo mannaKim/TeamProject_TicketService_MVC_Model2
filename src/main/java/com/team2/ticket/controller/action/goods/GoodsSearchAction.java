@@ -20,10 +20,10 @@ public class GoodsSearchAction implements Action {
 			if(search.equals("")==false) {
 				GoodsDao gdao = GoodsDao.getInstance();
 				ArrayList<GoodsVO> list = gdao.selectGoods(search);
-				request.setAttribute("searchGoodsList", list);
+				request.setAttribute("searchList", list);
 			}
 		}
-		String url = "goods/searchGoods.jsp";
+		String url = "goods/goodsSearch.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

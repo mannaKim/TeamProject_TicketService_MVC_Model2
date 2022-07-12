@@ -3,7 +3,7 @@
 <%@ include file="sub_image_menu.jsp" %>
 <h2>Item</h2>
 <div>
-  <c:forEach items="${searchGoodsList}" var="gvo">
+  <c:forEach items="${searchList}" var="gvo">
     <div>
       <a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
         <img src="${gvo.image}">
