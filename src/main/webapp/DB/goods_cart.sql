@@ -1,6 +1,8 @@
 drop sequence goods_cart_seq;
 create sequence goods_cart_seq start with 1;
 
+delete from GOODS_CART;
+
 insert into GOODS_CART values(goods_cart_seq.nextVal,1,'1',sysdate,'one',1);
 insert into GOODS_CART values(goods_cart_seq.nextVal,1,'1',sysdate,'one',2);
 

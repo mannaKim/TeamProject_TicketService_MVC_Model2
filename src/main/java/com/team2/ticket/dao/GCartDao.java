@@ -68,7 +68,8 @@ public class GCartDao {
 	public ArrayList<GCartVO> selectCartList(String id) {
 		ArrayList<GCartVO> list = new ArrayList<GCartVO>();
 		String sql = "select * from goods_cart_view"
-				+ " where id=? and result='1'";
+				+ " where id=? and result='1'"
+				+ " order by indate desc";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -93,6 +94,20 @@ public class GCartDao {
 			Dbman.close(con, pstmt, rs); 
 		}
 		return list;
+	}
+
+	public void deleteCart(int gcseq) {
+		String sql = "update goods_cart set result='0' where gcseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, gcseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
 	}
 
 }

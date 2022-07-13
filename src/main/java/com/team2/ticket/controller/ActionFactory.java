@@ -2,6 +2,7 @@ package com.team2.ticket.controller;
 
 import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.controller.action.IndexAction;
+import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
 import com.team2.ticket.controller.action.goods.GoodsCategoryAction;
@@ -76,6 +77,7 @@ public class ActionFactory {
 		else if(command.equals("goodsDetail")) ac = new GoodsDetailAction();
 		else if(command.equals("goodsCartInsert")) ac = new GoodsCartInsertAction();
 		else if(command.equals("goodsCartList")) ac = new GoodsCartListAction();
+		else if(command.equals("goodsCartDelete")) ac = new GoodsCartDeleteAction();
 		
 		
 		return ac;
