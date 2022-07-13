@@ -23,12 +23,25 @@ public class GoodsCartInsertAction implements Action {
 		if(mvo == null) {
 			url="ticket.do?command=loginForm";
 		}else {
-			GCartVO gcvo = new GCartVO();
-			gcvo.setId(mvo.getId());
-			gcvo.setGseq(Integer.parseInt(request.getParameter("gseq")));
-			gcvo.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 			GCartDao gcdao = GCartDao.getInstance();
-			gcdao.insertCart(gcvo);
+			String id = mvo.getId();
+			int gseq = Integer.parseInt(request.getParameter("gseq"));
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			
+			//goods_cart 테이블에 처리가 아직 안된(result=='1'인) 동일한 상품이 있다면
+			//quantity만 +해주도록 하는 메서드 checkQuantity
+			int oldQuantity = gcdao.checkQuantity(id,gseq,quantity);
+			//유저 id, 현재 장바구니에 넣을 상품의 gseq, quantity를 매개변수로 전달하여
+			//id,gseq가 일치하는 상품은 quantity만 전달된 quantity만큼 +하여 업데이트,
+			//일치하는 상품이 없다면 0을 반환, 반환값이 0이라면 아래처럼 insert 명령
+			
+			if(oldQuantity == 0) {
+				GCartVO gcvo = new GCartVO();
+				gcvo.setId(id);
+				gcvo.setGseq(gseq);
+				gcvo.setQuantity(quantity);
+				gcdao.insertCart(gcvo);
+			} 
 		}
 		response.sendRedirect(url);
 	}
