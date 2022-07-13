@@ -11,7 +11,7 @@ select * from goods_cart;
 create or replace view goods_cart_view
 as
 select c.gcseq, c.id, c.gseq, c.quantity, c.result, c.indate,
-m.name as mname, g.name as gname, g.price2 as price
+m.name as mname, g.name as gname, g.price2 as price, g.image
 from goods_cart c, goods g, member m
 where c.gseq=g.gseq and c.id=m.id;
 

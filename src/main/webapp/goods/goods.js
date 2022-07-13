@@ -1,13 +1,13 @@
 function count(num){
-	let q = document.frm.quantity.value;
+	let q = document.goodsFrm.quantity.value;
 	if(num==-1 && q>1) q--;
 	else if (num==1) q++;
-	document.frm.quantity.value = q;
+	document.goodsFrm.quantity.value = q;
 }
 
 function go_cart(){
-	document.frm.action="ticket.do?command=goodsCartInsert";
-	document.frm.submit();
+	document.goodsFrm.action="ticket.do?command=goodsCartInsert";
+	document.goodsFrm.submit();
 }
 
 function go_cart_delete(){

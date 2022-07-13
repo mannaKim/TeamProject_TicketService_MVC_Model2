@@ -84,6 +84,7 @@ public class GCartDao {
 				gcvo.setMname(rs.getString("mname"));
 				gcvo.setGname(rs.getString("gname"));
 				gcvo.setIndate(rs.getTimestamp("indate"));
+				gcvo.setImage(rs.getString("image"));
 				list.add(gcvo);
 			}
 		} catch (SQLException e) { 

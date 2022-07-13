@@ -75,8 +75,7 @@ public class ActionFactory {
 		else if(command.equals("goodsCategory")) ac = new GoodsCategoryAction();
 		else if(command.equals("goodsDetail")) ac = new GoodsDetailAction();
 		else if(command.equals("goodsCartInsert")) ac = new GoodsCartInsertAction();
-		//else if(command.equals("goodsCartList")) ac = new GoodsCartListAction();
-		
+		else if(command.equals("goodsCartList")) ac = new GoodsCartListAction();
 		
 		
 		return ac;

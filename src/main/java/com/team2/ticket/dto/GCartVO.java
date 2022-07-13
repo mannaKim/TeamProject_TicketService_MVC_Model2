@@ -14,6 +14,7 @@ public class GCartVO {
 	private String mname;
 	private String gname;
 	private int price;
+	private String image;
 	
 	public int getGcseq() {
 		return gcseq;
@@ -68,5 +69,11 @@ public class GCartVO {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 }
