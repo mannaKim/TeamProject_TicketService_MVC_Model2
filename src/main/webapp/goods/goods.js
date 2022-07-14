@@ -51,6 +51,6 @@ function go_Gorder_insert(){
 }
 
 function go_Gorder(){
-	document.goodsCartFrm.action="ticket.do?command=goodsOrderInsert";
-	document.goodsCartFrm.submit();
+	document.goodsFrm.action="ticket.do?command=goodsOrderInsert";
+	document.goodsFrm.submit();
 }

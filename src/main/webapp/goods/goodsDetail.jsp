@@ -18,8 +18,8 @@
 			<button type="button" onClick="count(1);">+</button>
 			<br><br>
 			<div id="buttons">
-        		<input type="button" value="장바구니" onClick="go_cart();">
-       			<input type="button" value="즉시구매" onClick="go_order();">
+        		<input type="button" value="장바구니" onClick="go_Gcart();">
+       			<input type="button" value="즉시구매" onClick="go_Gorder();">
         		<input type="button" value="뒤로" onClick="history.go(-1);">
       		</div>
     	</form>

@@ -25,9 +25,9 @@ public class GoodsCartInsertAction implements Action {
 		}else {
 			GCartDao gcdao = GCartDao.getInstance();
 			String id = mvo.getId();
-			System.out.println("gseq:"+request.getParameter("gseq"));
+			//System.out.println("gseq:"+request.getParameter("gseq"));
 			int gseq = Integer.parseInt(request.getParameter("gseq"));
-			System.out.println("수량:"+request.getParameter("quantity"));
+			//System.out.println("수량:"+request.getParameter("quantity"));
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
 			
 			//goods_cart 테이블에 처리가 아직 안된(result=='1'인) 동일한 상품이 있다면

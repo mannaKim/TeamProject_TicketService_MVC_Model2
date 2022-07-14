@@ -7,9 +7,13 @@
 	<meta charset="UTF-8">
 	<title>TicketService</title>
 	<link href="css/ticket.css" rel="stylesheet">
+	<link href="css/ticketingbtn.css" rel="stylesheet">
+	<link href="css/calendar.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 	<script src="mypage/mypage.js"></script>
 	<script src="goods/goods.js"></script>
+	<script src="ticketing/ticketing.js"></script>
+	<script src="qna/qna.js"></script>
 </head>
 <body>
 	<div id="wrap">	<!-- wrap : 페이지 전체를 감싸는 div의 css 아이디 --> 
@@ -41,11 +45,10 @@
 			<!-- 상단 메뉴 -->
 			<nav id="top_menu">
 				<ul>
-					<li><a href="ticket.do?command=">전시소개</a></li>
-					<li><a href="ticket.do?command=">전시예약</a></li>
-					<!-- <li><a href="ticket.do?command=">전시후기</a></li> -->
+					<li><a href="ticket.do?command=introduce">전시소개</a></li>
+					<li><a href="ticket.do?command=ticketingList">전시예약</a></li>
 					<li><a href="ticket.do?command=goodsMain">굿즈</a></li>
-					<li><a href="ticket.do?command=">Q &amp; A</a></li>
+					<li><a href="ticket.do?command=qna">Q &amp; A</a></li>
 				</ul>
 			</nav>
 		</header>

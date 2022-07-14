@@ -1,7 +1,7 @@
 drop sequence goods_seq;
 create sequence goods_seq start with 1;
 
-delete from goods;
+select * from goods;
 
 insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
 values(goods_seq.nextVal,'샤크 샤프 0.5mm','1',800,1600,800,
@@ -64,7 +64,7 @@ values(goods_seq.nextVal,'본투리드 카드지갑','5',7000,11800,4800,
 '필요한 카드만 간단하게 소지하는 지갑.',
 'goods/goods_images/card_holder_1.jpg','goods/goods_images/card_holder_2.jpg','y');
 
-select * from goods;
+
 
 -- 신상품 view 생성
 create or replace view new_goods_view

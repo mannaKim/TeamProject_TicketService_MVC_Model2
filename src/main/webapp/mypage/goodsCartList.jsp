@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<%@ include file="sub_image_menu.jsp" %>
 <article>
 	<h2>장바구니</h2>
 	<form name="goodsCartFrm" method="post">
@@ -29,7 +30,7 @@
 						<button type="button" onClick="changeQuantity(1,${gcvo.gseq},${gcvo.quantity});">+</button>
 	   				</td> 
 	   				<td>
-	   					<input type="checkbox" name="gcseq" value="${gcvo.gcseq}">
+	   					<input type="checkbox" name="gcseq" value="${gcvo.gcseq}" checked>
 	   				</td>
 	   			</tr>  
 	  		</c:forEach>

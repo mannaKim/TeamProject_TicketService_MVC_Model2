@@ -97,7 +97,8 @@ public class GCartDao {
 	}
 
 	public void deleteCart(int gcseq) {
-		String sql = "update goods_cart set result='0' where gcseq=?";
+		//String sql = "update goods_cart set result='0' where gcseq=?";
+		String sql = "delete from goods_cart where gcseq=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);

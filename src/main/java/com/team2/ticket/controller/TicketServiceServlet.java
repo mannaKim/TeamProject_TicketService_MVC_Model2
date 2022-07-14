@@ -1,6 +1,7 @@
 package com.team2.ticket.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,12 @@ public class TicketServiceServlet extends HttpServlet {
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction(command);
 		
-		if(ac != null) ac.execute(request, response);
+		if(ac != null)
+			try {
+				ac.execute(request, response);
+			} catch (ServletException | IOException | ParseException e) {
+				e.printStackTrace();
+			}
 		else System.out.println("ac가 null입니다. command 값을 확인하세요.");
 	}
 
