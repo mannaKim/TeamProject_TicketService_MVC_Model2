@@ -12,6 +12,7 @@ public class MemberVO {
 	private String address2;
 	private String phone;
 	private Timestamp indate;
+	private int admin;
 	
 	public String getId() {
 		return id;
@@ -66,5 +67,11 @@ public class MemberVO {
 	}
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
+	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
 }

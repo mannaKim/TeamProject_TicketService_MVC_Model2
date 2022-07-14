@@ -49,6 +49,9 @@
 					<li><a href="ticket.do?command=ticketingList">전시예약</a></li>
 					<li><a href="ticket.do?command=goodsMain">굿즈</a></li>
 					<li><a href="ticket.do?command=qna">Q &amp; A</a></li>
+					<c:if test="${loginUser.admin==1}">	
+						<li><a href="ticket.do?command=adminMain">Admin</a></li>
+					</c:if>
 				</ul>
 			</nav>
 		</header>

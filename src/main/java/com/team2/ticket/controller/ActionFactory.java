@@ -2,6 +2,9 @@ package com.team2.ticket.controller;
 
 import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.controller.action.IndexAction;
+import com.team2.ticket.controller.action.admin.AdminCheckAction;
+import com.team2.ticket.controller.action.admin.AdminMainAction;
+import com.team2.ticket.controller.action.admin.EditAdminAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -174,11 +177,16 @@ public class ActionFactory {
 		else if(command.equals("qnaUpdate")) ac = new QnaUpdateAction(); // qnalist.jsp 로 이동
 		else if(command.equals("qnaReply")) ac = new QnaReplyAction(); // QnaViewAction 으로 이동
 		
-		// ▷ review 관련 action
+		// ▷ review 관련 action -- 시간 남으면 구현합시당
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();
 		else if(command.equals("review")) ac = new ReviewAction();
 		else if(command.equals("reviewView")) ac = new ReviewViewAction();
+		
+		// ▷ 관리자 페이지
+		else if(command.equals("adminMain")) ac = new AdminMainAction();
+		else if(command.equals("adminCheck")) ac = new AdminCheckAction();
+		else if(command.equals("editadmin")) ac = new EditAdminAction();
 		
 		return ac;
 	}

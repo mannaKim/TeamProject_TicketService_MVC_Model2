@@ -38,6 +38,7 @@ public class MemberDao {
 				mvo.setAddress2(rs.getString("address2"));
 				mvo.setPhone(rs.getString("phone"));
 				mvo.setIndate(rs.getTimestamp("indate"));
+				mvo.setAdmin(rs.getInt("admin"));
 			}
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
@@ -157,5 +158,49 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
+	}
+	
+	public ArrayList<MemberVO> selectMember() {
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		String sql = "select * from member";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MemberVO mvo = new MemberVO();
+				mvo.setAddress1(rs.getString("address1"));
+				mvo.setAddress2(rs.getString("address2"));
+				mvo.setAdmin(rs.getInt("admin"));
+				mvo.setEmail(rs.getString("email"));
+				mvo.setId(rs.getString("id"));
+				mvo.setIndate(rs.getTimestamp("indate"));
+				mvo.setName(rs.getString("name"));
+				mvo.setPhone(rs.getString("phone"));
+				mvo.setPwd(rs.getString("pwd"));
+				mvo.setZip_num(rs.getString("zip_num"));
+				list.add(mvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
+
+	public void adminMember(String id, String admin) {
+		String sql = "update member set admin=? where id=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, admin);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 	}
 }

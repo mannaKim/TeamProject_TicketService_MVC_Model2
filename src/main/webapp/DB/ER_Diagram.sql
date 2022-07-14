@@ -130,6 +130,7 @@ CREATE TABLE member
 	address2 varchar2(200),
 	phone varchar2(20) NOT NULL,
 	indate date DEFAULT SYSDATE,
+	admin number(1) DEFAULT 0 NOT NULL,
 	PRIMARY KEY (id)
 );
 

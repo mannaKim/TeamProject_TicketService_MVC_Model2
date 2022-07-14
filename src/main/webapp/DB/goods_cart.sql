@@ -3,9 +3,6 @@ create sequence goods_cart_seq start with 1;
 
 select * from goods_cart;
 
---insert into GOODS_CART values(goods_cart_seq.nextVal,1,'1',sysdate,'one',1);
---insert into GOODS_CART values(goods_cart_seq.nextVal,1,'1',sysdate,'one',2);
-
 
 -- 굿즈 정보, 회원 정보까지 보여주는 카트 뷰 생성
 create or replace view goods_cart_view
