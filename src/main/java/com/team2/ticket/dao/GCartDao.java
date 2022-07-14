@@ -110,4 +110,34 @@ public class GCartDao {
 		}
 	}
 
+	public GCartVO selectCart(int gcseq) {
+		GCartVO gcvo = null;
+		String sql = "select * from goods_cart_view"
+				+ " where gcseq=?"
+				+ " order by indate desc";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, gcseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				gcvo = new GCartVO();
+				gcvo.setGcseq(rs.getInt("gcseq"));
+				gcvo.setGseq(rs.getInt("gseq"));
+				gcvo.setQuantity(rs.getInt("quantity"));
+				gcvo.setPrice(rs.getInt("price"));
+				gcvo.setId(rs.getString("id"));
+				gcvo.setMname(rs.getString("mname"));
+				gcvo.setGname(rs.getString("gname"));
+				gcvo.setIndate(rs.getTimestamp("indate"));
+				gcvo.setImage(rs.getString("image"));
+			}
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return gcvo;
+	}
+
 }

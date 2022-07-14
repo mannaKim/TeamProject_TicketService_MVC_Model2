@@ -37,7 +37,7 @@
 	  			<th colspan="2">총 결제 예상 금액</th>
 	  			<th colspan="2"><fmt:formatNumber value="${totalPrice}" type="currency"/></th>
 	  			<th>
-	  				<a href="#" onClick="go_cart_delete();">
+	  				<a href="#" onClick="go_Gcart_delete();">
 	  					선택상품 삭제하기
 	  				</a>
 	  			</th>
@@ -45,7 +45,7 @@
 		</table>
 		<div>
       		<input type="button" value="계속 쇼핑" onClick="location.href='ticket.do?command=goodsMain'">
-        	<input type="button" value="선택한 상품 주문하기" onClick="go_order_insert();">  	
+        	<input type="button" value="선택한 상품 주문하기" onClick="go_Gorder_insert();">  	
     	</div>
 	</form>
 </article>

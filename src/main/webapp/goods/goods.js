@@ -5,7 +5,7 @@ function count(num){
 	document.goodsFrm.quantity.value = q;
 }
 
-function go_cart(){
+function go_Gcart(){
 	document.goodsFrm.action="ticket.do?command=goodsCartInsert";
 	document.goodsFrm.submit();
 }
@@ -16,7 +16,7 @@ function changeQuantity(num,gseq,quantity){
 	location.href = url;
 }
 
-function go_cart_delete(){
+function go_Gcart_delete(){
 	var count = 0;
 	if(document.goodsCartFrm.gcseq.length == undefined){
 		if(document.goodsCartFrm.gcseq.checked==true) count++;
@@ -25,21 +25,32 @@ function go_cart_delete(){
 			if(document.goodsCartFrm.gcseq[i].checked==true) count++;
 		}
 	}
-	
 	if(count==0)
-		alert("삭제할 항목을 선택하세요.");
+		alert("삭제할 상품을 선택하세요.");
 	else{
 		document.goodsCartFrm.action="ticket.do?command=goodsCartDelete";
 		document.goodsCartFrm.submit();
 	}
 }
 
-function go_order_insert(){
-	document.goodsCartFrm.action="ticket.do?command=goodsOrderListInsert";
-	document.goodsCartFrm.submit();
+function go_Gorder_insert(){
+	var count = 0;
+	if(document.goodsCartFrm.gcseq.length == undefined){
+		if(document.goodsCartFrm.gcseq.checked==true) count++;
+	}else{
+		for(var i=0; i<document.goodsCartFrm.gcseq.length; i++){
+			if(document.goodsCartFrm.gcseq[i].checked==true) count++;
+		}
+	}
+	if(count==0)
+		alert("구입할 상품을 선택하세요.");
+	else{
+		document.goodsCartFrm.action="ticket.do?command=goodsOrderInsertList";
+		document.goodsCartFrm.submit();
+	}
 }
 
-function go_order(){
+function go_Gorder(){
 	document.goodsCartFrm.action="ticket.do?command=goodsOrderInsert";
 	document.goodsCartFrm.submit();
 }
