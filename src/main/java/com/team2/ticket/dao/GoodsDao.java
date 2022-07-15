@@ -176,4 +176,64 @@ public class GoodsDao {
 		}
 		return count;
 	}
+	//goods분류(kind)별로 보여지는 페이지를 위해 getGoodsCount 메서드 오버라이딩 
+	public int getGoodsCount(String key, String kind) {
+		int count = 0;
+		String sql="select count(*) as cnt from goods"
+				+ " where name like '%'||?||'%'"
+				+ " and kind=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setString(2, kind);
+			rs = pstmt.executeQuery();
+			if(rs.next()) count = rs.getInt("cnt");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return count;
+	}
+	//goods분류(kind)별로 보여지는 페이지를 위해 selectGoods 메서드 오버라이딩 
+	public ArrayList<GoodsVO> selectGoods(Paging paging, String key, String kind) {
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, g.* from "
+				+ "((select * from goods where name like '%'||?||'%' and kind=? order by gseq desc) g)"
+				+ ") where rn>=?"
+				+ ") where rn<=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setString(2, kind);
+			pstmt.setInt(3, paging.getStartNum());
+			pstmt.setInt(4, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				GoodsVO gvo = new GoodsVO();
+				gvo.setGseq(rs.getInt("gseq"));
+				gvo.setName(rs.getString("name"));
+				gvo.setKind(rs.getString("kind"));
+				gvo.setPrice1(rs.getInt("price1"));
+				gvo.setPrice2(rs.getInt("price2"));
+				gvo.setPrice3(rs.getInt("price3"));
+				gvo.setImage(rs.getString("image"));
+				gvo.setDetail_img(rs.getString("detail_img"));
+				gvo.setContent(rs.getString("content"));
+				gvo.setUseyn(rs.getString("useyn"));
+				gvo.setBestyn(rs.getString("bestyn"));
+				gvo.setIndate(rs.getTimestamp("indate"));
+				list.add(gvo);
+			}
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return list;
+	}
 }

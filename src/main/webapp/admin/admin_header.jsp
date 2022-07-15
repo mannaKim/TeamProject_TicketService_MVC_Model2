@@ -6,10 +6,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
+	<title>Admin</title>
 	<link href="./css/ticket.css" rel="stylesheet">
 	<script src="./member/member.js"></script>
 	<script src="admin/script/admin.js"></script>
+	<script src="admin/goods/adminGoods.js"></script>
 </head>
 <body>
 	<div id="wrap">

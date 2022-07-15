@@ -9,7 +9,8 @@
 
 <nav id="sub_menu">
   <ul>
-    <li><a href="ticket.do?command=">굿즈관리</a></li>
+  	<!-- 서브메뉴를 클릭하면 무조건 page가 1이도록 파라미터 전달 -->
+    <li><a href="ticket.do?command=adminGoodsList&page=1">굿즈관리</a></li>
     <li><a href="ticket.do?command=">전시예약관리</a></li>
     <li><a href="ticket.do?command=">공지사항</a></li>
     <li><a href="ticket.do?command=">Qna관리</a></li>

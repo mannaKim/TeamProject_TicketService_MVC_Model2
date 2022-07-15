@@ -5,6 +5,7 @@ import com.team2.ticket.controller.action.IndexAction;
 import com.team2.ticket.controller.action.admin.AdminCheckAction;
 import com.team2.ticket.controller.action.admin.AdminMainAction;
 import com.team2.ticket.controller.action.admin.EditAdminAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsListAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -132,7 +133,6 @@ public class ActionFactory {
 		else if(command.equals("goodsOrderList")) ac = new GoodsOrderListAction();
 		else if(command.equals("goodsOrderInsert")) ac = new GoodsOrderInsertAction(); //즉시구매
 		
-		
 		// ▷ ticketing 관련 action 
 		else if(command.equals("ticketingList")) ac = new TicketingListAction();
 		else if(command.equals("ticketingForm")) ac = new TicketingFormAction();
@@ -187,6 +187,9 @@ public class ActionFactory {
 		else if(command.equals("adminMain")) ac = new AdminMainAction();
 		else if(command.equals("adminCheck")) ac = new AdminCheckAction();
 		else if(command.equals("editadmin")) ac = new EditAdminAction();
+		// ▶ goods 관리자 관련 action
+		else if(command.equals("adminGoodsList")) ac = new AdminGoodsListAction();
+		//adminGoodsInsertForm
 		
 		return ac;
 	}
