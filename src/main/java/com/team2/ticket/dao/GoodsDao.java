@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class GoodsDao {
 	private GoodsDao() {}
@@ -118,22 +119,35 @@ public class GoodsDao {
 		return gvo;
 	}
 
-	public ArrayList<GoodsVO> selectGoods(String search) {
+	public ArrayList<GoodsVO> selectGoods(Paging paging, String key) {
 		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
-		String sql = "select * from goods where name like'%'||?||'%'";
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, g.* from "
+				+ "((select * from goods where name like '%'||?||'%' order by gseq desc) g)"
+				+ ") where rn>=?"
+				+ ") where rn<=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, search);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				GoodsVO gvo = new GoodsVO();
 				gvo.setGseq(rs.getInt("gseq"));
 				gvo.setName(rs.getString("name"));
+				gvo.setKind(rs.getString("kind"));
+				gvo.setPrice1(rs.getInt("price1"));
 				gvo.setPrice2(rs.getInt("price2"));
+				gvo.setPrice3(rs.getInt("price3"));
 				gvo.setImage(rs.getString("image"));
 				gvo.setDetail_img(rs.getString("detail_img"));
 				gvo.setContent(rs.getString("content"));
+				gvo.setUseyn(rs.getString("useyn"));
+				gvo.setBestyn(rs.getString("bestyn"));
+				gvo.setIndate(rs.getTimestamp("indate"));
 				list.add(gvo);
 			}
 		} catch (SQLException e) { 
@@ -142,5 +156,24 @@ public class GoodsDao {
 			Dbman.close(con, pstmt, rs); 
 		}
 		return list;
+	}
+	
+	//admin 페이지 관련 메서드
+	public int getGoodsCount(String key) {
+		int count = 0;
+		String sql="select count(*) as cnt from goods"
+				+ " where name like '%'||?||'%'";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if(rs.next()) count = rs.getInt("cnt");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return count;
 	}
 }
