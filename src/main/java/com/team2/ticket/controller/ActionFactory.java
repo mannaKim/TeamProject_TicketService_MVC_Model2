@@ -5,9 +5,12 @@ import com.team2.ticket.controller.action.IndexAction;
 import com.team2.ticket.controller.action.admin.AdminCheckAction;
 import com.team2.ticket.controller.action.admin.AdminMainAction;
 import com.team2.ticket.controller.action.admin.EditAdminAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsDetailAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertFormAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsListAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateFormAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -189,11 +192,14 @@ public class ActionFactory {
 		else if(command.equals("adminMain")) ac = new AdminMainAction();
 		else if(command.equals("adminCheck")) ac = new AdminCheckAction();
 		else if(command.equals("editadmin")) ac = new EditAdminAction();
-		// ▶ goods 관리자 관련 action
+		// ▶ 관리자 goods 관련 action
 		else if(command.equals("adminGoodsList")) ac = new AdminGoodsListAction();
 		else if(command.equals("adminGoodsInsertForm")) ac = new AdminGoodsInsertFormAction();
 		else if(command.equals("adminGoodsInsert")) ac = new AdminGoodsInsertAction();
-		//
+		else if(command.equals("adminGoodsDetail")) ac = new AdminGoodsDetailAction();
+		else if(command.equals("adminGoodsUpdateForm")) ac = new AdminGoodsUpdateFormAction();
+		else if(command.equals("adminGoodsUpdate")) ac = new AdminGoodsUpdateAction();
+		// ▶ 관리자 member 관련 action
 		
 		return ac;
 	}

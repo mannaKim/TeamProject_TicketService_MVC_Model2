@@ -105,10 +105,16 @@ public class GoodsDao {
 				gvo = new GoodsVO();
 				gvo.setGseq(rs.getInt("gseq"));
 				gvo.setName(rs.getString("name"));
+				gvo.setKind(rs.getString("kind"));
+				gvo.setPrice1(rs.getInt("price1"));
 				gvo.setPrice2(rs.getInt("price2"));
+				gvo.setPrice3(rs.getInt("price3"));
 				gvo.setImage(rs.getString("image"));
 				gvo.setDetail_img(rs.getString("detail_img"));
 				gvo.setContent(rs.getString("content"));
+				gvo.setUseyn(rs.getString("useyn"));
+				gvo.setBestyn(rs.getString("bestyn"));
+				gvo.setIndate(rs.getTimestamp("indate"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -254,6 +260,35 @@ public class GoodsDao {
 			pstmt.setString(6, gvo.getContent());
 			pstmt.setString(7, gvo.getImage());
 			pstmt.setString(8, gvo.getDetail_img());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+	}
+
+	public void updateGoods(GoodsVO gvo) {
+		String sql = "update goods"
+				+ "	set kind=?,name=?,"
+				+ "price1=?,price2=?,price3=?,"
+				+ "content=?,useyn=?,bestyn=?,"
+				+ "image=?,detail_img=?"
+				+ " where gseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, gvo.getKind());
+			pstmt.setString(2, gvo.getName());
+			pstmt.setInt(3, gvo.getPrice1());
+			pstmt.setInt(4, gvo.getPrice2());
+			pstmt.setInt(5, gvo.getPrice3());
+			pstmt.setString(6, gvo.getContent());
+			pstmt.setString(7, gvo.getUseyn());
+			pstmt.setString(8, gvo.getBestyn());
+			pstmt.setString(9, gvo.getImage());
+			pstmt.setString(10, gvo.getDetail_img());
+			pstmt.setInt(11, gvo.getGseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

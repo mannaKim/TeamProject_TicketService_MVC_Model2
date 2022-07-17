@@ -16,12 +16,12 @@ import com.team2.ticket.dao.GoodsDao;
 import com.team2.ticket.dto.GoodsVO;
 import com.team2.ticket.dto.MemberVO;
 
-public class AdminGoodsInsertAction implements Action {
+public class AdminGoodsUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ParseException {
-		String url = "ticket.do?command=adminGoodsList&page=1";
+		String url = "ticket.do?command=adminGoodsDetail&gseq=";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo==null || mvo.getAdmin()!=1) {
@@ -33,19 +33,27 @@ public class AdminGoodsInsertAction implements Action {
 					request,path,5*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
 			
 			GoodsVO gvo = new GoodsVO();
+			gvo.setGseq(Integer.parseInt(multi.getParameter("gseq")));
 			gvo.setKind(multi.getParameter("kind"));
 			gvo.setName(multi.getParameter("name"));
 			gvo.setPrice1(Integer.parseInt(multi.getParameter("price1")));
 			gvo.setPrice2(Integer.parseInt(multi.getParameter("price2")));
 			gvo.setPrice3(Integer.parseInt(multi.getParameter("price3")));
 			gvo.setContent(multi.getParameter("content"));
-			gvo.setImage(multi.getFilesystemName("image"));
-			gvo.setDetail_img(multi.getFilesystemName("detail_img"));
+			gvo.setUseyn(multi.getParameter("useyn"));
+			gvo.setBestyn(multi.getParameter("bestyn"));
+			if(multi.getFilesystemName("image")==null)
+				gvo.setImage(multi.getParameter("oldImage"));
+			else gvo.setImage(multi.getFilesystemName("image"));
+			if(multi.getFilesystemName("detail_img")==null)
+				gvo.setDetail_img(multi.getParameter("oldDetail_img"));
+			else gvo.setDetail_img(multi.getFilesystemName("detail_img"));
 			
 			GoodsDao gdao = GoodsDao.getInstance();
-			gdao.insertGoods(gvo);
+			gdao.updateGoods(gvo);
+			url += gvo.getGseq();
 		}
-		response.sendRedirect(url);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }

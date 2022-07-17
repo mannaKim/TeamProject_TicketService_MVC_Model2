@@ -47,12 +47,12 @@
 		        		<td align="center">${gvo.gseq}</td>
 		        		<td>${goodsKindList[gvo.kind]}</td>
 		        		<td>
-		          			<a href="#" onClick="go_detail('${gvo.gseq}');">
+		          			<a href="#" onClick="go_goodsDetail('${gvo.gseq}');">
 		          				<img src="goods/goods_images/${gvo.image}" width="100px">
 		          			</a>
 		        		</td>
 		        		<td style="text-align:left; padding-left:50px;">
-		          			<a href="#" onClick="go_detail('${gvo.gseq}');">${gvo.name}</a>
+		          			<a href="#" onClick="go_goodsDetail('${gvo.gseq}');">${gvo.name}</a>
 		        		</td>
 		        		<td><fmt:formatDate value="${gvo.indate}"/></td>
 		        		<td>
