@@ -25,3 +25,6 @@ from orders o, order_detail d, member m, goods g
 where o.oseq=d.oseq and o.id=m.id and d.gseq=g.gseq;
 
 select * from goods_order_view;
+
+select distinct oseq
+from GOODS_ORDER_VIEW;

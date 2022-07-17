@@ -8,6 +8,5 @@ function adminCheck() {
 		document.frm.pwd.focus();
 		return false;
 	}
-	
 	return true;
 }

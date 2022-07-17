@@ -9,8 +9,11 @@ import com.team2.ticket.controller.action.admin.goods.AdminGoodsDetailAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertFormAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsListAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsOrderListAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsOrderModifyAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateFormAction;
+import com.team2.ticket.controller.action.admin.goods.ChangeOrderResultAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -97,7 +100,7 @@ public class ActionFactory {
 		
 		if(command.equals("index")) ac = new IndexAction();
 		
-		// ▷ member 관련 action
+		// ▶ member 관련 action
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
@@ -115,7 +118,7 @@ public class ActionFactory {
 		else if(command.equals("findPwdStep2")) ac = new FindPwdStep2Action();
 		else if(command.equals("resetPwd")) ac = new ResetPwdAction();
 		
-		// ▷ mypage 관련 action
+		// ▶ mypage 관련 action
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("checkPwdForm")) ac = new CheckPwdFormAction();
 		else if(command.equals("checkPwd")) ac = new CheckPwdAction();
@@ -126,7 +129,7 @@ public class ActionFactory {
 		else if(command.equals("allGoodsOrderList")) ac = new AllGoodsOrderListAction();
 		else if(command.equals("goodsOrderDetail")) ac = new GoodsOrderDetailAction();
 		
-		// ▷ goods 관련 action
+		// ▶ goods 관련 action
 		else if(command.equals("goodsMain")) ac = new GoodsMainAction();
 		else if(command.equals("goodsSearch")) ac = new GoodsSearchAction();
 		else if(command.equals("goodsCategory")) ac = new GoodsCategoryAction();
@@ -138,23 +141,23 @@ public class ActionFactory {
 		else if(command.equals("goodsOrderList")) ac = new GoodsOrderListAction();
 		else if(command.equals("goodsOrderInsert")) ac = new GoodsOrderInsertAction(); //즉시구매
 		
-		// ▷ ticketing 관련 action 
+		// ▶ ticketing 관련 action 
 		else if(command.equals("ticketingList")) ac = new TicketingListAction();
 		else if(command.equals("ticketingForm")) ac = new TicketingFormAction();
 		else if(command.equals("ticketingCart")) ac = new TicketingCartAction();
 		else if(command.equals("ticketingCartList")) ac = new TicketingCartListAction();
 		else if(command.equals("ticketing")) ac = new TicketingAction();
-		//공연(티켓) 소개
+		// ▷ 공연(티켓) 소개
 		else if(command.equals("ticketshow")) ac = new TicketShowAction();
 		else if(command.equals("showUpdate")) ac = new ShowUpdateAction();
 		else if(command.equals("ticketShowUpdate")) ac = new TicketShowUpdateAction();
 		else if(command.equals("showDelete")) ac = new showDeleteAction();
 		
 		
-		// ▷ 전시소개 관련 action
-		// 전시 소개파트
+		// ▶ 전시소개 관련 action
+		// ▷ 전시 소개파트
 		else if(command.equals("introduce")) ac = new IntroduceAction();
-		// 전시 공지사항
+		// ▷ 전시 공지사항
 		else if(command.equals("notice")) ac = new NoticeAction();
 		else if(command.equals("noticeView")) ac = new NoticeViewAction();
 		else if(command.equals("noticecheck")) ac = new NoticeCheckAction();
@@ -163,7 +166,7 @@ public class ActionFactory {
 		else if(command.equals("updateNotice")) ac = new UpdateNoticeAction();
 		else if(command.equals("noticeViewNoCount")) ac = new NoticeViewNoCountAction();
 		else if(command.equals("deleteNotice")) ac = new DeleteNoticeAction();
-		//전시 이벤트
+		// ▷ 전시 이벤트
 		else if(command.equals("event")) ac = new EventAction();
 		else if(command.equals("eventDetail")) ac = new EventDetailAction();
 		else if(command.equals("updateEvent")) ac = new UpdateEventAction();
@@ -173,7 +176,7 @@ public class ActionFactory {
 		else if(command.equals("delRep")) ac = new DelRepAction();
 		else if(command.equals("eventDetailNoCount")) ac = new EventDetailNoCountAction();
 				
-		// ▷ qna 관련 action
+		// ▶ qna 관련 action
 		else if(command.equals("qna")) ac = new QnaAction(); // qnalist.jsp로 이동
 		else if(command.equals("qnaWriteForm")) ac = new QnaWriteFormAction(); // qnawrite.jsp로 이동
 		else if(command.equals("qnaWrite")) ac = new QnaWriteAction(); // qnalist.jsp 로 이동
@@ -182,24 +185,26 @@ public class ActionFactory {
 		else if(command.equals("qnaUpdate")) ac = new QnaUpdateAction(); // qnalist.jsp 로 이동
 		else if(command.equals("qnaReply")) ac = new QnaReplyAction(); // QnaViewAction 으로 이동
 		
-		// ▷ review 관련 action -- 시간 남으면 구현합시당
+		// ▶ review 관련 action -- 시간 남으면 구현합시당
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();
 		else if(command.equals("review")) ac = new ReviewAction();
 		else if(command.equals("reviewView")) ac = new ReviewViewAction();
 		
-		// ▷ 관리자 페이지
+		// ▶ 관리자 페이지
 		else if(command.equals("adminMain")) ac = new AdminMainAction();
 		else if(command.equals("adminCheck")) ac = new AdminCheckAction();
 		else if(command.equals("editadmin")) ac = new EditAdminAction();
-		// ▶ 관리자 goods 관련 action
+		// ▷ 관리자 goods 관련 action
 		else if(command.equals("adminGoodsList")) ac = new AdminGoodsListAction();
 		else if(command.equals("adminGoodsInsertForm")) ac = new AdminGoodsInsertFormAction();
 		else if(command.equals("adminGoodsInsert")) ac = new AdminGoodsInsertAction();
 		else if(command.equals("adminGoodsDetail")) ac = new AdminGoodsDetailAction();
 		else if(command.equals("adminGoodsUpdateForm")) ac = new AdminGoodsUpdateFormAction();
 		else if(command.equals("adminGoodsUpdate")) ac = new AdminGoodsUpdateAction();
-		// ▶ 관리자 member 관련 action
+		else if(command.equals("adminGoodsOrderList")) ac = new AdminGoodsOrderListAction();
+		else if(command.equals("adminGoodsOrderModify")) ac = new AdminGoodsOrderModifyAction();
+		else if(command.equals("changeOrderResult")) ac = new ChangeOrderResultAction();
 		
 		return ac;
 	}

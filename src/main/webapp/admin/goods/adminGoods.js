@@ -87,3 +87,16 @@ function go_goodsModify(){
 		}
 	}
 }
+
+function changeResult(oseq,odseq,result){
+	let url = "ticket.do?command=changeOrderResult&oseq="+oseq;
+	url+="&odseq="+odseq;
+	if(result == '1') url+="&result=0";
+	else url+="&result=1";
+	location.href = url;
+}
+
+function changeResultAll(oseq){
+	let url = "ticket.do?command=changeOrderResult&result=0&oseq="+oseq;
+	location.href = url;
+}

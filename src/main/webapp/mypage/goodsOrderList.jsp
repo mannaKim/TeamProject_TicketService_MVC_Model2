@@ -51,6 +51,9 @@
 			  			</th>
 			  		</tr>
 				</table>
+				<div>
+					<input type="button" value="계속 쇼핑하기" onClick="location.href='ticket.do?command=goodsMain'">
+				</div>
 			</c:otherwise>
 		</c:choose>
 	</form>

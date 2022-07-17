@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.team2.ticket.dto.GCartVO;
 import com.team2.ticket.dto.GOrderVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class OrderDao {
 	private OrderDao() {}
@@ -155,4 +156,83 @@ public class OrderDao {
 		}
 		return list;
 	}
+
+	
+	//admin 관련 메소드
+	public ArrayList<Integer> selectAllOseqList() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		String sql = "select oseq from orders"
+				+ " order by oseq desc";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("oseq"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return list;
+	}
+	public ArrayList<Integer> selectAllOseqList(Paging paging) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, o.* from "
+				+ "((select oseq from orders order by oseq desc) o)"
+				+ ") where rn>=?"
+				+ ") where rn<=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("oseq"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return list;
+	}
+
+	public void changeResult(Integer odseq, String result) {
+		String sql = "update order_detail set result=?"
+				+ " where odseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, result);
+			pstmt.setInt(2, odseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+	}
+
+	public void changeResultAll(Integer oseq, String result) {
+		String sql = "update order_detail set result=?"
+				+ " where oseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, result);
+			pstmt.setInt(2, oseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+	}
+
+	
 }

@@ -5,7 +5,7 @@
 	<h2>${title}</h2>
 	<form>
 		<c:choose>
-			<c:when test="${empty goodsOrderList}">
+			<c:when test="${empty allGoodsOrderList}">
 				<h3>주문 내역이 없습니다.</h3>
 			</c:when>
 			<c:otherwise>

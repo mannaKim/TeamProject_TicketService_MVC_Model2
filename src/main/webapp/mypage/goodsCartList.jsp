@@ -51,7 +51,7 @@
 			  		</tr>
 				</table>
 				<div>
-		      		<input type="button" value="계속 쇼핑" onClick="location.href='ticket.do?command=goodsMain'">
+		      		<input type="button" value="계속 쇼핑하기" onClick="location.href='ticket.do?command=goodsMain'">
 		        	<input type="button" value="선택한 상품 주문하기" onClick="go_Gorder_insert();">  	
 		    	</div>
 			</c:otherwise>
