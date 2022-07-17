@@ -8,7 +8,7 @@
     	<form method="post" name="goodsFrm">
       		<input type="hidden" name="gseq" value="${GoodsVO.gseq}">
         	<span style="float:left; margin-right:20px;">
-          		<img src="${GoodsVO.image}" style="border-radius:20px">
+          		<img src="goods/goods_images/${GoodsVO.image}" style="border-radius:20px">
         	</span>
         	<h2>${GoodsVO.name}</h2>
         	<label>가 격 : </label>${GoodsVO.price2}원<br>
@@ -26,7 +26,7 @@
     	<div class="clear"></div>
       	<hr>
       	<div class="clear"></div>
-      	<img src="${GoodsVO.detail_img}"><br><br>
+      	<img src="goods/goods_images/${GoodsVO.detail_img}"><br><br>
   	</div>
 </article>
 <%@ include file="../footer.jsp" %>

@@ -20,7 +20,7 @@
           			<input type="button" value="검색" onClick="go_searchGoodsList();">
         		</td>
         		<td>
-        			<a href="#" onClick="go_goodsInsert();">상품등록</a>
+        			<a href="#" onClick="go_goodsInsertForm();">상품등록</a>
         		</td>
       		</tr>
       	</table>
@@ -48,7 +48,7 @@
 		        		<td>${goodsKindList[gvo.kind]}</td>
 		        		<td>
 		          			<a href="#" onClick="go_detail('${gvo.gseq}');">
-		          				<img src="${gvo.image}" width="100px">
+		          				<img src="goods/goods_images/${gvo.image}" width="100px">
 		          			</a>
 		        		</td>
 		        		<td style="text-align:left; padding-left:50px;">

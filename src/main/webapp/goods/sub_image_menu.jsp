@@ -6,11 +6,11 @@
 </form>
 <table>
 	<tr>
-		<td><img src="goods/sub_images/gs_icon_01.png" onClick="location.href='ticket.do?command=goodsCategory&kind=1'"></td>
-		<td><img src="goods/sub_images/gs_icon_02.png" onClick="location.href='ticket.do?command=goodsCategory&kind=2'"></td>
-		<td><img src="goods/sub_images/gs_icon_03.png" onClick="location.href='ticket.do?command=goodsCategory&kind=3'"></td>
-		<td><img src="goods/sub_images/gs_icon_04.png" onClick="location.href='ticket.do?command=goodsCategory&kind=4'"></td>
-		<td><img src="goods/sub_images/gs_icon_05.png" onClick="location.href='ticket.do?command=goodsCategory&kind=5'"></td>
+		<td><img src="goods/goods_images/sub_images/gs_icon_01.png" onClick="location.href='ticket.do?command=goodsCategory&kind=1'"></td>
+		<td><img src="goods/goods_images/sub_images/gs_icon_02.png" onClick="location.href='ticket.do?command=goodsCategory&kind=2'"></td>
+		<td><img src="goods/goods_images/sub_images/gs_icon_03.png" onClick="location.href='ticket.do?command=goodsCategory&kind=3'"></td>
+		<td><img src="goods/goods_images/sub_images/gs_icon_04.png" onClick="location.href='ticket.do?command=goodsCategory&kind=4'"></td>
+		<td><img src="goods/goods_images/sub_images/gs_icon_05.png" onClick="location.href='ticket.do?command=goodsCategory&kind=5'"></td>
 	</tr>
 	<tr>
 		<td><a href="ticket.do?command=goodsCategory&kind=1">문구</a></td>

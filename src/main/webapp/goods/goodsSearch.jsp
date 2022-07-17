@@ -13,7 +13,7 @@
 		  	<c:forEach items="${searchList}" var="gvo">
 		    	<div>
 		      		<a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
-		        		<img src="${gvo.image}">
+		        		<img src="goods/goods_images/${gvo.image}">
 		        		<h4>${gvo.name}</h4>
 		        		<h3><fmt:formatNumber value="${gvo.price2}" type="currency"/></h3>
 		        		<p>${gvo.content}</p>

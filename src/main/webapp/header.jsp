@@ -16,43 +16,86 @@
 	<script src="qna/qna.js"></script>
 </head>
 <body>
-	<div id="wrap">	<!-- wrap : 페이지 전체를 감싸는 div의 css 아이디 --> 
-		<header>
-			<!-- 로고 -->
-			<div id="logo">
-				<a href="ticket.do?command=index">
-					로고<!-- 로고 이미지가 들어갈 자리 -->
-				</a>
-			</div>
-		
-			<!-- 로그인, 마이페이지 -->
-			<nav id="user_menu">
-				<ul>
-					<c:choose>
-						<c:when test="${empty loginUser}">
-							<li><a href="#" onClick="go_login();">MyPage</a></li>
-							<!-- MyPage는 추후 이미지로 변경 -->
-						</c:when>
-						<c:otherwise>
-							<li>${loginUser.name}(${loginUser.id})</li>
-							<li><a href="ticket.do?command=logout">LOGOUT</a></li>
-							<li><a href="ticket.do?command=mypage">My Page</a></li>
-						</c:otherwise>
-					</c:choose>
-				</ul>
-			</nav>
-			
-			<!-- 상단 메뉴 -->
-			<nav id="top_menu">
-				<ul>
-					<li><a href="ticket.do?command=introduce">전시소개</a></li>
-					<li><a href="ticket.do?command=ticketingList">전시예약</a></li>
-					<li><a href="ticket.do?command=goodsMain">굿즈</a></li>
-					<li><a href="ticket.do?command=qna">Q &amp; A</a></li>
-					<c:if test="${loginUser.admin==1}">	
-						<li><a href="ticket.do?command=adminMain">Admin</a></li>
-					</c:if>
-				</ul>
-			</nav>
-		</header>
+	<div id="wrap">
+        <header>
+            <div id="top">
+                <div id="login">
+                    <nav id="user_menu">
+                        <ul>
+                            <c:choose>
+                                <c:when test="${empty loginUser}">
+                                    <li><a href="#" onClick="go_login();">MyPage</a></li>
+                                    <li><a href="ticket.do?command=termsAndConditions">회원가입</a></li>
+                                    <!-- MyPage는 추후 이미지로 변경 -->
+                                </c:when>
+                                <c:otherwise>
+                                    <li>${loginUser.name}(${loginUser.id})</li>
+                                    <li><a href="ticket.do?command=logout">LOGOUT</a></li>
+                                    <li><a href="ticket.do?command=mypage">MyPage</a></li>
+                                    <c:if test="${loginUser.admin=='1'}">	
+                                        <li><a href="ticket.do?command=adminMain">Admin</a></li>
+                                    </c:if>
+                                </c:otherwise>
+                            </c:choose>
+                        </ul>
+                    </nav>
+                </div>
+                <div id="logo">
+                    <div id="logobox">
+                        <a href="ticket.do?command=index"><img src=""/>로고</a>
+                    </div>
+                    <div id="menubox">
+                        <input type="checkbox" id="menuicon">
+                        <label for="menuicon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                        <div id="sidebar" class="sidebar">
+                            <div class="accordion">
+                                <div class="contentBx">
+                                    <div class="label">전시소개</div>
+                                    <div class="content">
+                                    	<p><a href="ticket.do?command=introduce">전시소개</a></p>
+                                    	<p><a href="ticket.do?command=notice">공지사항</a></p>
+                                    	<p><a href="ticket.do?command=event">이벤트</a></p>
+                                    </div>
+                                </div>
+                                <div class="contentBx">
+                                    <div class="label">전시/공연 예약</div>
+                                    <div class="content">
+                                    <p>2</p>
+                                    <p>3</p>
+                                    <p>3</p>
+                                    </div>
+                                </div>
+                                <div class="contentBx">
+                                    <div class="label">굿즈</div>
+                                    <div id="content03" class="content">
+                                    <p><a href="ticket.do?command=goodsMain">전체보기</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=1">문구</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=2">디지털</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=3">가방 · 파우치</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=4">취미용품</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=5">패션 · 잡화</a></p>
+                                    </div>
+                                </div>
+                                <div class="contentBx">
+                                    <div class="label"><a href="ticket.do?command=qna">문의게시판</a></div>
+                                </div>
+                            </div>
+                            <script>
+                                const accordion = document.getElementsByClassName('contentBx');
+                        
+                                for(i=0; i<accordion.length; i++){
+                                    accordion[i].addEventListener('click', function(){
+                                        this.classList.toggle('active');
+                                    })
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 	

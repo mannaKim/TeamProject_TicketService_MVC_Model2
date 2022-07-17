@@ -1,5 +1,58 @@
 @charset "UTF-8";
 
+*{margin:0; padding:0;}
+		html,body{width:100%; height:100%;}
+		ul li, ol li{list-style: none;}
+		a{text-decoration: none;}
+        body{background:#E2E2E2; min-height:500px;}
+
+        #wrap{min-width:1500px; min-height:900px; overflow:auto;}
+        header{width:100%; height:150px;}
+        #top{width:1500px; margin:0 auto; height:150px; position:fixed; left:10%;}
+        #top #login{width:1500px; height:50px; background:silver;}
+        #top #logo{width:1500px; height:100px; background:gold;}
+        #top #login nav#user_menu{width:630px; height:40px; float:right; margin-top:3px; margin-right:15px; text-align:center; align-items:center;}
+        #top #login nav#user_menu ul{display:inline-block; padding-top:8px;}
+        #top #login nav#user_menu ul li{float:left; margin-left:15px;}
+
+        #logo{display: flex; justify-content: space-between; align-items: center;}
+        #logo #logobox{width:200px; height:80px; border:1px solid green; margin-left:20px;}
+
+        #logo #menubox{width:60px; height:50px; border:1px solid green; margin-right:20px;}
+
+        input[id="menuicon"]{display:none;}
+        input[id="menuicon"] + label{display:block; width:60px; height:50px; position:relative; cursor:pointer;}
+        input[id="menuicon"] + label span{display:block; position:absolute; width:100%; height:5px; border-radius:30px; background:#000; transition:all .35s;}
+        input[id="menuicon"] + label span:nth-child(1){top:0;}
+        input[id="menuicon"] + label span:nth-child(2){top:50%; transform:translateY(-50%);}
+        input[id="menuicon"] + label span:nth-child(3){bottom:0;}
+        
+        input[id="menuicon"]:checked + label{z-index:2;}
+        input[id="menuicon"]:checked + label span{background:#fff;}
+        input[id="menuicon"]:checked + label span:nth-child(1){top:50%; transform:translateY(-50%) rotate(45deg);}
+        input[id="menuicon"]:checked + label span:nth-child(2){opacity:0;}
+        input[id="menuicon"]:checked + label span:nth-child(3){bottom:50%; transform:translateY(50%) rotate(-45deg);}
+
+        div[class="sidebar"]{width:400px; height:100%; background:#222; position:fixed; top:0; right:-400px; z-index:1; transition:all .35s; text-align:center;}
+        input[id="menuicon"]:checked + label + div{right:0;}
+
+        .accordion{max-width:400px; margin-top:160px;}
+        .accordion .contentBx{position:relative; margin:10px 20px;}
+        .accordion .contentBx .label{position:relative; padding:10px; border-bottom:1px dotted silver; color:#fff; cursor:pointer;}
+
+        .accordion .contentBx .label::before{content:'+'; position:absolute; top:50%; right:20px; transform:translateY(-50%); font-size:1.5em;}
+
+        .accotrion .contentBx.active .label::before{content: '-';}
+
+        .accordion .contentBx .content{position:relative; background:#fff; height:0; overflow:hidden; transition:0.5s;}
+        
+        .accordion .contentBx .content p{height:50px; border:1px dotted silver; line-height:50px; cursor: pointer; transition:all 0.5s;}
+        .accordion .contentBx .content p:hover{background:silver;}
+        .accordion .contentBx .content p:hover a{color:black;}
+        
+        .accordion .contentBx.active .content{height:150px; padding:10px;}
+        .accordion .contentBx.active #content03{height:250px;}
+
 .clear {clear:both;}
 
 /* header.jsp */

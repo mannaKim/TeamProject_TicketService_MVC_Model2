@@ -2,7 +2,7 @@
 <%@ include file="../header.jsp" %>
 <div>
 	<!-- 메인이미지 -->
-	<img src="goods/sub_images/main_image.png">
+	<img src="goods/goods_images/sub_images/main_image.png">
 </div>
 <%@ include file="sub_image_menu.jsp" %>
 
@@ -12,7 +12,7 @@
   <c:forEach items="${newList}" var="gvo">
     <div>
       <a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
-        <img src="${gvo.image}">
+        <img src="goods/goods_images/${gvo.image}">
         <h4>${gvo.name}</h4>
         <h3><fmt:formatNumber value="${gvo.price2}" type="currency"/></h3>
       </a>
@@ -28,7 +28,7 @@
   <c:forEach items="${bestList}" var="gvo">
     <div>
       <a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
-        <img src="${gvo.image}">
+        <img src="goods/goods_images/${gvo.image}">
         <h4>${gvo.name}</h4>
         <h3><fmt:formatNumber value="${gvo.price2}" type="currency"/></h3>
       </a>

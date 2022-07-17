@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import com.team2.ticket.dto.GoodsVO;
@@ -158,7 +157,9 @@ public class GoodsDao {
 		return list;
 	}
 	
-	//admin 페이지 관련 메서드
+	
+	//admin 관련 메서드
+	//paging에 setTotalCount()을 위한 출력개수 계산
 	public int getGoodsCount(String key) {
 		int count = 0;
 		String sql="select count(*) as cnt from goods"
@@ -176,7 +177,8 @@ public class GoodsDao {
 		}
 		return count;
 	}
-	//goods분류(kind)별로 보여지는 페이지를 위해 getGoodsCount 메서드 오버라이딩 
+	//goods분류(kind)별 setTotalCount()을 위한 출력개수 계산
+	//getGoodsCount 메서드 오버라이딩
 	public int getGoodsCount(String key, String kind) {
 		int count = 0;
 		String sql="select count(*) as cnt from goods"
@@ -196,7 +198,8 @@ public class GoodsDao {
 		}
 		return count;
 	}
-	//goods분류(kind)별로 보여지는 페이지를 위해 selectGoods 메서드 오버라이딩 
+	
+	//goods분류(kind)별로 보여지는 페이지를 위해 selectGoods 메서드 오버라이딩
 	public ArrayList<GoodsVO> selectGoods(Paging paging, String key, String kind) {
 		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
 		String sql = "select * from ("
@@ -235,5 +238,27 @@ public class GoodsDao {
 			Dbman.close(con, pstmt, rs); 
 		}
 		return list;
+	}
+
+	public void insertGoods(GoodsVO gvo) {
+		String sql = "insert into goods(gseq,kind,name,price1,price2,price3,content,image,detail_img)"
+				+ " values(goods_seq.nextVal,?,?,?,?,?,?,?,?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, gvo.getKind());
+			pstmt.setString(2, gvo.getName());
+			pstmt.setInt(3, gvo.getPrice1());
+			pstmt.setInt(4, gvo.getPrice2());
+			pstmt.setInt(5, gvo.getPrice3());
+			pstmt.setString(6, gvo.getContent());
+			pstmt.setString(7, gvo.getImage());
+			pstmt.setString(8, gvo.getDetail_img());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 	}
 }

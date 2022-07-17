@@ -5,6 +5,8 @@ import com.team2.ticket.controller.action.IndexAction;
 import com.team2.ticket.controller.action.admin.AdminCheckAction;
 import com.team2.ticket.controller.action.admin.AdminMainAction;
 import com.team2.ticket.controller.action.admin.EditAdminAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertAction;
+import com.team2.ticket.controller.action.admin.goods.AdminGoodsInsertFormAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsListAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
@@ -189,7 +191,9 @@ public class ActionFactory {
 		else if(command.equals("editadmin")) ac = new EditAdminAction();
 		// ▶ goods 관리자 관련 action
 		else if(command.equals("adminGoodsList")) ac = new AdminGoodsListAction();
-		//adminGoodsInsertForm
+		else if(command.equals("adminGoodsInsertForm")) ac = new AdminGoodsInsertFormAction();
+		else if(command.equals("adminGoodsInsert")) ac = new AdminGoodsInsertAction();
+		//
 		
 		return ac;
 	}

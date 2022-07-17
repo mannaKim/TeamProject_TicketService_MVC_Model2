@@ -15,7 +15,7 @@
 	   			<tr>
 	   				<td>
 	   					<a href="ticket.do?command=goodsDetail&gseq=${govo.gseq}">
-	   						<img src="${govo.image}">
+	   						<img src="goods/goods_images/${govo.image}">
 	   					</a>
 	   				</td>
 	   				<td>
