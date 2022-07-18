@@ -129,15 +129,19 @@ public class GoodsDao {
 		String sql = "select * from ("
 				+ "select * from ("
 				+ "select rownum as rn, g.* from "
-				+ "((select * from goods where name like '%'||?||'%' order by gseq desc) g)"
+				+ "((select * from goods"
+				+ " where name like '%'||?||'%'"
+				+ " or content like '%'||?||'%'"
+				+ " order by gseq desc) g)"
 				+ ") where rn>=?"
 				+ ") where rn<=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, key);
-			pstmt.setInt(2, paging.getStartNum());
-			pstmt.setInt(3, paging.getEndNum());
+			pstmt.setString(2, key);
+			pstmt.setInt(3, paging.getStartNum());
+			pstmt.setInt(4, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				GoodsVO gvo = new GoodsVO();
@@ -168,12 +172,15 @@ public class GoodsDao {
 	//paging에 setTotalCount()을 위한 출력개수 계산
 	public int getGoodsCount(String key) {
 		int count = 0;
-		String sql="select count(*) as cnt from goods"
-				+ " where name like '%'||?||'%'";
+		String sql="select count(*) as cnt"
+				+ " from goods"
+				+ " where name like '%'||?||'%'"
+				+ " or content like '%'||?||'%'";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, key);
+			pstmt.setString(2, key);
 			rs = pstmt.executeQuery();
 			if(rs.next()) count = rs.getInt("cnt");
 		} catch (SQLException e) {

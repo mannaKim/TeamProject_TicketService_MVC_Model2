@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+#slide_banner{
+	position:relative; 
+    width:1030px;
+    height:419px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+#banner_imgs{
+	position:absolute;
+	width:4120px;
+	height:419px;
+	left:0;
+	top:0;
+	transition:0.5s
+}
+
+.b_img{
+	width:1030px;
+	height:419px;
+}
+
+div#remot{
+	position:relative;
+	width:350px;
+	height:40px;
+	margin:0 auto;
+	top:379px;
+	text-align:center;
+}
+div#remot ul{
+	list-style:none;
+	display:inline-block;
+	padding:0;
+	margin:0;
+}
+div#remot ul li{
+	float:left;
+	cursor:pointer;
+	width:14px;
+	height:14px;
+	border-radius:50%;
+	background:rgba(0, 0, 0, 0.2);
+	margin:10px 18px;
+}
+
+#lbutton{
+	position:relative;
+	width:60px;
+	height:60px;
+	float:left;
+	top:149.5px;
+	left:10px;
+	cursor:pointer;
+	overflow:hidden;
+	/* background-image:url(./goods/goods_images/sub_images/left.png); */
+	background-size: 60px 60px;
+	background-position: center center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius:50%;
+}
+#rbutton{
+	position:relative;
+	width:60px;
+	height:60px;
+	float:left;
+	top:149.5px;
+	left:900px;
+	cursor:pointer;
+	overflow:hidden;
+	/* background-image:url(./goods/goods_images/sub_images/right.png); */
+	background-size: 60px 60px;
+	background-position: center center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius:50%;
+}

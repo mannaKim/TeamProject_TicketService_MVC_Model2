@@ -7,11 +7,13 @@
 	<meta charset="UTF-8">
 	<title>TicketService</title>
 	<link href="css/ticket.css" rel="stylesheet">
+	<link href="css/goods.css" rel="stylesheet">
 	<link href="css/ticketingbtn.css" rel="stylesheet">
 	<link href="css/calendar.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 	<script src="mypage/mypage.js"></script>
 	<script src="goods/goods.js"></script>
+	<script src="goods/banner.js"></script>
 	<script src="ticketing/ticketing.js"></script>
 	<script src="qna/qna.js"></script>
 </head>
