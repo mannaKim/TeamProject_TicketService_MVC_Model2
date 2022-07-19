@@ -40,7 +40,7 @@
 </form>
 	
 	<!-- 여기서 value값으로 보내는 command를 paging.jsp로 보내서 action태그에 value로 전달함. -->
-	<jsp:include page="/admin/paging/paging.jsp">
+	<jsp:include page="/paging.jsp">
 		<jsp:param name="command" value="ticket.do?command=adminEvent" />
 	</jsp:include>
 </div>
