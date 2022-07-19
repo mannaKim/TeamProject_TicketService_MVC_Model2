@@ -22,7 +22,7 @@
 	height:419px;
 }
 
-div#remot{
+div#goods_remot{
 	position:relative;
 	width:350px;
 	height:40px;
@@ -30,13 +30,13 @@ div#remot{
 	top:379px;
 	text-align:center;
 }
-div#remot ul{
+div#goods_remot ul{
 	list-style:none;
 	display:inline-block;
 	padding:0;
 	margin:0;
 }
-div#remot ul li{
+div#goods_remot ul li{
 	float:left;
 	cursor:pointer;
 	width:14px;
@@ -46,7 +46,7 @@ div#remot ul li{
 	margin:10px 18px;
 }
 
-#lbutton{
+#goods_lbutton{
 	position:relative;
 	width:60px;
 	height:60px;
@@ -61,7 +61,7 @@ div#remot ul li{
 	background-color: rgba(0, 0, 0, 0.2);
 	border-radius:50%;
 }
-#rbutton{
+#goods_rbutton{
 	position:relative;
 	width:60px;
 	height:60px;

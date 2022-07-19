@@ -5,6 +5,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<title>TicketService</title>
 	<link href="css/ticket.css" rel="stylesheet">
 	<link href="css/goods.css" rel="stylesheet">
@@ -16,6 +18,7 @@
 	<script src="goods/banner.js"></script>
 	<script src="ticketing/ticketing.js"></script>
 	<script src="qna/qna.js"></script>
+	<script src="script/jquery-3.6.0.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -72,9 +75,8 @@
                                     </div>
                                 </div>
                                 <div class="contentBx">
-                                    <div class="label">굿즈</div>
+                                    <div class="label"><a href="ticket.do?command=goodsMain">굿즈</a></div>
                                     <div id="content03" class="content">
-                                    <p><a href="ticket.do?command=goodsMain">전체보기</a></p>
                                     <p><a href="ticket.do?command=goodsCategory&kind=1">문구</a></p>
                                     <p><a href="ticket.do?command=goodsCategory&kind=2">디지털</a></p>
                                     <p><a href="ticket.do?command=goodsCategory&kind=3">가방 · 파우치</a></p>

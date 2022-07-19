@@ -260,4 +260,41 @@ public class Ticket_productDao {
 		}
 	}
 	
+	public ArrayList<Ticket_productVO> getTicketList() {
+		ArrayList<Ticket_productVO> list = new ArrayList<Ticket_productVO>();
+		String sql = "select * from ticket_product";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Ticket_productVO tpvo = new Ticket_productVO();
+				tpvo.setTpseq(rs.getInt("tpseq"));
+				tpvo.setName(rs.getString("name"));
+				tpvo.setShowtime(rs.getString("showtime"));
+				tpvo.setAge(rs.getInt("age"));
+				tpvo.setImage(rs.getString("image"));
+				tpvo.setPlace(rs.getString("place"));
+				tpvo.setDaytime(rs.getString("daytime"));
+				tpvo.setPrice1(rs.getInt("price1"));
+				tpvo.setPrice2(rs.getInt("price2"));
+				tpvo.setPrice3(rs.getInt("price3"));
+				tpvo.setBestyn(rs.getString("bestyn"));
+				tpvo.setIndate(rs.getTimestamp("indate"));
+				tpvo.setEdate(rs.getTimestamp("edate"));
+				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setContent(rs.getString("content"));
+				
+				list.add(tpvo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
+	
 }
