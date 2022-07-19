@@ -16,6 +16,7 @@
 	<script src="mypage/mypage.js"></script>
 	<script src="goods/goods.js"></script>
 	<script src="goods/banner.js"></script>
+	<script src="introduce/intro.js"></script>
 	<script src="ticketing/ticketing.js"></script>
 	<script src="qna/qna.js"></script>
 	<script src="script/jquery-3.6.0.js"></script>
@@ -69,9 +70,9 @@
                                 <div class="contentBx">
                                     <div class="label">전시/공연 예약</div>
                                     <div class="content">
-                                    <p>2</p>
-                                    <p>3</p>
-                                    <p>3</p>
+                                    <p><a href="ticket.do?command=ticketingList">전시/공연</a></p>
+                                    <!-- <p>3</p>
+                                    <p>3</p> -->
                                     </div>
                                 </div>
                                 <div class="contentBx">

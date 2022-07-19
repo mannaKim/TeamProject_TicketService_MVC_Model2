@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.team2.ticket.dto.EventVO;
 import com.team2.ticket.dto.ReplyVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class EventDao {
 	private EventDao () {}
@@ -32,7 +33,7 @@ public class EventDao {
 				EventVO evo = new EventVO();
 				evo.setEimage2(rs.getString("eimage2"));
 				evo.setEimage(rs.getString("eimage"));
-				evo.setEtitle(rs.getString("etitle"));
+				evo.setTitle(rs.getString("title"));
 				evo.setEvdate(rs.getString("evdate"));
 				evo.setEvnum(rs.getInt("evnum"));
 				evo.setEvperson(rs.getString("evperson"));
@@ -66,7 +67,7 @@ public class EventDao {
 				evo = new EventVO();
 				evo.setEimage2(rs.getString("eimage2"));
 				evo.setEimage(rs.getString("eimage"));
-				evo.setEtitle(rs.getString("etitle"));
+				evo.setTitle(rs.getString("title"));
 				evo.setEvdate(rs.getString("evdate"));
 				evo.setEvnum(rs.getInt("evnum"));
 				evo.setEvperson(rs.getString("evperson"));
@@ -103,11 +104,11 @@ public class EventDao {
 	}
 
 	public void updateEvent(EventVO evo) {
-		String sql = "update event set etitle=?, evdate=?, evperson=?, eimage=?, eimage2=? where evnum=?";
+		String sql = "update event set title=?, evdate=?, evperson=?, eimage=?, eimage2=? where evnum=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, evo.getEtitle());
+			pstmt.setString(1, evo.getTitle());;
 			pstmt.setString(2, evo.getEvdate());
 			pstmt.setString(3, evo.getEvperson());
 			pstmt.setString(4, evo.getEimage());
@@ -191,6 +192,100 @@ public class EventDao {
 			Dbman.close(con, pstmt, rs);
 		}
 	}
+
+	public void insertEvent(EventVO evo) {
+		String sql = "insert into event(evnum, id, title, eimage, eimage2, evdate, evperson) values(evt_seq.nextVal, ?, ?, ?, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, evo.getId());
+			pstmt.setString(2, evo.getTitle());
+			pstmt.setString(3, evo.getEimage());
+			pstmt.setString(4, evo.getEimage2());
+			pstmt.setString(5, evo.getEvdate());
+			pstmt.setString(6, evo.getEvperson());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public void deleteEvent(int evnum) {
+		String sql = "delete event where evnum=?";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, evnum);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+	}
 	
+	public int getEventAllCount(String eventName) {
+		int count=0;
+		String sql = "select count(*) as cnt from " + eventName;
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+		return count;
+	}
 	
+	public ArrayList<EventVO> listEvent(Paging paging) {
+		ArrayList<EventVO> list = new ArrayList<EventVO>();
+		String sql = "select * from ( select * from( select rownum as rn, p.* from ((select * from event) p)) where rn>=?) where rn<=?";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EventVO evo = new EventVO();
+				evo.setEimage(rs.getString("eimage"));
+				evo.setEimage2(rs.getString("eimage2"));
+				evo.setTitle(rs.getString("title"));
+				evo.setEvdate(rs.getString("evdate"));
+				evo.setEvnum(rs.getInt("evnum"));
+				evo.setEvperson(rs.getString("evperson"));
+				evo.setId(rs.getString("id"));
+				evo.setIndate(rs.getTimestamp("indate"));
+				evo.setPass(rs.getString("pass"));
+				evo.setReadcount(rs.getInt("readcount"));
+				
+				list.add(evo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+		return list;
+	}
 }

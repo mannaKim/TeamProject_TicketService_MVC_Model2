@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="intro_header.jsp" %>
-<%@ include file="sub_image_menu.jsp" %>
+<%@ include file="../header.jsp" %>
 
-<div id="wrap" align="center">
-<form name="frm">
+<article>
+<form name="eventform">
 	<table border="1">
 		<tr>
-			<td style="text-align:center;" height="50">${eventVO.etitle}
+			<td style="text-align:center;" height="50">${eventVO.title}
 			<span style="float:right;"> <fmt:formatDate value="${eventVO.indate}" pattern="YYYY/MM/dd EEEE"></fmt:formatDate>&nbsp;&nbsp;| 조회 : ${eventVO.readcount} </span></td>
 		</tr>
 		<tr>
@@ -18,12 +17,11 @@
 		</tr>
 		<tr>
 		<td colspan="5" align="center">
-			<img src="ticket_image/${eventVO.eimage2}">
+			<img src="ticket_image/${eventVO.eimage2}" style="width:1200; height:1000px">
 		</td>
 	</tr>
 	</table>
 	</form><br><br>
-	<input type="button" value="수정" onClick="location.href='ticket.do?command=updateEvent&evnum=${eventVO.evnum}'">
 	<input type="button" value="목록으로" onClick="location.href='ticket.do?command=event'">
 	<br><br>
 	
@@ -94,6 +92,6 @@
 			</c:forEach>
 		</table>
 	</form>
-</div>
+</article>
 
 <%@ include file="../footer.jsp" %>

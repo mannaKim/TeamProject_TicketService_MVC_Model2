@@ -5,13 +5,13 @@
 <form method="post" name="formm" action="ticket.do">
 <!-- <input type="hidden" name="command" value="ticketingCart"> -->
 <h1>${ticket_productVO.name}</h1>
-<fieldset>	
+<fieldset>
 	<legend>
-		<fmt:formatDate pattern = "yyyy/MM/dd" value="${ticket_productVO.sdate}" type="date" /> ~ 
-    	<fmt:formatDate pattern = "yyyy/MM/dd" value="${ticket_productVO.edate}" type="date" />
+		<fmt:formatDate pattern = "yyyy/MM/dd" value="${sdate}" type="date" /> ~ 
+    	<fmt:formatDate pattern = "yyyy/MM/dd" value="${edate}" type="date" />
 	</legend>
 	<span style="float: left; margin-right:20px;">
-		<img  src="ticket_images/${ticket_productVO.image}" 
+		<img  src="ticket_image/${ticket_productVO.image}" 
 			width="450" style="border-radius:20px;"/>
 	</span>              
 	<label>등　급 : </label> 만 ${ticket_productVO.age} 세 이상 <br>
@@ -308,7 +308,6 @@
 </table>
 </div>
 </div>
-
 
 <script type="text/javascript">buildCalendar();</script>
 </form>

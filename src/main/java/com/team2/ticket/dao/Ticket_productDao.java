@@ -43,8 +43,10 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				//tpvo.setEdate(rs.getTimestamp("edate"));
+				//tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
 				list.add(tpvo);
 			}
 		} catch (SQLException e) {
@@ -78,8 +80,10 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
+				//tpvo.setEdate(rs.getTimestamp("edate"));
+				//tpvo.setSdate(rs.getTimestamp("sdate"));
 			}
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);  }
@@ -97,8 +101,10 @@ public class Ticket_productDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				tpvo = new Ticket_productVO();
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
+				//tpvo.setEdate(rs.getTimestamp("edate"));
+				//tpvo.setSdate(rs.getTimestamp("sdate"));
 				tpvo.setTpseq(rs.getInt("tpseq"));
 				tpvo.setName(rs.getString("name"));
 				tpvo.setShowtime(rs.getString("showtime"));
@@ -140,8 +146,10 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
+				//tpvo.setEdate(rs.getTimestamp("edate"));
+				//tpvo.setSdate(rs.getTimestamp("sdate"));
 				list.add(tpvo);
 			}
 		} catch (SQLException e) {
@@ -205,8 +213,10 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
+				//tpvo.setEdate(rs.getTimestamp("edate"));
+				//tpvo.setSdate(rs.getTimestamp("sdate"));
 				list.add(tpvo);
 			}
 		} catch (SQLException e) {
@@ -216,7 +226,6 @@ public class Ticket_productDao {
 		}
 		return list;
 	}
-	
 	public void updateShow(Ticket_productVO pvo) {
 		String sql = "update ticket_product set name=?, daytime=?, place=?, age=?, showtime=?, price1=?, price2=?, content=?, image=? where tpseq=?";
 		
@@ -259,7 +268,7 @@ public class Ticket_productDao {
 			Dbman.close(con, pstmt, rs);
 		}
 	}
-	
+
 	public ArrayList<Ticket_productVO> getTicketList() {
 		ArrayList<Ticket_productVO> list = new ArrayList<Ticket_productVO>();
 		String sql = "select * from ticket_product";
@@ -282,8 +291,8 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				tpvo.setEdate(rs.getTimestamp("edate"));
-				tpvo.setSdate(rs.getTimestamp("sdate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
 				tpvo.setContent(rs.getString("content"));
 				
 				list.add(tpvo);
@@ -295,6 +304,45 @@ public class Ticket_productDao {
 			Dbman.close(con, pstmt, rs);
 		}
 		return list;
+	}
+
+
+	public void deleteTicket_productr(int tpseq) {
+		String sql = "delete from ticket_product where tpseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, tpseq );
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {	e.printStackTrace(); 		
+		} finally { Dbman.close(con, pstmt, rs); }	
+		
+	}
+
+
+	public void insertProduct(Ticket_productVO tpvo) {
+		String sql = "insert into ticket_product(tpseq, showtime, daytime, name, age, image, price1, price2,"
+				+ " price3, place, content, sdate, edate ) "
+				+ " values(ticket_product_tpseq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,? ,?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, tpvo.getShowtime());
+			pstmt.setString(2, tpvo.getDaytime());
+			pstmt.setString(3, tpvo.getName());
+			pstmt.setInt(4, tpvo.getAge());
+			pstmt.setString(5, tpvo.getImage());
+			pstmt.setInt(6, tpvo.getPrice1());
+			pstmt.setInt(7, tpvo.getPrice2());
+			pstmt.setInt(8, tpvo.getPrice3());
+			pstmt.setString(9, tpvo.getPlace());
+			pstmt.setString(10, tpvo.getContent());
+			pstmt.setString(11, tpvo.getSdate());
+			pstmt.setString(12, tpvo.getEdate());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);  }
 	}
 	
 }

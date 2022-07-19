@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.team2.ticket.dto.NoticeVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class NoticeDao {
 	private NoticeDao () {}
@@ -20,13 +21,15 @@ public class NoticeDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public ArrayList<NoticeVO> selectnotice() {
+	public ArrayList<NoticeVO> selectnotice(Paging paging) {
 		ArrayList<NoticeVO> nlist = new ArrayList<NoticeVO>();
-		String sql = "select * from notice order by ntnum desc";
-		
+		//String sql = "select * from notice order by ntnum desc";
+		String sql = "select * from(select * from(select rownum as rn, b.* from((select * from notice order by ntnum desc)b))where rn>=? )where rn <= ?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				NoticeVO nvo = new NoticeVO();
@@ -137,6 +140,100 @@ public class NoticeDao {
 		}
 		
 		return nvo;
+	}
+
+	public void noticeInsert(NoticeVO nvo) {
+		String sql = "insert into notice(ntnum, id, pass, title, content) values(ntnum_seq.nextVal, ?, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, nvo.getId());
+			pstmt.setString(2, nvo.getPass());
+			pstmt.setString(3, nvo.getTitle());
+			pstmt.setString(4, nvo.getContent());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}	
+		
+	}
+
+	public int getAllCount() {
+		int count = 0;
+		String sql = "select count(*) as cnt from notice";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return count;
+	}
+	
+	public int getNoticeAllCount(String noticeName, String key) {
+		int count=0;
+		String sql = "select count(*) as cnt from " + noticeName + " where title like '%'||?||'%'";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt("cnt");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+		return count;
+	}
+	
+	public ArrayList<NoticeVO> listNotice(Paging paging, String key) {
+		ArrayList<NoticeVO> list = new ArrayList<NoticeVO>();
+		String sql = "select * from ( select * from( select rownum as rn, p.* from ((select * from notice where title like '%'||?||'%' order by ntnum desc) p)) where rn>=?) where rn<=?";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				NoticeVO nvo = new NoticeVO();
+				nvo.setContent(rs.getString("content"));
+				nvo.setId(rs.getString("id"));
+				nvo.setIndate(rs.getTimestamp("indate"));
+				nvo.setNtnum(rs.getInt("ntnum"));
+				nvo.setPass(rs.getString("pass"));
+				nvo.setReadcount(rs.getInt("readcount"));
+				nvo.setTitle(rs.getString("title"));
+				
+				list.add(nvo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
 	}
 	
 	

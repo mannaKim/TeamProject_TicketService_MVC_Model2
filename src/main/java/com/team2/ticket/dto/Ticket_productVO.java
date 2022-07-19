@@ -14,12 +14,46 @@ public class Ticket_productVO {
 	private Integer price1;
 	private Integer price2;
 	private Integer price3;
-	private String content;
 	private String bestyn;
-	private Timestamp sdate;
-	private Timestamp edate;
+	private String sdate;
+	private String edate;
 	private Timestamp indate;
+	private String content;
 	
+	
+	public String getSdate() {
+		return sdate;
+	}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+	public String getEdate() {
+		return edate;
+	}
+	public void setEdate(String edate) {
+		this.edate = edate;
+	}
+	/*
+	public Timestamp getSdate() {
+		return sdate;
+	}
+	public void setSdate(Timestamp sdate) {
+		
+		this.sdate = sdate;
+	}
+	public Timestamp getEdate() {
+		return edate;
+	}
+	public void setEdate(Timestamp edate) {
+		this.edate = edate;
+	}
+	*/
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public Integer getTpseq() {
 		return tpseq;
 	}
@@ -80,29 +114,11 @@ public class Ticket_productVO {
 	public void setPrice3(Integer price3) {
 		this.price3 = price3;
 	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
 	public String getBestyn() {
 		return bestyn;
 	}
 	public void setBestyn(String bestyn) {
 		this.bestyn = bestyn;
-	}
-	public Timestamp getSdate() {
-		return sdate;
-	}
-	public void setSdate(Timestamp sdate) {
-		this.sdate = sdate;
-	}
-	public Timestamp getEdate() {
-		return edate;
-	}
-	public void setEdate(Timestamp edate) {
-		this.edate = edate;
 	}
 	public Timestamp getIndate() {
 		return indate;
@@ -110,4 +126,6 @@ public class Ticket_productVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
+	
+	
 }

@@ -1,30 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="intro_header.jsp" %>
-    <%@ include file="sub_image_menu.jsp" %>
-    <div id="wrap" align="center">
-    	<table border="1">
+<%@ include file="../header.jsp" %>
+    <article>
+    <form id="noticeView">
+    	<table>
     	<tr>
-    		<th width="100">작성자</th>
-    		<td width="200" align="center">${notice.id}</td>
+    		<th colspan="4" width="1200" height="75">${notice.title}</th>
     	</tr>
     	<tr>
-    		<th>작성일</th>
-    		<td align="center"><fmt:formatDate value="${notice.indate}" pattern="YYYY/MM/dd EEEE"></fmt:formatDate></td>
-    		<th width="100">조회수</th>
-    		<td width="50" align="center">${notice.readcount}</td>
+    		<th width="100" height="50" colspan="4" style="text-align:left; font-size:16px;">작성자 : ${notice.id}</th>
     	</tr>
     	<tr>
-    		<th>제목</th>
-    		<td colspan="3" align="center">${notice.title}</td>
+    		<th height="50" style="text-align:left; font-size:16px;">작성일 : <fmt:formatDate value="${notice.indate}" pattern="YYYY/MM/dd EEEE"></fmt:formatDate></th>	
+    		<th width="100">조회수 : ${notice.readcount}</th>
     	</tr>
     	<tr>
-    		<td colspan="4">${notice.content}</td>
+    		<th colspan="4" height="300">${notice.content}</th>
     	</tr>
     	</table><br><br>
-    	<input type="button" value="목록으로" onClick="location.href='ticket.do?command=notice'">
-    	<input type="button" value="수정하기" onClick="checkPass('${notice.ntnum}', 'update');">
-    	<input type="button" value="삭제하기" onClick="checkPass('${notice.ntnum}', 'delete');">    
-    </div>
+    	<div id="buttons">
+    	<input type="button" class="submit" value="목록으로" onClick="location.href='ticket.do?command=notice'">
+    	</div>
+    </form>
+    </article>
     
     <%@ include file="../footer.jsp" %>

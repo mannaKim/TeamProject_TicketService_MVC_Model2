@@ -6,7 +6,7 @@ public class EventVO {
 	private int evnum;
 	private String eimage;
 	private String eimage2;
-	private String etitle;
+	private String title;
 	private String evdate;
 	private String evperson;
 	private String pass;
@@ -33,11 +33,12 @@ public class EventVO {
 	public void setEimage(String eimage) {
 		this.eimage = eimage;
 	}
-	public String getEtitle() {
-		return etitle;
+	
+	public String getTitle() {
+		return title;
 	}
-	public void setEtitle(String etitle) {
-		this.etitle = etitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getEvdate() {
 		return evdate;

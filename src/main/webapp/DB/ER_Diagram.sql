@@ -41,7 +41,7 @@ CREATE TABLE event
 	eimage varchar2(255) NOT NULL,
 	eimage2 varchar2(255) NOT NULL,
 	-- 이벤트제목
-	etitle varchar2(50) NOT NULL,
+	title varchar2(50) NOT NULL,
 	-- 이벤트기간
 	evdate varchar2(20),
 	-- 당첨자발표날짜

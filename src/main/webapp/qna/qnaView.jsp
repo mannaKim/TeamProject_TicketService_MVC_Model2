@@ -5,7 +5,7 @@
 <article>
 	<h2>1:1 문의</h2>
 	<form>
-		<table>
+		<table border="1">
 			<tr>
 				<th>제목</th>
 				<td width="500">${qnaVO.subject}</td>
@@ -16,12 +16,8 @@
 						type="date" /></td>
 			</tr>
 			<tr>
-				<th>질문내용</th>
+				<th>문의내용</th>
 				<td align="left" style="text-align: left; font-size: 115%;"><pre>${qnaVO.content}</pre></td>
-			</tr>
-			<tr>
-				<th>답변 내용</th>
-				<td align="left" style="text-align: left; color: white;">${qnaVO.reply}
 			</tr>
 		</table>
 		<div class="clear"></div>
@@ -35,33 +31,27 @@
 	<form action="ticket.do" method="post" name="frm_reply">
 	<input type="hidden" name="command" value="qnaReply" /> 
 	<input type="hidden" name="qnanum" value="${qnaVO.qseq}" />
-		<table>
-			<tr>
-				<th width="100">작성자</th>
-				<th>내용</th>
-				<th width="100">추가/삭제</th>
-			</tr>
-			<tr align="center">
-				<td>${qnaVO.id}<input type="hidden" name="id"
-					value="${qnaVO.id}"></td>
-				<td><input type="text" name="content" size="80"></td>
-				 <td><input type="submit" value="답변 작성" onClick="return reply_check();"></td>
-						<!-- 답변 작성 버튼을 누르면 내용 확인 후 QnaReplyAction 으로 이동합니다.  -->
-
-			</tr>
-
+		<table border="1">
 			<c:forEach items="${replylist}" var="reply">
+				<c:choose>
+					<c:when test="${reply.content==null}">
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<th width="100">작성자</th>
+							<th>날짜</th>
+							<th>내용</th>
+						</tr>
+					</c:otherwise>
+				</c:choose>
 				<tr align="center">
 					<td>${reply.id}</td>
 					<td><fmt:formatDate value="${reply.indate}" type="date" /></td>
 					<td align="left">&nbsp;${reply.content}</td>
 				</tr>
 			</c:forEach>
-
-
 		</table>
 	</form>
-
-
-
 </article>
+
+<%@ include file="../footer.jsp" %>

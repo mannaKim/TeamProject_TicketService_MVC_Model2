@@ -14,6 +14,32 @@ import com.team2.ticket.controller.action.admin.goods.AdminGoodsOrderModifyActio
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateAction;
 import com.team2.ticket.controller.action.admin.goods.AdminGoodsUpdateFormAction;
 import com.team2.ticket.controller.action.admin.goods.ChangeOrderResultAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminEventAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminEventInsertAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminEventViewAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminNoticeAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminNoticeInsertAction;
+import com.team2.ticket.controller.action.admin.introduce.AdminNoticeViewAction;
+import com.team2.ticket.controller.action.admin.introduce.DeleteEventAction;
+import com.team2.ticket.controller.action.admin.introduce.DeleteNoticeAction;
+import com.team2.ticket.controller.action.admin.introduce.EventWriteAction;
+import com.team2.ticket.controller.action.admin.introduce.NoticeViewNoCountAction;
+import com.team2.ticket.controller.action.admin.introduce.NoticeWriteAction;
+import com.team2.ticket.controller.action.admin.introduce.UpdateAction;
+import com.team2.ticket.controller.action.admin.introduce.UpdateEventAction;
+import com.team2.ticket.controller.action.admin.introduce.UpdateNoticeAction;
+import com.team2.ticket.controller.action.admin.introduce.UpdateNoticeFormAction;
+import com.team2.ticket.controller.action.admin.introduce.adminNoticeCheckAction;
+import com.team2.ticket.controller.action.admin.introduce.adminNoticeCheckpassAction;
+import com.team2.ticket.controller.action.admin.qna.AQnaAction;
+import com.team2.ticket.controller.action.admin.qna.AQnaJustViewAction;
+import com.team2.ticket.controller.action.admin.qna.AQnaViewAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_UpdateFormAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_deleteFormAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_ticketAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_ticketListAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_ticketWriteAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_ticketWriteFormAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -25,7 +51,6 @@ import com.team2.ticket.controller.action.goods.GoodsOrderInsertListAction;
 import com.team2.ticket.controller.action.goods.GoodsOrderListAction;
 import com.team2.ticket.controller.action.goods.GoodsSearchAction;
 import com.team2.ticket.controller.action.introduce.DelRepAction;
-import com.team2.ticket.controller.action.introduce.DeleteNoticeAction;
 import com.team2.ticket.controller.action.introduce.EventAction;
 import com.team2.ticket.controller.action.introduce.EventDetailAction;
 import com.team2.ticket.controller.action.introduce.EventDetailNoCountAction;
@@ -33,14 +58,7 @@ import com.team2.ticket.controller.action.introduce.EventReplyAction;
 import com.team2.ticket.controller.action.introduce.EventReplyWitoutAction;
 import com.team2.ticket.controller.action.introduce.IntroduceAction;
 import com.team2.ticket.controller.action.introduce.NoticeAction;
-import com.team2.ticket.controller.action.introduce.NoticeCheckAction;
-import com.team2.ticket.controller.action.introduce.NoticeCheckpassAction;
 import com.team2.ticket.controller.action.introduce.NoticeViewAction;
-import com.team2.ticket.controller.action.introduce.NoticeViewNoCountAction;
-import com.team2.ticket.controller.action.introduce.UpdateAction;
-import com.team2.ticket.controller.action.introduce.UpdateEventAction;
-import com.team2.ticket.controller.action.introduce.UpdateNoticeAction;
-import com.team2.ticket.controller.action.introduce.UpdateNoticeFormAction;
 import com.team2.ticket.controller.action.member.CompleteJoinAction;
 import com.team2.ticket.controller.action.member.FindAddressAction;
 import com.team2.ticket.controller.action.member.FindIdAction;
@@ -64,10 +82,14 @@ import com.team2.ticket.controller.action.mypage.GoodsOrderDetailAction;
 import com.team2.ticket.controller.action.mypage.ModifyMemberAction;
 import com.team2.ticket.controller.action.mypage.ModifyMemberFormAction;
 import com.team2.ticket.controller.action.mypage.MypageAction;
+import com.team2.ticket.controller.action.mypage.TicketCartListAction;
+import com.team2.ticket.controller.action.mypage.TicketShowMypageAction;
 import com.team2.ticket.controller.action.mypage.WithdrawalAction;
 import com.team2.ticket.controller.action.mypage.WithdrawalFormAction;
 import com.team2.ticket.controller.action.qna.QnaAction;
+import com.team2.ticket.controller.action.qna.QnaFnqAction;
 import com.team2.ticket.controller.action.qna.QnaJustViewAction;
+import com.team2.ticket.controller.action.qna.QnaReAction;
 import com.team2.ticket.controller.action.qna.QnaReplyAction;
 import com.team2.ticket.controller.action.qna.QnaUpdateAction;
 import com.team2.ticket.controller.action.qna.QnaViewAction;
@@ -118,6 +140,7 @@ public class ActionFactory {
 		else if(command.equals("findPwdStep2")) ac = new FindPwdStep2Action();
 		else if(command.equals("resetPwd")) ac = new ResetPwdAction();
 		
+		
 		// ▶ mypage 관련 action
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("checkPwdForm")) ac = new CheckPwdFormAction();
@@ -128,6 +151,9 @@ public class ActionFactory {
 		else if(command.equals("modifyMember")) ac = new ModifyMemberAction();
 		else if(command.equals("allGoodsOrderList")) ac = new AllGoodsOrderListAction();
 		else if(command.equals("goodsOrderDetail")) ac = new GoodsOrderDetailAction();
+		else if(command.equals("ticketCartList")) ac = new TicketCartListAction();
+		else if(command.equals("ticketShowMypage")) ac = new TicketShowMypageAction();
+		
 		
 		// ▶ goods 관련 action
 		else if(command.equals("goodsMain")) ac = new GoodsMainAction();
@@ -140,6 +166,7 @@ public class ActionFactory {
 		else if(command.equals("goodsOrderInsertList")) ac = new GoodsOrderInsertListAction();
 		else if(command.equals("goodsOrderList")) ac = new GoodsOrderListAction();
 		else if(command.equals("goodsOrderInsert")) ac = new GoodsOrderInsertAction(); //즉시구매
+		
 		
 		// ▶ ticketing 관련 action 
 		else if(command.equals("ticketingList")) ac = new TicketingListAction();
@@ -160,22 +187,15 @@ public class ActionFactory {
 		// ▷ 전시 공지사항
 		else if(command.equals("notice")) ac = new NoticeAction();
 		else if(command.equals("noticeView")) ac = new NoticeViewAction();
-		else if(command.equals("noticecheck")) ac = new NoticeCheckAction();
-		else if(command.equals("noticecheckpass")) ac = new NoticeCheckpassAction();
-		else if(command.equals("updateNoticeForm")) ac = new UpdateNoticeFormAction();
-		else if(command.equals("updateNotice")) ac = new UpdateNoticeAction();
-		else if(command.equals("noticeViewNoCount")) ac = new NoticeViewNoCountAction();
-		else if(command.equals("deleteNotice")) ac = new DeleteNoticeAction();
 		// ▷ 전시 이벤트
 		else if(command.equals("event")) ac = new EventAction();
 		else if(command.equals("eventDetail")) ac = new EventDetailAction();
-		else if(command.equals("updateEvent")) ac = new UpdateEventAction();
-		else if(command.equals("update")) ac = new UpdateAction();
 		else if(command.equals("eventReply")) ac = new EventReplyAction();
 		else if(command.equals("eventReplyWitout")) ac = new EventReplyWitoutAction();
 		else if(command.equals("delRep")) ac = new DelRepAction();
 		else if(command.equals("eventDetailNoCount")) ac = new EventDetailNoCountAction();
 				
+		
 		// ▶ qna 관련 action
 		else if(command.equals("qna")) ac = new QnaAction(); // qnalist.jsp로 이동
 		else if(command.equals("qnaWriteForm")) ac = new QnaWriteFormAction(); // qnawrite.jsp로 이동
@@ -184,12 +204,16 @@ public class ActionFactory {
 		else if(command.equals("qnaReView")) ac = new QnaViewAction(); // qnaview.jsp 로 이동
 		else if(command.equals("qnaUpdate")) ac = new QnaUpdateAction(); // qnalist.jsp 로 이동
 		else if(command.equals("qnaReply")) ac = new QnaReplyAction(); // QnaViewAction 으로 이동
+		else if(command.equals("qnare")) ac = new QnaReAction(); // QnaViewAction 으로 이동
+		else if(command.equals("qnafnq")) ac = new QnaFnqAction(); // QnaViewAction 으로 이동
+		
 		
 		// ▶ review 관련 action -- 시간 남으면 구현합시당
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();
 		else if(command.equals("review")) ac = new ReviewAction();
 		else if(command.equals("reviewView")) ac = new ReviewViewAction();
+		
 		
 		// ▶ 관리자 페이지
 		else if(command.equals("adminMain")) ac = new AdminMainAction();
@@ -205,6 +229,36 @@ public class ActionFactory {
 		else if(command.equals("adminGoodsOrderList")) ac = new AdminGoodsOrderListAction();
 		else if(command.equals("adminGoodsOrderModify")) ac = new AdminGoodsOrderModifyAction();
 		else if(command.equals("changeOrderResult")) ac = new ChangeOrderResultAction();
+		// ▷ 관리자 qna 관련 action
+		else if(command.equals("aqna")) ac = new AQnaAction(); // aqnalist.jsp로 이동
+		else if(command.equals("aqnaView")) ac = new AQnaJustViewAction(); // aqnaview.jsp 로 이동
+		else if(command.equals("aqnaReView")) ac = new AQnaViewAction(); // aqnaview.jsp 로 이동
+		// ▷ 관리자 ticket 관련 action
+		else if(command.equals("admin_ticketList")) ac = new Admin_ticketListAction();
+		else if(command.equals("admin_ticket")) ac = new Admin_ticketAction();
+		else if(command.equals("admin_ticketWriteForm")) ac = new Admin_ticketWriteFormAction();
+		else if(command.equals("admin_ticketWrite")) ac = new Admin_ticketWriteAction();
+		else if(command.equals("admin_UpdateForm")) ac = new Admin_UpdateFormAction();
+		else if(command.equals("admin_deleteForm")) ac = new Admin_deleteFormAction();
+		// ▷ 관리자 공지사항 관련 action.
+		else if(command.equals("adminNotice"))ac = new AdminNoticeAction();
+		else if(command.equals("adminNoticeInsert"))ac = new AdminNoticeInsertAction();
+		else if(command.equals("noticeWrite"))ac = new NoticeWriteAction();
+		else if(command.equals("adminNoticeView"))ac = new AdminNoticeViewAction();	
+		else if(command.equals("adminNoticeCheck"))ac = new adminNoticeCheckAction();
+		else if(command.equals("adminNoticeCheckpass"))ac = new adminNoticeCheckpassAction();
+		else if(command.equals("updateNoticeForm"))ac = new UpdateNoticeFormAction();
+		else if(command.equals("updateNotice"))ac = new UpdateNoticeAction();
+		else if(command.equals("noticeViewNoCount"))ac = new NoticeViewNoCountAction();
+		else if(command.equals("deleteNotice"))ac = new DeleteNoticeAction();	
+		// ▷ 관리자 이벤트 관련 action
+		else if(command.equals("adminEvent"))ac = new AdminEventAction();
+		else if(command.equals("adminEventView"))ac = new AdminEventViewAction();
+		else if(command.equals("updateEvent"))ac = new UpdateEventAction();
+		else if(command.equals("update"))ac = new UpdateAction();
+		else if(command.equals("adminEventInsert"))ac = new AdminEventInsertAction();
+		else if(command.equals("eventWrite"))ac = new EventWriteAction();
+		else if(command.equals("deleteEvent"))ac = new DeleteEventAction();
 		
 		return ac;
 	}

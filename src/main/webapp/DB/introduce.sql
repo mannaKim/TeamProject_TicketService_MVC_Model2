@@ -29,11 +29,11 @@ create sequence evt_seq start with 1;
 
 select * from event;
 
-insert into event(evnum, eimage, eimage2, etitle, evdate, evperson, pass, id)
+insert into event(evnum, eimage, eimage2, title, evdate, evperson, pass, id)
 values(evt_seq.nextVal, 'event1.jpg', 'mainevent1.png', '이벤트1', '22-07-20 ~ 22-07-28', '22-07-30', '1234', 'admin');
-insert into event(evnum, eimage, eimage2, etitle, evdate, evperson, pass, id)
+insert into event(evnum, eimage, eimage2, title, evdate, evperson, pass, id)
 values(evt_seq.nextVal, 'event2.jpg', 'mainevent2.png', '이벤트2', '22-06-20 ~ 22-10-05', '22-10-15', '1234', 'admin');
-insert into event(evnum, eimage, eimage2, etitle, evdate, evperson, pass, id)
+insert into event(evnum, eimage, eimage2, title, evdate, evperson, pass, id)
 values(evt_seq.nextVal, 'event3.jpg', 'mainevent3.png', '이벤트3', '22-08-02 ~ 22-08-30', '22-09-10', '1234', 'admin');
 
 

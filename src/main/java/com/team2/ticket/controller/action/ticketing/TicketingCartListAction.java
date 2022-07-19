@@ -64,6 +64,10 @@ public class TicketingCartListAction implements Action {
 			int totalPrice3 = totalPrice1 + totalPrice2;
 			int selecttotal = quantity1 + quantity2;
 			
+			int totalPrice4 = 0; // 최종 할인 금액
+			for( Ticket_productVO ptvo:list) 
+				totalPrice4 = totalPrice3 - (ptvo.getPrice3() * selecttotal);
+			
 			request.setAttribute("quantity1", quantity1);
 			request.setAttribute("quantity2", quantity2);
 			request.setAttribute("selecttotal", selecttotal);
@@ -71,6 +75,7 @@ public class TicketingCartListAction implements Action {
 			request.setAttribute("totalPrice1", totalPrice1);
 			request.setAttribute("totalPrice2", totalPrice2);
 			request.setAttribute("totalPrice3", totalPrice3);
+			request.setAttribute("totalPrice4", totalPrice4);
 			
 			request.setAttribute("ticket_productVO", tpvo);
 			request.setAttribute("choisDay", choisDay);

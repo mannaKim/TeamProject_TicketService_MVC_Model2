@@ -30,7 +30,7 @@ public class QnaReplyAction implements Action {
 		qdao.insertReply(qrvo);
 
 		// 게시물 번호와 함께 view로 전송
-		response.sendRedirect("ticket.do?command=qnaReView&qnanum="+qnanum);
+		response.sendRedirect("ticket.do?command=aqnaReView&qnanum="+qnanum);
 	
 	}
 

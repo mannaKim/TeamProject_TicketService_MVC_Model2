@@ -33,12 +33,11 @@
 		</table>
 		<input class="btn" type="button" value="작성" onClick="go_write();">
 		<!-- 작성 버튼을 누르면 작성 내용 확인 후 QnaWriteAction 으로 이동합니다.  -->
-		<input class="btn" type="button" value="취소" 
+		<input class="btn" type="button" value="목록으로" 
 			onClick="location.href='ticket.do?command=qna'">
-		<!-- 취소 버튼을 누르면 작성 내용 확인 후 qnalist.jsp 로 이동합니다.  -->
+		<!-- 목록 버튼을 누르면 작성 내용 확인 후 qnalist.jsp 로 이동합니다.  -->
 	</form>
 </article>
-
-
+<%@ include file="../footer.jsp" %>
 
    

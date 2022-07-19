@@ -1,6 +1,9 @@
 package com.team2.ticket.controller.action.ticketing;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +16,7 @@ import com.team2.ticket.dto.Ticket_productVO;
 public class TicketingFormAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 
 		
 		
@@ -33,6 +36,16 @@ public class TicketingFormAction implements Action {
 		
 		System.out.println(2);
 		System.out.println(tpseq);
+		
+		// 문자열 date 타입으로 형변환... 
+		String dates = tpvo.getSdate();
+		String datee = tpvo.getEdate();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date sdate = sdf.parse(dates);
+		Date edate = sdf.parse(datee);
+		request.setAttribute("sdate", sdate);
+		request.setAttribute("edate", edate);
+		
 		
 		request.setAttribute("ticket_productVO", tpvo);
 		

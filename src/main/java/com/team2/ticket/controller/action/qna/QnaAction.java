@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.team2.ticket.controller.action.Action;
+import com.team2.ticket.dao.MemberDao;
 import com.team2.ticket.dao.QnaDao;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.QnaVO;
@@ -42,7 +43,9 @@ public class QnaAction implements Action {
 			
 			int count = qdao.getAllCount();
 			paging.setTotalCount(count);
-			ArrayList<QnaVO> list = qdao.listQna(mvo.getId(), paging);
+			ArrayList<QnaVO> list = qdao.listQna( paging);
+			// ArrayList<QnaVO> list = qdao.listQna(mvo.getId(), paging);
+			// 해당 아이디로 쓴 글만 보이게 하는 경우 위의 것 사용
 
 			String rep = "";
 			for( QnaVO qvo:list) {
@@ -60,16 +63,16 @@ public class QnaAction implements Action {
 				System.out.println("rep : " + qvo.getRep());
 			}
 
-			QnaVO qvo = qdao.getKind( mvo.getId());
-			//System.out.println("rep : " + qvo.getRep());
-			String [] kindList = { "전시", "회원안내", "관람/예약", "굿즈", "기타"};
-			// 현재 상품의 kind 값 추출
-			int index = Integer.parseInt(qvo.getKind() ); 
-			System.out.println("replycnt : " + qvo.getReplycnt());
+//			QnaVO qvo = qdao.getKind( mvo.getId());
+//			String [] kindList = { "전시", "회원안내", "관람/예약", "굿즈", "기타"};
+//			int index = Integer.parseInt(qvo.getKind() ); 
+//			System.out.println("replycnt : " + qvo.getReplycnt());
+			
 //			request.setAttribute("rep", rep);
 			request.setAttribute("qnalist", list);
-			request.setAttribute("kind", kindList[index]);
+//			request.setAttribute("kind", kindList[index]);
 			request.setAttribute("paging", paging);
+			
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);

@@ -10,7 +10,7 @@
 	</tr>
 	<tr>
 		<th>기간</th>
-		<td><fmt:formatDate value="${ticketVO.sdate}" pattern="YYYY/MM/dd"/> ~ <fmt:formatDate value="${ticketVO.edate}" pattern="YYYY/MM/dd"/></td>
+		<td><fmt:formatDate value="${sdate}" pattern="YYYY/MM/dd"/> ~ <fmt:formatDate value="${edate}" pattern="YYYY/MM/dd"/></td>
 		<td rowspan="7"><img src="ticket_image/${ticketVO.image}" style="height:400px; width:300px;"></td>
 	</tr>
 	<tr>

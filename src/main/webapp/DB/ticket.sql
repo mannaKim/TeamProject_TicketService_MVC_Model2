@@ -12,3 +12,11 @@ values(ticket_product_tpseq.nextval, '1시간', '2022-07-10', '2022-07-20','1시
 insert into ticket_product(tpseq, showtime, sdate, edate, daytime, name, age, image, price1, price2, place, bestyn) 
 values(ticket_product_tpseq.nextval, '1시간20분', '2022-07-12', '2022-07-25','2시', '2022 CJ대한통운 슈퍼레이스 챔피언십 ROUND.4', 
 	12, '2.jpg', 15000, 10000, '영암코리아 인터내셔널서킷 (국제 자동차 경주장)',  'n');
+
+	
+create or replace view ticket_cart_view
+as
+select c.cseq, c.id, m.name as mname, c.tpseq, p.name as pname,
+	c.choisdate, c.quantity1, c.quantity2, p.price1, p.price2, p.price3, p.daytime, p.edate, c.result, c.indate
+from ticket_cart c, ticket_product p, member m
+where c.tpseq = p.tpseq and c.id = m.id;
