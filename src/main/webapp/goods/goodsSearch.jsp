@@ -4,20 +4,21 @@
 <article>
 	<%@ include file="sub_image_menu.jsp"%>
 	<div class="goodsBox">
-		<h2>Item</h2>
+		<h1>'${key}'에 대한 검색 결과</h1>
 		<c:choose>
 			<c:when test="${empty searchList}">
-				<h3>'${key}'에 대한 검색 결과가 없습니다.</h3>
-				<h4>입력한 검색어의 철자 또는 띄어쓰기가 정확한지 다시 한번 확인해 주세요.</h4>
-				<h4>검색어의 단어 수를 줄이거나, 보다 일반적인 검색어를 사용하여 검색해 보세요.</h4>
+				<div class="goodsEmpty">
+					<h3>· '${key}'에 대한 검색 결과가 없습니다.</h3>
+					<h3>· 입력한 검색어의 철자 또는 띄어쓰기가 정확한지 다시 한번 확인해 주세요.</h3>
+					<h3>· 검색어의 단어 수를 줄이거나, 보다 일반적인 검색어를 사용하여 검색해 보세요.</h3>
+				</div>
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${searchList}" var="gvo">
 					<div class="goodsCategory">
-						<a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
-							<img src="goods/goods_images/${gvo.image}">
-						</a> 
-						<a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
+						<a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}"> <img
+							src="goods/goods_images/${gvo.image}">
+						</a> <a href="ticket.do?command=goodsDetail&gseq=${gvo.gseq}">
 							<h2>${gvo.name}</h2>
 						</a>
 						<h3>

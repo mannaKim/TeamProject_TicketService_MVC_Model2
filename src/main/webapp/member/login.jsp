@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="login_header.jsp" %>
+<%@ include file="../header.jsp" %>
 
 <article>
+<div width="500px" height="500px"></div>
 	<form method="post" name="loginFrm" action="ticket.do">
 		<input type="hidden" name="command" value="login">
 		<fieldset>
