@@ -4,6 +4,7 @@ create sequence ticket_product_tpseq start with 1;
 drop sequence ticket_cart_cseq;
 create sequence ticket_cart_cseq start with 1;
 
+select * from ticket_product;
 
 insert into ticket_product(tpseq, showtime, sdate, edate, daytime, name, age, image, price1, price2, place, bestyn) 
 values(ticket_product_tpseq.nextval, '1시간', '2022-07-10', '2022-07-20','1시', '2022 경기전 왕과의 산책', 

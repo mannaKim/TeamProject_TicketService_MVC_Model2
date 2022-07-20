@@ -79,7 +79,7 @@ create or replace view new_goods_view
 as
 select * from
 (select rownum,gseq,name,price2,image from goods where useyn='y' order by indate desc)
-where rownum<=8;
+where rownum<=4;
 
 select * from new_goods_view;
 

@@ -12,6 +12,7 @@
 	<link href="css/goods.css" rel="stylesheet">
 	<link href="css/ticketingbtn.css" rel="stylesheet">
 	<link href="css/calendar.css" rel="stylesheet">
+	<script src="script/jquery-3.6.0.js"></script>
 	<script src="member/member.js"></script>
 	<script src="mypage/mypage.js"></script>
 	<script src="goods/goods.js"></script>
@@ -19,7 +20,8 @@
 	<script src="introduce/intro.js"></script>
 	<script src="ticketing/ticketing.js"></script>
 	<script src="qna/qna.js"></script>
-	<script src="script/jquery-3.6.0.js"></script>
+	<script src="script/main.js"></script>
+	
 </head>
 <body>
 	<div id="wrap">

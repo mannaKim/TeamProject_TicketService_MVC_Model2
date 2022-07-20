@@ -1,111 +1,495 @@
 @charset "UTF-8";
 /* header.jsp */
-	*{margin:0; padding:0;}
-		ul li, ol li{list-style: none;}
-		a{text-decoration: none; color:black;}
-        body{background:#E2E2E2; min-height:500px;}
+* {
+	margin: 0;
+	padding: 0;
+}
 
-        #wrap{min-width:1300px; min-height:900px; overflow:auto;}
+ul li, ol li {
+	list-style: none;
+}
 
-        /* 헤더 */
-        header{width:100%; height:150px; background:white; position:fixed; z-index:10;}
-        #top{width:1200px; margin:0 auto; height:150px;left:10%;}
-        #top #login{width:1200px; height:50px;}
-        #top #logo{width:1200px; height:100px;}
-        #top #login nav#user_menu{width:630px; height:40px; float:right; margin-top:3px; margin-right:15px; text-align:center; align-items:center;}
-        #top #login nav#user_menu ul{display:inline-block; padding-top:8px;}
-        #top #login nav#user_menu ul li{float:left; margin-left:15px;}
+a {
+	text-decoration: none;
+	color: black;
+}
 
-        #logo{display: flex; justify-content: space-between; align-items: center;}
-        #logo #logobox{width:200px; height:80px; margin-left:20px; border:1px solid black;}
+body {
+	background: #E2E2E2;
+	min-height: 500px;
+}
 
-        #logo #menubox{width:60px; height:50px; margin-right:20px;}
+#wrap {
+	min-width: 1300px;
+	min-height: 900px;
+	overflow: auto;
+}
 
-        input[id="menuicon"]{display:none;}
-        input[id="menuicon"] + label{display:block; width:60px; height:50px; position:relative; cursor:pointer; color:white;}
-        input[id="menuicon"] + label span{display:block; position:absolute; width:100%; height:5px; border-radius:30px; background:#000; transition:all .35s;}
-        input[id="menuicon"] + label span:nth-child(1){top:0;}
-        input[id="menuicon"] + label span:nth-child(2){top:50%; transform:translateY(-50%);}
-        input[id="menuicon"] + label span:nth-child(3){bottom:0;}
-        
-        input[id="menuicon"]:checked + label{z-index:2;}
-        input[id="menuicon"]:checked + label span{background:#fff;}
-        input[id="menuicon"]:checked + label span:nth-child(1){top:50%; transform:translateY(-50%) rotate(45deg);}
-        input[id="menuicon"]:checked + label span:nth-child(2){opacity:0;}
-        input[id="menuicon"]:checked + label span:nth-child(3){bottom:50%; transform:translateY(50%) rotate(-45deg);}
+/* 헤더 */
+header {
+	width: 100%;
+	height: 150px;
+	background: white;
+	position: fixed;
+	z-index: 10;
+}
 
-        div[class="sidebar"]{width:450px; height:100%; background:#222; position:fixed; top:0; right:-450px; z-index:1; transition:all .35s; text-align:center;}
-        input[id="menuicon"]:checked + label + div{right:0;}
+#top {
+	width: 1200px;
+	margin: 0 auto;
+	height: 150px;
+	left: 10%;
+}
 
-        .accordion{max-width:400px; margin-top:160px;}
-        .accordion .contentBx{position:relative; margin:10px 20px;}
-        .accordion .contentBx .label{position:relative; padding:10px; border-bottom:1px dotted silver; color:white; cursor:pointer;}
-		.accordion .contentBx .label a{color:white;}
-		
-        .accordion .contentBx .label::before{content:'+'; position:absolute; top:50%; right:20px; transform:translateY(-50%); font-size:1.5em;}
+#top #login {
+	width: 1200px;
+	height: 50px;
+}
 
-        .accotrion .contentBx.active .label::before{content: '-';}
+#top #logo {
+	width: 1200px;
+	height: 100px;
+}
 
-        .accordion .contentBx .content{position:relative; background:#fff; height:0; overflow:hidden; transition:0.5s;}
-        
-        .accordion .contentBx .content p{height:50px; border:1px dotted silver; line-height:50px; cursor: pointer; transition:all 0.5s;}
-        .accordion .contentBx .content p:hover{background:silver;}
-        .accordion .contentBx .content p:hover a{color:black;}
-        
-        .accordion .contentBx.active .content{height:150px; padding:10px;}
-        .accordion .contentBx.active #content03{height:250px;}
+#top #login nav#user_menu {
+	width: 630px;
+	height: 40px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 15px;
+	text-align: center;
+	align-items: center;
+}
 
-.clear {clear:both;}
+#top #login nav#user_menu ul {
+	display: inline-block;
+	padding-top: 8px;
+}
+
+#top #login nav#user_menu ul li {
+	float: left;
+	margin-left: 15px;
+}
+
+#logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#logo #logobox {
+	width: 200px;
+	height: 80px;
+	margin-left: 20px;
+	border: 1px solid black;
+}
+
+#logo #menubox {
+	width: 60px;
+	height: 50px;
+	margin-right: 20px;
+}
+
+input[id="menuicon"] {
+	display: none;
+}
+
+input[id="menuicon"]+label {
+	display: block;
+	width: 60px;
+	height: 50px;
+	position: relative;
+	cursor: pointer;
+	color: white;
+}
+
+input[id="menuicon"]+label span {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	border-radius: 30px;
+	background: #000;
+	transition: all .35s;
+}
+
+input[id="menuicon"]+label span:nth-child(1) {
+	top: 0;
+}
+
+input[id="menuicon"]+label span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[id="menuicon"]+label span:nth-child(3) {
+	bottom: 0;
+}
+
+input[id="menuicon"]:checked+label {
+	z-index: 2;
+}
+
+input[id="menuicon"]:checked+label span {
+	background: #fff;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="menuicon"]:checked+label span:nth-child(2) {
+	opacity: 0;
+}
+
+input[id="menuicon"]:checked+label span:nth-child(3) {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+div[class="sidebar"] {
+	width: 450px;
+	height: 100%;
+	background: #222;
+	position: fixed;
+	top: 0;
+	right: -450px;
+	z-index: 1;
+	transition: all .35s;
+	text-align: center;
+}
+
+input[id="menuicon"]:checked+label+div {
+	right: 0;
+}
+
+.accordion {
+	max-width: 400px;
+	margin-top: 160px;
+}
+
+.accordion .contentBx {
+	position: relative;
+	margin: 10px 20px;
+}
+
+.accordion .contentBx .label {
+	position: relative;
+	padding: 10px;
+	border-bottom: 1px dotted silver;
+	color: white;
+	cursor: pointer;
+}
+
+.accordion .contentBx .label a {
+	color: white;
+}
+
+.accordion .contentBx .label::before {
+	content: '+';
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	font-size: 1.5em;
+}
+
+.accotrion .contentBx.active .label::before {
+	content: '-';
+}
+
+.accordion .contentBx .content {
+	position: relative;
+	background: #fff;
+	height: 0;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+.accordion .contentBx .content p {
+	height: 50px;
+	border: 1px dotted silver;
+	line-height: 50px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.accordion .contentBx .content p:hover {
+	background: silver;
+}
+
+.accordion .contentBx .content p:hover a {
+	color: black;
+}
+
+.accordion .contentBx.active .content {
+	height: 150px;
+	padding: 10px;
+}
+
+.accordion .contentBx.active #content03 {
+	height: 250px;
+}
+
+.clear {
+	clear: both;
+}
 
 /* main.jsp */
-	.page{width:100%; height:450px;}
-        
-        #page01{margin-top:150px; position:relative;}
-        #page01 #ticketbox{width:1200px; height:450px; margin:0 auto; display:flex; position:relative;}
-        #page01 #ticketbox #tickettitle{width:450px; height:450px;}
-        #page01 #ticketbox #tickettitle #ticketname{width:450px; height:270px; margin-top:20px; padding-top:70px;}
-        #page01 #ticketbox #tickettitle #ticketname strong{font-size:22px; display:block; width:200px; height:50px; border-bottom:1px solid black; text-align:center;}
-        #page01 #ticketbox #tickettitle #ticketname p{width:450px; height:100px; padding-top:30px; font-size:18px;}
-        #page01 #ticketbox #tickettitle #ticketname a{width:215px; height:60px; border:1px solid black; display:block; text-align:center; font-size:20px; line-height:60px; transition:all 0.8s;}
-        #page01 #ticketbox #tickettitle #ticketname a:hover{background:silver; color:black;}
+.page {
+	width: 100%;
+	height: 450px;
+}
 
-        #page01 #ticketbox #ticketimage{width:750px; height:450px; position:relative; overflow:hidden;}
-        #page01 #ticketbox #ticketimage #imgbox{position:absolute; width:3800px; height:450px; left:0; top:0;}
-        #page01 #ticketbox #ticketimage #imgbox img{width:750px; height:450px;}
-        
-        #page01 #ticketbox #ticketimage #remot{width:30px; height:30px; background:white; position:absolute; top:0; right:0; border-radius:50%; font-size:22px; text-align:center; line-height:30px; z-index:3; cursor:pointer;}
-        #page01 #ticketbox #ticketimage #lbutton{position:absolute; width:30px; height:30px; background:white; bottom:0; left:0; border-radius:50%; font-size:22px; text-align:center; line-height:30px; font-weight:bold; cursor:pointer;}
-        #page01 #ticketbox #ticketimage #rbutton{position:absolute; width:30px; height:30px; background:white; bottom:0; left:5%; border-radius:50%; font-size:22px; text-align:center; line-height:30px; font-weight:bold; cursor:pointer;}
-        #page01 #ticketbox #ticketimage #currentNum{width:90px; height:30px; background:white; position:absolute; top:0; right:0; z-index:2; font-size:18px; line-height:30px; font-weight:bold;}
+#page01 {
+	margin-top: 150px;
+	position: relative;
+}
 
+#page01 #ticketbox {
+	width: 1200px;
+	height: 450px;
+	margin: 0 auto;
+	display: flex;
+	position: relative;
+}
 
-        /* 굿즈 슬라이드 이미지 */
-        #page02{background:white;}
-        #page02 #goodsbox{width:1200px; height:450px; border:1px solid black; margin:0 auto;}
+#page01 #ticketbox #tickettitle {
+	width: 450px;
+	height: 450px;
+}
 
+#page01 #ticketbox #tickettitle #ticketname {
+	width: 450px;
+	height: 270px;
+	margin-top: 20px;
+	padding-top: 70px;
+}
 
+#page01 #ticketbox #tickettitle #ticketname strong {
+	font-size: 22px;
+	display: block;
+	width: 200px;
+	height: 50px;
+	border-bottom: 1px solid black;
+	text-align: center;
+}
 
-        /* 문의 게시판 이동 */
-        #page03{height:300px; position:relative;}
-        #page03 #qnabox{width:1200px; height:300px; margin:0 auto; position:relative;}
+#page01 #ticketbox #tickettitle #ticketname p {
+	width: 450px;
+	height: 100px;
+	padding-top: 30px;
+	font-size: 18px;
+}
 
-        #page03 #qnabox #topqna{width:1200px; height:80px; padding-top:50px;}
-        #page03 #qnabox #topqna #qnaname{width:200px; height:50px; border-bottom:1px solid black; margin-left:120px; text-align:center; line-height:50px; font-size:18px;}
+#page01 #ticketbox #tickettitle #ticketname a {
+	width: 215px;
+	height: 60px;
+	border: 1px solid black;
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	line-height: 60px;
+	transition: all 0.8s;
+}
 
-        #page03 #qnabox #botqna{width:1200px; height:220px; position:relative; z-index:2;}
-        #page03 #qnabox #botqna #qnatext{width:1050px; height:120px; margin-left:120px; font-size:22px;}
-        #page03 #qnabox #botqna a{width:120px; height:120px; border-radius:50%; border:1px solid black; position:absolute; left:80%; top:0; text-align:center; line-height:120px; transition:all 0.8s;}
-        #page03 #qnabox #botqna a:hover{background:silver; color:black;}
+#page01 #ticketbox #tickettitle #ticketname a:hover {
+	background: silver;
+	color: black;
+}
 
+#page01 #ticketbox #ticketimage {
+	width: 750px;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+}
 
+#page01 #ticketbox #ticketimage #imgbox {
+	position: absolute;
+	width: 3800px;
+	height: 450px;
+	left: 0;
+	top: 0;
+}
+
+#page01 #ticketbox #ticketimage #imgbox img {
+	width: 750px;
+	height: 450px;
+}
+
+#page01 #ticketbox #ticketimage #remot {
+	width: 30px;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	z-index: 3;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #lbutton {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 0;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #rbutton {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: white;
+	bottom: 0;
+	left: 5%;
+	border-radius: 50%;
+	font-size: 22px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#page01 #ticketbox #ticketimage #currentNum {
+	width: 90px;
+	height: 30px;
+	background: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+/* 굿즈 슬라이드 이미지 */
+#page02 {
+	background: white;
+}
+
+#page02 #goodsbox {
+	width: 1200px;
+	height: 450px;
+	margin: 0 auto;
+}
+
+/* 문의 게시판 이동 */
+#page03 {
+	height: 300px;
+	position: relative;
+}
+
+#page03 #qnabox {
+	width: 1200px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#page03 #qnabox #topqna {
+	width: 1200px;
+	height: 80px;
+	padding-top: 50px;
+}
+
+#page03 #qnabox #topqna #qnaname {
+	width: 200px;
+	height: 50px;
+	border-bottom: 1px solid black;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 18px;
+}
+
+#page03 #qnabox #botqna {
+	width: 1200px;
+	height: 220px;
+	position: relative;
+	z-index: 2;
+}
+
+#page03 #qnabox #botqna #qnatext {
+	width: 1050px;
+	height: 120px;
+	margin-left: 120px;
+	font-size: 22px;
+}
+
+#page03 #qnabox #botqna a {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 1px solid black;
+	position: absolute;
+	left: 80%;
+	top: 0;
+	text-align: center;
+	line-height: 120px;
+	transition: all 0.8s;
+}
+
+#page03 #qnabox #botqna a:hover {
+	background: silver;
+	color: black;
+}
 
 /* footer */
-footer{width:100%; height:160px; background:black;}
-        footer #fotbox{width:650px; height:160px; margin:0 auto;}
-        footer #fotbox #ftext{width:650px; height:100px;}
-        footer #fotbox #ftext p{color:white; letter-spacing:1px; width:520px; height:75px; display:block; margin:0 auto; padding-top:5px;}
-        footer #fotbox #fimg{width:450px; height:60px; margin:0 auto;}
-        footer #fotbox #fimg ul{display:inline-block;}
-        footer #fotbox #fimg ul li{width:45px; height:45px; float:left; margin-left:50px;}
-        
-article{position:relative; margin-top:150px;}
+footer {
+	width: 100%;
+	height: 160px;
+	background: black;
+}
+
+footer #fotbox {
+	width: 650px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+footer #fotbox #ftext {
+	width: 650px;
+	height: 100px;
+}
+
+footer #fotbox #ftext p {
+	color: white;
+	letter-spacing: 1px;
+	width: 520px;
+	height: 75px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+footer #fotbox #fimg {
+	width: 450px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+footer #fotbox #fimg ul {
+	display: inline-block;
+}
+
+footer #fotbox #fimg ul li {
+	width: 45px;
+	height: 45px;
+	float: left;
+	margin-left: 50px;
+}
