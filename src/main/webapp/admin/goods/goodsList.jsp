@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
-<article>
-  	<h1>굿즈 리스트</h1>
+<article id="admin_goods">
+  	<h2>굿즈 리스트</h2>
+  	<br>
     <form name="frm" method="post">
-    	<table>
+    	<table id="search_table">
 	    	<tr>
 	    		<td><a href="#" onClick="go_totalGoodsList();">전체보기</a></td>
 	    		<td><a href="#" onClick="go_goodsCategory('1');">문구</a></td>
@@ -16,42 +16,43 @@
 	    	</tr>
       		<tr>
         		<td colspan="5">
-          			상품명<input type="text" name="key" value="${key}">
+          			<input type="text" name="key" value="${key}" size="25">
           			<input type="button" value="검색" onClick="go_searchGoodsList();">
         		</td>
         		<td>
-        			<a href="#" onClick="go_goodsInsertForm();">상품등록</a>
+        			<!-- <a href="#" onClick="go_goodsInsertForm();">상품등록</a> -->
+        			<input type="button" value="상품등록" onClick="go_goodsInsertForm();">
         		</td>
       		</tr>
       	</table>
   	</form>
   	<c:choose>
   		<c:when test="${empty goodsList}">
-  			<table>
+  			<table id="goods_table">
   				<tr>
   					<td>'${key}'에 대한 검색 결과가 없습니다.</td>
   				</tr>
   			</table>
   		</c:when>
   		<c:otherwise>
-  			<table>
+  			<table id="goods_table">
 		  		<tr>
-		  			<th>번호</th>
-		  			<th>분류</th>
+		  			<th width="80">번호</th>
+		  			<th width="100">분류</th>
 		  			<th colspan="2">상품명</th>
-		      		<th>등록일</th>
-		      		<th>판매유무</th>
+		      		<th width="100">등록일</th>
+		      		<th width="100">판매유무</th>
 		      	</tr>
 		    	<c:forEach items="${goodsList}" var="gvo">
 		      		<tr>
 		        		<td align="center">${gvo.gseq}</td>
 		        		<td>${goodsKindList[gvo.kind]}</td>
-		        		<td>
+		        		<td width="150">
 		          			<a href="#" onClick="go_goodsDetail('${gvo.gseq}');">
 		          				<img src="goods/goods_images/${gvo.image}" width="100px">
 		          			</a>
 		        		</td>
-		        		<td style="text-align:left; padding-left:50px;">
+		        		<td>
 		          			<a href="#" onClick="go_goodsDetail('${gvo.gseq}');">${gvo.name}</a>
 		        		</td>
 		        		<td><fmt:formatDate value="${gvo.indate}"/></td>
@@ -71,4 +72,4 @@
     	<jsp:param value="ticket.do?command=adminGoodsList" name="command"/>
   	</jsp:include>
 </article>
-<%@ include file="/footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

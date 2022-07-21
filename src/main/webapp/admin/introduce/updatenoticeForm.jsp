@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
 <div id="wrap" align="center">
 <h1>게시글 수정</h1>
 	<form method="post" name="frm" action="ticket.do">
@@ -34,4 +33,4 @@
 </div>
 
 
-<%@ include file="../../footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

@@ -35,14 +35,14 @@
                                 <c:when test="${empty loginUser}">
                                     <li><a href="#" onClick="go_login();">MyPage</a></li>
                                     <li><a href="ticket.do?command=termsAndConditions">회원가입</a></li>
-                                    <!-- MyPage는 추후 이미지로 변경 -->
                                 </c:when>
                                 <c:otherwise>
                                     <li>${loginUser.name}(${loginUser.id})</li>
                                     <li><a href="ticket.do?command=logout">LOGOUT</a></li>
                                     <li><a href="ticket.do?command=mypage">MyPage</a></li>
+                                    <li><a href="ticket.do?command=goodsCartList">Cart</a></li>
                                     <c:if test="${loginUser.admin=='1'}">	
-                                        <li><a href="ticket.do?command=adminMain">Admin</a></li>
+                                        <li><a href="ticket.do?command=adminNotice">Admin</a></li>
                                     </c:if>
                                 </c:otherwise>
                             </c:choose>

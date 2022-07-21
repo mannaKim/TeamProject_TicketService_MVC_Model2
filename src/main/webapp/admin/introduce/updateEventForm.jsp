@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
 
 <div id="wrap" align="center">
 	<form method="post" enctype="multipart/form-data" action="ticket.do?command=update">
@@ -37,4 +36,4 @@
 </div>
 
 
-<%@ include file="../../footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

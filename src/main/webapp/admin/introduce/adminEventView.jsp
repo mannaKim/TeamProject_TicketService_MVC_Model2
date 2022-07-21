@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
 <div id="wrap" align="center">
 <form name="frm">
 	<table border="1">
@@ -28,4 +27,4 @@
 	<br><br>
 </div>
 
-<%@ include file="../../footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

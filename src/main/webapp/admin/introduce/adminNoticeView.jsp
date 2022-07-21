@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
 	<div id="wrap" align="center">
     	<table border="1">
     	<tr>
@@ -25,4 +24,4 @@
     	<input type="button" value="삭제하기" onClick="checkPass('${notice.ntnum}', 'delete');">    
     </div>
 
-<%@ include file="../../footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

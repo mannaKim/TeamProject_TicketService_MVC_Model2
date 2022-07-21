@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
-<article>
-  	<h1>굿즈 등록</h1>
+<article id="admin_goods">
+  	<h2>굿즈 등록</h2>
     <form name="frm" method="post" enctype="multipart/form-data">
-    	<table>
+    	<table id="goods_table2">
 			<tr>
-				<th>상품분류</th>
+				<th width="150px;">상품분류</th>
 				<td colspan="5">
 					<select name="kind">
 						<option value="0">선택</option>
@@ -22,16 +21,16 @@
 			<tr>
 				<th>상품명</th>
 				<td colspan="5">
-					<input type="text" name="name" maxlength="100">
+					<input type="text" name="name" maxlength="100" size="70">
 				</td>
 			</tr>
 			<tr>
 				<th>원가[A]</th>
-				<td><input type="text" name="price1" onkeyup="calculatePrice();"></td>
-				<th>판매가[B]</th>
-				<td><input type="text" name="price2" onkeyup="calculatePrice();"></td>
-				<th>[B-A]</th>
-				<td><input type="text" name="price3"></td>
+				<td><input type="text" name="price1" onkeyup="calculatePrice();" size="10"></td>
+				<th style="border-left:1px dotted gray;" width="150px">판매가[B]</th>
+				<td><input type="text" name="price2" onkeyup="calculatePrice();" size="10"></td>
+				<th style="border-left:1px dotted gray;" width="150px">[B-A]</th>
+				<td><input type="text" name="price3" size="10"></td>
 			</tr>
 			<tr>
 				<th>제품 설명</th>
@@ -41,17 +40,21 @@
 			</tr> 
 			<tr>
 				<th>상품 대표이미지</th>
-				<td colspan="2">
+				<td colspan="5">
 					<input type="file" name="image">
 				</td>
+			</tr>
+			<tr>
 				<th>상품 상세이미지</th>
-				<td colspan="2">
+				<td colspan="5">
 					<input type="file" name="detail_img">
 				</td>
 			</tr>	
     	</table>
-    	<input type="button" value="상품등록" onClick="go_goodsInsert();">
-    	<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
+    	<div class="goods_buttonBox">
+  	  		<input type="button" value="상품등록" onClick="go_goodsInsert();">
+    		<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
+  		</div>
   	</form>
 </article>
-<%@ include file="/footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

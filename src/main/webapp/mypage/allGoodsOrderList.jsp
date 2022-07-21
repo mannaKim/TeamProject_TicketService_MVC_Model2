@@ -43,14 +43,6 @@
 										test="${govo.result=='0'}">완료</c:if></td>
 							</tr>
 						</c:forEach>
-						<tr>
-							<th> </th>
-							<th> </th>
-							<th colspan="2"> </th>
-							<th> </th>
-							<th> </th>
-							<th> </th>
-						<tr>
 					</table>
 					<br>
 				</div>

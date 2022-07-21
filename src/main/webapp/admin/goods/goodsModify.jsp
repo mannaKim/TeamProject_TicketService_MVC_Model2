@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
-<%@ include file="../admin_image_menu.jsp" %>
-<article>
-  	<h1>굿즈 등록</h1>
+<article id="admin_goods">
+  	<h2>굿즈 수정</h2>
     <form name="frm" method="post" enctype="multipart/form-data">
     	<input type="hidden" name="gseq" value="${gvo.gseq}">
     	<input type="hidden" name="oldImage" value="${gvo.image}">
     	<input type="hidden" name="oldDetail_img" value="${gvo.detail_img}">
-    	<table>
+    	<table id="goods_table2">
 			<tr>
-				<th>상품분류</th>
+				<th width="150px;">상품분류</th>
 				<td colspan="5">
 					<select name="kind">
 						<c:forEach items="${goodsKindList}" var="goodsKind" varStatus="status">
@@ -33,16 +32,16 @@
 			<tr>
 				<th>상품명</th>
 				<td colspan="5">
-					<input type="text" name="name" maxlength="100" value="${gvo.name}">
+					<input type="text" name="name" maxlength="100" value="${gvo.name}" size="70">
 				</td>
 			</tr>
 			<tr>
 				<th>원가[A]</th>
-				<td><input type="text" name="price1" onkeyup="calculatePrice();" value="${gvo.price1}"></td>
-				<th>판매가[B]</th>
-				<td><input type="text" name="price2" onkeyup="calculatePrice();" value="${gvo.price2}"></td>
-				<th>[B-A]</th>
-				<td><input type="text" name="price3" value="${gvo.price3}"></td>
+				<td><input type="text" name="price1" onkeyup="calculatePrice();" value="${gvo.price1}" size="10"></td>
+				<th style="border-left:1px dotted gray;" width="150px">판매가[B]</th>
+				<td><input type="text" name="price2" onkeyup="calculatePrice();" value="${gvo.price2}" size="10"></td>
+				<th style="border-left:1px dotted gray;" width="150px">[B-A]</th>
+				<td><input type="text" name="price3" value="${gvo.price3}" size="10"></td>
 			</tr>
 			<tr>
 				<th>베스트상품 표기</th>
@@ -58,7 +57,7 @@
             			</c:otherwise>
           			</c:choose>
 				</td>
-				<th>판매유무</th>
+				<th style="border-left:1px dotted gray;" width="150px">판매유무</th>
         		<td>
           			<c:choose>
             			<c:when test='${gvo.useyn=="y"}'>
@@ -71,6 +70,7 @@
             			</c:otherwise>
           			</c:choose>
         		</td>
+        		<td></td><td></td>
 			</tr>
 			<tr>
 				<th>제품 설명</th>
@@ -83,7 +83,7 @@
 			<tr>
 				<th>상품 대표이미지</th>
 				<td colspan="5">
-					<img src="goods/goods_images/${gvo.image}" width="200">
+					<img src="goods/goods_images/${gvo.image}" width="400">
 					<br>
 					<input type="file" name="image">
 				</td>
@@ -91,14 +91,16 @@
 			<tr>
 				<th>상품 상세이미지</th>
 				<td colspan="5">
-					<img src="goods/goods_images/${gvo.detail_img}" width="200">
+					<img src="goods/goods_images/${gvo.detail_img}" width="400">
 					<br>
 					<input type="file" name="detail_img">
 				</td>
 			</tr>	
     	</table>
-    	<input type="button" value="상품수정" onClick="go_goodsModify();">
-    	<input type="button" value="수정취소" onClick="go_goodsDetail('${gvo.gseq}');">
+    	<div class="goods_buttonBox">
+  	  		<input type="button" value="상품수정" onClick="go_goodsModify();">
+    		<input type="button" value="수정취소" onClick="go_goodsDetail('${gvo.gseq}');">
+  		</div>
   	</form>
 </article>
-<%@ include file="/footer.jsp" %>
+<%@ include file="../admin_footer.jsp" %>

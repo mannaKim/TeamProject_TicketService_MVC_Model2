@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+*{margin:0; padding:0;}
+ul li, ol li{list-style: none;}
+a{text-decoration: none; color:black;}
+/* 관리자 페이지 헤더*/
+#admin_wrap{width:1000px; min-height:800px; margin:20px auto;}
+header#admin_header{width:1000px; height:200px; border-bottom:1px dotted gray;}
+#admin_topMenu{width:900px; height:100px; margin:0 auto; display:flex; justify-content:space-between;}
+#admin_topMenu #admin_logo{width:200px; height:100px;}
+#admin_topMenu #admin_topicon{width:650px; height:100px;}
+#admin_topicon ul{display:inline-block; padding-top:20px;}
+#admin_topicon ul li{float:left; margin-left:20px;}
+#admin_topicon ul li:first-child{margin-left:0;}
+#admin_topicon ul li.admin_li:hover{border-bottom:1px solid black;}
+
+#admin_subMenu{width:900px; height:65px; margin:35px auto; }
+#admin_subicon{width:730px; height:60px; margin:0 auto;}
+#admin_subicon ul{display:inline-block; display:flex; justify-content:space-between; padding-top:20px;}
+#admin_subicon ul li{float:left;}
+#admin_subicon ul li:hover{border-bottom:1px solid black;}
+
+
+/* 관리자 권한부여 페이지 */
+article#admin_user{width:1000px; min-height:600px; margin:20px auto;}
+div#adminCheck_paging{width:350px; height:30px; margin:10px auto;}
+article#admin_user table{border-top:2px solid black; border-bottom:1px solid black; margin-top:15px;}
+article#admin_user table td{border-top:1px dotted gray;}
+
+
+/* 관리자 공지사항 페이지 */
+article#admin_notice{width:1000px; min-height:600px; margin:20px auto;}
+article#admin_notice table{margin:0 auto;}
+article#admin_notice table#notice_table{border-top:2px solid black; border-bottom:1px solid black; margin-top:15px;}
+article#admin_notice table#notice_table td{border-top:1px dotted gray; text-align:center;}
+form#adminNotice_serbox{width:710px; height:40px; margin:0 auto;}
+form#adminNotice_serbox table{float:right; line-height:40px;}
+
+
+/* 관리자 이벤트 페이지 */
+article#admin_event{width:1000px; min-height:600px; margin:20px auto;}
+article#admin_event table{border-top:2px solid black; border-bottom:1px solid black; margin-top:15px;}
+article#admin_event table td{border-top:1px dotted gray;}
+#adminEvent_btn{width:1000px; height:35px; border:1px solid black;}

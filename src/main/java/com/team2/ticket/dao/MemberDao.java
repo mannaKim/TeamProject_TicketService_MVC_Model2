@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.team2.ticket.dto.AddressVO;
 import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class MemberDao {
 	private MemberDao() {}
@@ -160,12 +161,16 @@ public class MemberDao {
 		} finally { Dbman.close(con, pstmt, rs); }
 	}
 	
-	public ArrayList<MemberVO> selectMember() {
+	public ArrayList<MemberVO> selectMember(Paging paging) {
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
-		String sql = "select * from member";
+		String sql = "select * from ( select * from( select rownum as rn, p.* from ((select * from member) p)) where rn>=?) where rn<=?";
+		//String sql = "select * from promember";
+		
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MemberVO mvo = new MemberVO();
@@ -179,9 +184,11 @@ public class MemberDao {
 				mvo.setPhone(rs.getString("phone"));
 				mvo.setPwd(rs.getString("pwd"));
 				mvo.setZip_num(rs.getString("zip_num"));
+				
 				list.add(mvo);
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			Dbman.close(con, pstmt, rs);
@@ -223,4 +230,27 @@ public class MemberDao {
 		}
 		return orderNum;
 	}
+	
+	public int getAllCount() {
+		int count = 0;
+				
+				String sql = "select count(*) as cnt from promember";
+				con = Dbman.getConnection();
+				try {
+					pstmt = con.prepareStatement(sql);
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						count = rs.getInt("cnt");
+					}
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					Dbman.close(con, pstmt, rs);
+				}
+				
+				return count;
+			}
 }
