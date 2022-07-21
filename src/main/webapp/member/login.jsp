@@ -2,7 +2,7 @@
 <%@ include file="login_header.jsp" %>
 <%@ include file="../header.jsp" %>
 
-<article>
+<article class="underHeader">
 <div width="500px" height="500px"></div>
 	<form method="post" name="loginFrm" action="ticket.do">
 		<input type="hidden" name="command" value="login">

@@ -203,4 +203,24 @@ public class MemberDao {
 			Dbman.close(con, pstmt, rs);
 		}
 	}
+
+	public int getOrderNum(String id) {
+		int orderNum = 0;
+		String sql = "select count(*) as cnt"
+				+ " from goods_order_view"
+				+ " where id=?"
+				+ " and result='1'";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) orderNum = rs.getInt("cnt");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return orderNum;
+	}
 }

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-article {
+article.underHeader{
 	position: relative;
 	margin-top: 150px;
 }
@@ -235,7 +235,7 @@ div#goods_remot ul li {
 	color: black;
 }
 
-.goods a:hover {
+.goodsBox a:hover {
 	text-decoration: underline;
 	color: black;
 }
@@ -321,36 +321,36 @@ div#goods_remot ul li {
 	width: 250px;
 	border: none;
 	border-radius: 5px;
-	background-color: #6aafe6;
+	background-color: #467575;
 	font-size: 18px;
 	font-weight: bold;
 	color: white;
-	margin-right: 20px;
 	cursor: pointer;
 }
 
 .goodsButton2 {
 	height: 50px;
 	width: 250px;
-	border: 2px solid #6aafe6;
+	border: 2px solid #467575;
 	border-radius: 5px;
 	background-color: white;
 	font-size: 18px;
 	font-weight: bold;
-	color: #6aafe6;
+	color: #467575;
 	cursor: pointer;
+	margin-right: 20px;
 }
 
 .goodsButton1:hover {
 	border: none;
-	background-color: #4f81aa;
+	background-color: #223939;
 	color: white;
 }
 
 .goodsButton2:hover {
-	border: 2px solid #4f81aa;
+	border: 2px solid #223939;
 	background-color: white;
-	color: #4f81aa;
+	color: #223939;
 }
 
 /* ------------goodsCategory------------ */
@@ -475,7 +475,6 @@ div#goods_remot ul li {
 	background-color: #9a9a9a;
 	font-size: 15px;
 	color: white;
-	margin-bottom: 10px;
 	cursor: pointer;
 }
 
@@ -487,6 +486,7 @@ div#goods_remot ul li {
 
 .goodsCart .goodsButton3 {
 	float: right;
+	margin-bottom: 20px;
 }
 
 .goodsCart h1 {

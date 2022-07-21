@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<article>
+<article class="underHeader">
 	<!-- 굿즈 검색창 -->
 	<br>
 	<br>
@@ -43,9 +43,9 @@
 					</tr>
 				</table>
 				<div class="goodsButton">
-					<input type="button" value="장바구니" class="goodsButton1"
+					<input type="button" value="장바구니" class="goodsButton2"
 						onClick="go_Gcart();"> <input type="button" value="즉시구매"
-						class="goodsButton2" onClick="go_Gorder();">
+						class="goodsButton1" onClick="go_Gorder();">
 				</div>
 			</div>
 		</form>

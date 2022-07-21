@@ -14,16 +14,12 @@ public class MypageAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "mypage/mypage.jsp";
+		String url = "ticket.do?command=goodsCartList";
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo==null) {
 			url = "ticket.do?command=loginForm";
-		}else {
-			//최근 예매내역(3개월 동안의 구매내역 --> 뷰생성)
-			//최근 구매내역(3개월 동안의 구매내역 --> 뷰생성)
-			//회원 등급 정보? --> 최근 삼개월간 얼마 이상 구매시 무슨 등급
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);

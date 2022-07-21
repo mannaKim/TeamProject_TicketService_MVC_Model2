@@ -2,6 +2,7 @@
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_image_menu.jsp" %>
 <article>
+	<br><br>
 	<form method="post" name="frm">
 		<fieldset>
 			<label>아이디</label><input type="text" name="id" size="12" value="${loginUser.id}" readonly><br>
@@ -21,5 +22,6 @@
       		<input type="reset" value="취소">
     	</div>
   	</form>
+  	<br><br>
 </article>
 <%@ include file="../footer.jsp" %>

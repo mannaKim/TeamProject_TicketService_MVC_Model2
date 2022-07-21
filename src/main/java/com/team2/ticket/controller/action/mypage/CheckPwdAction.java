@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.dao.MemberDao;
@@ -25,6 +24,8 @@ public class CheckPwdAction implements Action {
 		if(mvo.getPwd()==null) {
 			request.setAttribute("message", "비밀번호 오류. 관리자에게 문의하세요.");
 		} else if(pwd.equals(mvo.getPwd())) {
+			int orderNum = mdao.getOrderNum(mvo.getId());
+			request.setAttribute("orderNum", orderNum);
 			url = "ticket.do?command="+request.getParameter("purpose");
 		} else {
 			request.setAttribute("message", "비밀번호가 틀렸습니다.");

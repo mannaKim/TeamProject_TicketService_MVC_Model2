@@ -19,6 +19,7 @@
 				</c:when>
 				<c:otherwise>
 					<div class="goodsCart">
+						<br><br>
 						<h1>장바구니</h1>
 						<input type="button" value="선택상품 삭제" class="goodsButton3"
 							onClick="go_Gcart_delete();">
@@ -61,9 +62,9 @@
 							</tr>
 						</table>
 						<div class="goodsCartButton">
-							<input type="button" value="계속 쇼핑하기" class="goodsButton1"
+							<input type="button" value="계속 쇼핑하기" class="goodsButton2"
 								onClick="location.href='ticket.do?command=goodsMain'">
-							<input type="button" value="선택한 상품 주문하기" class="goodsButton2"
+							<input type="button" value="선택한 상품 주문하기" class="goodsButton1"
 								onClick="go_Gorder_insert();">
 						</div>
 					</div>
