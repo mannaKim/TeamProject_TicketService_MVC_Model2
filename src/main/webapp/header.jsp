@@ -51,7 +51,7 @@
                 </div>
                 <div id="logo">
                     <div id="logobox">
-                        <a href="ticket.do?command=index"><img src=""/>로고</a>
+                        <a href="ticket.do?command=index"><img src="ticket_image/logo.png"/></a>
                     </div>
                     <div id="menubox">
                         <input type="checkbox" id="menuicon">

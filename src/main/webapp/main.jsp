@@ -7,8 +7,8 @@
                     <div id="tickettitle">
                         <div id="ticketname">
                             <strong>전시예약</strong>
-                            <p>전시예약하러가기! 전시예약하러가기!</p>
-                            <a href="#">예매하러가기</a>
+                            <p>전시예약하러가기!전시예약하러가기!</p>
+                            <a href="ticket.do?command=ticketingList">예매하러가기</a>
                         </div>
                     </div>
                     <div id="ticketimage">
@@ -64,7 +64,7 @@
                     </div>
                     <div id="botqna">
                         <div id="qnatext">문의하기 내용입니다! 문의하기 내용입니다!<br>문의하기 내용입니다!</div>
-                        <a href="" >이동하기</a>
+                        <a href="ticket.do?command=qna">이동하기</a>
                     </div>
                 </div>
             </div>

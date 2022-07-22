@@ -21,7 +21,7 @@ body {
 
 #wrap {
 	min-width: 1300px;
-	min-height: 900px;
+	min-height: 500px;
 	overflow: auto;
 }
 
@@ -79,9 +79,14 @@ header {
 
 #logo #logobox {
 	width: 200px;
-	height: 80px;
+	height: 100px;
 	margin-left: 20px;
-	border: 1px solid black;
+}
+
+#logo #logobox img {
+	width: 200px;
+	height: 100px;
+	object-fit: cover;
 }
 
 #logo #menubox {
@@ -317,6 +322,7 @@ input[id="menuicon"]:checked+label+div {
 #page01 #ticketbox #ticketimage #imgbox img {
 	width: 750px;
 	height: 450px;
+	object-fit: contain;
 }
 
 #page01 #ticketbox #ticketimage #remot {
