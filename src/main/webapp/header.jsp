@@ -14,15 +14,14 @@
 	<link href="css/calendar.css" rel="stylesheet">
 	<link href="css/mypage.css" rel="stylesheet">
 	<script src="script/jquery-3.6.0.js"></script>
-	<script src="member/member.js"></script>
-	<script src="mypage/mypage.js"></script>
-	<script src="goods/goods.js"></script>
-	<script src="goods/banner.js"></script>
-	<script src="introduce/intro.js"></script>
-	<script src="ticketing/ticketing.js"></script>
-	<script src="qna/qna.js"></script>
 	<script src="script/main.js"></script>
-	
+	<script src="script/member.js"></script>
+	<script src="script/mypage.js"></script>
+	<script src="script/goods.js"></script>
+	<script src="script/banner.js"></script>
+	<script src="script/intro.js"></script>
+	<script src="script/ticketing.js"></script>
+	<script src="script/qna.js"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -72,10 +71,8 @@
                                 </div>
                                 <div class="contentBx">
                                     <div class="label">전시/공연 예약</div>
-                                    <div class="content">
-                                    <p><a href="ticket.do?command=ticketingList">전시/공연</a></p>
-                                    <!-- <p>3</p>
-                                    <p>3</p> -->
+                                    <div id="content02" class="content">
+                                    <p><a href="ticket.do?command=ticketingList">전시 둘러보기</a></p>   
                                     </div>
                                 </div>
                                 <div class="contentBx">
@@ -90,6 +87,10 @@
                                 </div>
                                 <div class="contentBx">
                                     <div class="label"><a href="ticket.do?command=qna">문의게시판</a></div>
+                                     <div id="content04" class="content">
+	                                    <p><a href="ticket.do?command=qnaWriteForm">1:1문의하기</a></p>
+	                                    <p><a href="ticket.do?command=qnafnq&kind=1">F &amp; Q </a></p>
+                                    </div>
                                 </div>
                             </div>
                             <script>

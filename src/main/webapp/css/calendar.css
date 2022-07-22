@@ -1,80 +1,81 @@
 @charset "UTF-8";
 
 /* .mainBox { 
-	display: flex;
-	align-items: center;
-	justify-content: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .contentBox{
-	text-align: center;
-	display: inline-block;
-	width: 978px; 
-	background-color: #fff;
-	margin-top: 50px;
-	margin-bottom: 10px;
+   text-align: center;
+   display: inline-block;
+   width: 978px; 
+   background-color: #fff;
+   margin-top: 50px;
+   margin-bottom: 10px;
 } */
 
 
 #calendar {
-	margin-bottom:50px; 
-	padding: 10px; 
-	width:250px; 
-	color: #505050; 
-	border: 1px solid #dcdcdc;}
+   margin-bottom:50px; 
+   padding: 10px; 
+   width:250px; 
+   color: black; 
+   border: 1px solid #dcdcdc;
+   cursor:pointer   
+}
 #calendar td {
-	padding:10px;	
+   padding:10px;   
 }
 
 #selectedDate{
-	width: 300px;
-	height: 25px;
-	padding: 10px;
-	color: #505050;
-	font-size:17px;
-	background-color: #fff;	
-	border: 1px solid #dcdcdc;	
+   width: 300px;
+   height: 25px;
+   padding: 10px;
+   color: black;
+   font-size:18px;
+   background-color: #fff;
+   cursor:pointer;
 }
 
-/*input type 
-
-input[type="text"]{
-	width: 400px;
-	height: 25px;
-	padding: 7px;
-	
-	font-size:25px;
-	background-color: #fff;
-	
-	border: 1px solid #dcdcdc;
-} */
-
 #reservation_time td.top{
-	padding-bottom: 10px;
-	font-weight:700; font-size:25px;
+   padding-bottom: 10px;
+   font-weight:700; font-size:25px;
 }
 
 
 #btn_submit{
-	margin: 0;
-	padding: 20px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 20px; color:#ffffff;
-	background-color: #d3d3d3;
-	font-weight:700;
-	border: none;
-	display: inline-block;
-	width: 300px;
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:white;
+   background-color: black;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
 }
-#btn_submit:hover{
-	margin: 0;
-	padding: 20px;
-	text-align: center;
-	text-decoration: none;
-	font-size: 20px; color:#000000;
-	background-color: #ffffff;
-	font-weight:700;
-	border: 1px solid #000000;
-	display: inline-block;
-	width: 300px;
+#btn_submit:active{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:black;
+   background-color: white;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
 }
+/* #btn_submit:hover{
+   margin: 0;
+   padding: 20px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 25px; color:black;
+   background-color: white;
+   font-weight:700;
+   border: 1px solid black;
+   display: inline-block;
+   width: 300px;
+} */

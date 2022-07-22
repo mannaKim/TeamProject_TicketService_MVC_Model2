@@ -9,9 +9,11 @@
 	<title>admin_header</title>
 	<link href="admin/css/admin.css" rel="stylesheet">
 	<link href="admin/css/adminGoods.css" rel="stylesheet">
-	<script src="./member/member.js"></script>
+	<link href="admin/css/adminqna.css" rel="stylesheet">
+	<script src="./script/member.js"></script>
 	<script src="admin/script/admin.js"></script>
 	<script src="admin/script/adminGoods.js"></script>
+	<script src="admin/script/adminqna.js"></script>
 </head>
 <body>
 	<div id="admin_wrap">
@@ -44,11 +46,12 @@
 		<div id="admin_subMenu">
 			<div id="admin_subicon">
 			  <ul>
-			  	<li><a href="ticket.do?command=adminNotice">공지사항</a></li>
+			  	<li><a href="ticket.do?command=adminNotice&page=1&key=">공지사항</a></li>
 			    <li><a href="ticket.do?command=adminGoodsList&page=1&key=">굿즈관리</a></li>
 			    <li><a href="ticket.do?command=adminGoodsOrderList&page=1">굿즈주문관리</a></li>
-			    <li><a href="ticket.do?command=admin_ticketList">전시예약관리</a></li>
-			    <li><a href="ticket.do?command=adminEvent">이벤트관리</a></li>
+			    <li><a href="ticket.do?command=admin_ticketList&page=1&key=">전시관리</a></li>
+			    <li><a href="ticket.do?command=adminticketOrderlistForm&page=1&key=">전시예약관리</a></li>
+			    <li><a href="ticket.do?command=adminEvent&page=1">이벤트관리</a></li>
 			    <li><a href="ticket.do?command=aqna">Q&amp;A관리</a></li>
 			  </ul>
 			 </div>

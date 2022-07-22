@@ -1,77 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<article>
-<h1>Ticketing</h1>
+<article class="article">
 <form method="post" name="formm" action="ticket.do">
-<!-- <input type="hidden" name="command" value="ticketingCart"> -->
-<h1>${ticket_productVO.name}</h1>
-<fieldset>
-	<legend>
-		<fmt:formatDate pattern = "yyyy/MM/dd" value="${sdate}" type="date" /> ~ 
-    	<fmt:formatDate pattern = "yyyy/MM/dd" value="${edate}" type="date" />
-	</legend>
-	<span style="float: left; margin-right:20px;">
-		<img  src="ticket_image/${ticket_productVO.image}" 
-			width="450" style="border-radius:20px;"/>
-	</span>              
-	<label>등　급 : </label> 만 ${ticket_productVO.age} 세 이상 <br>
-	<label>가　격</label><br>
-		<table width="300" height="80" style="background:#949494;">
-			<tr>
-				<td>
-					일　반 : ${ticket_productVO.price1} 원 <br>
-					어린이 : ${ticket_productVO.price2} 원 
-				</td>
-			</tr>
-			
-		</table><br><br>
-	<label>장　소 : </label> ${ticket_productVO.place} <br><br>
-	
-<!-- 카카오 지도 시작 -->
-<div>
-<div id="map" style="width:350px;height:350px;"></div>    
-	<p>${ticket_productVO.place}</p>
-	<script type="text/javascript" 
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efd85644b092b313e70b0ae83c9f7c58">
-	</script>
-	<script>
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		mapOption = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		level: 3 // 지도의 확대 레벨
-    };
-	// 지도를 생성합니다    
-	var map = new kakao.maps.Map(mapContainer, mapOption);
-	// 주소-좌표 변환 객체를 생성합니다
-	var geocoder = new kakao.maps.services.Geocoder();
-	// 주소로 좌표를 검색합니다
-	geocoder.addressSearch('솔샘로 18길', function(result, status) {
-    // 정상적으로 검색이 완료됐으면 
-		if (status === kakao.maps.services.Status.OK) {
-			var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			// 결과값으로 받은 위치를 마커로 표시합니다
-			var marker = new kakao.maps.Marker({
-				map: map,
-				position: coords
-		});
-	
-		// 인포윈도우로 장소에 대한 설명을 표시합니다
-		var infowindow = new kakao.maps.InfoWindow({
-			content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-		});
-		infowindow.open(map, marker);
-	
-		// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		map.setCenter(coords);
-	    } 
-	});    
-</script>
-</div>
-</fieldset>
-<br>
-<!-- 달력 -->
 <script type="text/javascript">
-	//---------------- calendar --------------------------
+//---------------- calendar --------------------------
 	//date객체 획득. 가변
 	var today = new Date();
 	//today 보조. 고정
@@ -250,65 +182,158 @@
 	function selectedTimeAndTotalPriceInit(){
 		resDateForm = document.getElementById("selectedDate");
 		resDateForm.value = "";
-		
 	}
-	
 </script>
-<div>
-<div>
-<table id="reservation_time">
-	<tr>
-		<td class="top" align="center" 
-			style="color: #505050; font-size:40px; font-weight:700">날짜선택</td>
-	</tr>
-	<tr>
-		<td>
-			<table id="calendar" width="250" height="250">
-				<tr>
-					<td align="center"><label onclick="prevCalendar()"> ◀
-					</label></td>
-					<td colspan="5" align="center" id="calendarTitle">yyyy년 m월</td>
-					<td align="center"><label onclick="nextCalendar()"> ▶
-					</label></td>
-				</tr>
-				<tr>
-					<td align="center"><font color="red">일</td>
-					<td align="center">월</td>
-					<td align="center">화</td>
-					<td align="center">수</td>
-					<td align="center">목</td>
-					<td align="center">금</td>
-					<td align="center"><font color="blue">토</td>
-				</tr>
-			</table>
-		</td>
-		<td>
-			<table id="timeTable">
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td class="top" align="center" colspan="2"
-			style="color: #505050; font-size:40px; font-weight:700">예약일시</td>
-	</tr>
-	<tr>
-		<td class="content" colspan="2" align="left">
-		<input id="selectedDate" style="border:none; width:280px; text-align:center;" 
-			name="selectedDate" value="" readonly="readonly" >
-		</td>
-	</tr>
-	<tr>
-		<td align="left" colspan="2">
+<div id="t_body">
+<div id="t_mainbox">
+	<div id="t_title">
+		<div id="t_title1">${ticket_productVO.name}</div>
+		<div id="t_title2">
+			<fmt:formatDate pattern = "yyyy/MM/dd" value="${sdate}" type="date" /> ~ 
+	    	<fmt:formatDate pattern = "yyyy/MM/dd" value="${edate}" type="date" /> 
+	    	｜ ${ticket_productVO.place}&nbsp;<img  src="ticket_image/ping.png" width="13">
+		</div>
+	</div>
+	<div>
+		<div id="t_bodyleft">
+			<div id="t_bodyleft_i"><img src="ticket_image/${ticket_productVO.image}" width="400"/></div>
+		</div>
+		<div id="t_bodycenter">
+			<div id="t_bodycenter_m">
+				<table id="centerbax">
+					<tr>
+						<th id="t_line">등　급</th>
+						<c:choose>
+							<c:when test="${ticket_productVO.age > 0}"> 
+								<td>만 ${ticket_productVO.age} 세 이상 </td>	
+							</c:when>
+							<c:when test="${ticket_productVO.age <= 0}">
+								<td>전체관람가</td>	
+							</c:when>
+						</c:choose>
+					</tr>
+					<tr>
+						<th>가　격</th>
+						<td>
+							일　반 : ${ticket_productVO.price1} 원<br>
+							어린이 : ${ticket_productVO.price2} 원
+						</td>
+					</tr>
+					<tr>
+						<th id="t_line">공연시간</th><td>${ticket_productVO.showtime}</td>
+					</tr>
+					<tr>
+						<th>시작시간</th><td>${ticket_productVO.daytime}</td>
+					</tr>
+					<tr>
+						<th id="t_line">장　소</th><td>${ticket_productVO.place}</td>
+					</tr>
+				</table>
+			</div>
+			<div id="t_bodycenter_m1"><!-- 카카오지도 -->
+				<div id="map" style="width:400px;height:370px;"></div>
+				<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efd85644b092b313e70b0ae83c9f7c58&libraries=services">
+		
+				</script>
+				<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				    mapOption = {
+				        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };  
+						// 지도를 생성합니다    
+						var map = new kakao.maps.Map(mapContainer, mapOption); 
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new kakao.maps.services.Geocoder();			
+						// 주소로 좌표를 검색합니다
+						geocoder.addressSearch('서대문구 104-48', function(result, status) {			
+						    // 정상적으로 검색이 완료됐으면 
+						     if (status === kakao.maps.services.Status.OK) {			
+						        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);			
+						        // 결과값으로 받은 위치를 마커로 표시합니다
+						        var marker = new kakao.maps.Marker({
+						            map: map,
+						            position: coords
+						        });			
+						        // 인포윈도우로 장소에 대한 설명을 표시합니다
+						        var infowindow = new kakao.maps.InfoWindow({
+						            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+						        });
+						        infowindow.open(map, marker);			
+						        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+						        map.setCenter(coords);
+						    } 
+						});     
+				</script>
+			</div>
+		</div>
+	<div id="t_bodyright">
+		<div id="t_bodyright_c">
+		<!-- 달력 시작 -->
+		<table id="reservation_time">
+			<tr>
+				<td class="top" align="center" 
+					style="color: black; font-size:35px; font-weight:700">날짜선택</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="calendar">
+						<tr>
+							<td align="center"><label onclick="prevCalendar()"> ◀
+							</label></td>
+							<td colspan="5" align="center" id="calendarTitle">yyyy년 m월</td>
+							<td align="center"><label onclick="nextCalendar()"> ▶
+							</label></td>
+						</tr>
+						<tr>
+							<td align="center"><font color="red">일</font></td>
+							<td align="center">월</td>
+							<td align="center">화</td>
+							<td align="center">수</td>
+							<td align="center">목</td>
+							<td align="center">금</td>
+							<td align="center"><font color="blue">토</font></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table id="timeTable">
+					</table>
+				</td>
+			</tr>
+		</table>
+		<!-- 달력 끝 -->
+		</div>
+		<!-- 예약일시창-->
+		<div id="reservation_cho">
+		<table>
+			<tr>
+				<td class="top" align="center" colspan="2"
+					style="color: black; font-size:35px; font-weight:700">예약일시</td>
+			</tr>
+			<tr>
+				<td class="content" colspan="2" align="left">
+				<input id="selectedDate" name="selectedDate" value="" readonly="readonly"
+					style="border-radius: 10px 10px 10px 10px; border:1px solid black;
+					width:280px; text-align:center;" >
+				</td>
+			</tr>
+		</table>
+		</div>
+		<!-- 예약일시창 끝 -->
+	</div>
+		<div id="t_bottom">
+			<div id="t_bottom_btn">
+			<div>${message}</div>
 			<input type="button" id="btn_submit" value="예약하기" 
 				onclick="return choiceDayCheck('${ticket_productVO.tpseq}')">
 			<input type="hidden" name="tpseq" value="${ticket_productVO.tpseq}">
-			<div>${message}</div>
-		</td>
-	<tr>
-</table>
+			</div>
+		</div>
+	</div>
 </div>
 </div>
-
 <script type="text/javascript">buildCalendar();</script>
 </form>
 </article>

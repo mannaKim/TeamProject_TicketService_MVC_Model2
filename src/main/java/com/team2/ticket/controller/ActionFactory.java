@@ -33,13 +33,15 @@ import com.team2.ticket.controller.action.admin.introduce.adminNoticeCheckAction
 import com.team2.ticket.controller.action.admin.introduce.adminNoticeCheckpassAction;
 import com.team2.ticket.controller.action.admin.qna.AQnaAction;
 import com.team2.ticket.controller.action.admin.qna.AQnaJustViewAction;
+import com.team2.ticket.controller.action.admin.qna.AQnaReDeleteAction;
 import com.team2.ticket.controller.action.admin.qna.AQnaViewAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_UpdateFormAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_deleteFormAction;
-import com.team2.ticket.controller.action.admin.ticket.Admin_ticketAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_ticketListAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_ticketWriteAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_ticketWriteFormAction;
+import com.team2.ticket.controller.action.admin.ticket.AdminticketOrderlistFormAction;
+import com.team2.ticket.controller.action.admin.ticket.admin_TicketUpdateAction;
 import com.team2.ticket.controller.action.goods.GoodsCartDeleteAction;
 import com.team2.ticket.controller.action.goods.GoodsCartInsertAction;
 import com.team2.ticket.controller.action.goods.GoodsCartListAction;
@@ -89,6 +91,7 @@ import com.team2.ticket.controller.action.mypage.WithdrawalFormAction;
 import com.team2.ticket.controller.action.qna.QnaAction;
 import com.team2.ticket.controller.action.qna.QnaFnqAction;
 import com.team2.ticket.controller.action.qna.QnaJustViewAction;
+import com.team2.ticket.controller.action.qna.QnaMyViewAction;
 import com.team2.ticket.controller.action.qna.QnaReAction;
 import com.team2.ticket.controller.action.qna.QnaReplyAction;
 import com.team2.ticket.controller.action.qna.QnaUpdateAction;
@@ -206,7 +209,7 @@ public class ActionFactory {
 		else if(command.equals("qnaReply")) ac = new QnaReplyAction(); // QnaViewAction 으로 이동
 		else if(command.equals("qnare")) ac = new QnaReAction(); // QnaViewAction 으로 이동
 		else if(command.equals("qnafnq")) ac = new QnaFnqAction(); // QnaViewAction 으로 이동
-		
+		else if(command.equals("qnaMyView")) ac = new QnaMyViewAction(); // qnaMyView.jsp 로 이동
 		
 		// ▶ review 관련 action -- 시간 남으면 구현합시당
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
@@ -233,13 +236,14 @@ public class ActionFactory {
 		else if(command.equals("aqna")) ac = new AQnaAction(); // aqnalist.jsp로 이동
 		else if(command.equals("aqnaView")) ac = new AQnaJustViewAction(); // aqnaview.jsp 로 이동
 		else if(command.equals("aqnaReView")) ac = new AQnaViewAction(); // aqnaview.jsp 로 이동
+		else if(command.equals("aqnaReD")) ac = new AQnaReDeleteAction();
 		// ▷ 관리자 ticket 관련 action
 		else if(command.equals("admin_ticketList")) ac = new Admin_ticketListAction();
-		else if(command.equals("admin_ticket")) ac = new Admin_ticketAction();
 		else if(command.equals("admin_ticketWriteForm")) ac = new Admin_ticketWriteFormAction();
 		else if(command.equals("admin_ticketWrite")) ac = new Admin_ticketWriteAction();
 		else if(command.equals("admin_UpdateForm")) ac = new Admin_UpdateFormAction();
 		else if(command.equals("admin_deleteForm")) ac = new Admin_deleteFormAction();
+		else if(command.equals("admin_ticketUpdate")) ac = new admin_TicketUpdateAction();
 		// ▷ 관리자 공지사항 관련 action.
 		else if(command.equals("adminNotice"))ac = new AdminNoticeAction();
 		else if(command.equals("adminNoticeInsert"))ac = new AdminNoticeInsertAction();
@@ -259,6 +263,7 @@ public class ActionFactory {
 		else if(command.equals("adminEventInsert"))ac = new AdminEventInsertAction();
 		else if(command.equals("eventWrite"))ac = new EventWriteAction();
 		else if(command.equals("deleteEvent"))ac = new DeleteEventAction();
+		else if(command.equals("adminticketOrderlistForm")) ac = new AdminticketOrderlistFormAction();
 		
 		return ac;
 	}

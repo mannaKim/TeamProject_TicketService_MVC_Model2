@@ -1,30 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Find Id</title>
-	<link href="css/ticket.css" rel="stylesheet">
+	<link href="member/css/member.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 </head>
 <body>
-  	<center><h2>아이디 찾기</h2></center>
-  	<form method="post" name="frm" action="ticket.do">
+  	<h2 align="center">아이디 찾기</h2>
+  	<form method="post" name="frm" action="ticket.do" id="findid_box">
     	<input type="hidden" name="command" value="findId">
-    	<table align="center" bgcolor="black" cellspacing="1" width="400">
-      		<tr align="center" bgcolor="#fde8ff">
-        		<td width="430">
-          			<h3>성명<input type="text" name="name" value="${name}"></h3>
+    	<table>
+      		<tr>
+        		<td id="findid_name" class="find_id">
+          			<h3>이름</h3>
+          			<input type="text" name="name" value="${name}" style="width:380px; height:35px; font-size:18px; margin-top:7px;">
         		</td>
       		</tr>
-      		<tr align="center" bgcolor="#fde8ff">
-      			<td width="430">
-          			<h3>전화번호<input type="text" name="phone" value="${phone}"></h3>
+      		<tr>
+      			<td class="find_id">
+          			<h3>전화번호</h3>
+          			<input type="text" name="phone" value="${phone}" style="width:380px; height:35px; font-size:18px; margin-top:7px;">
         		</td>
       		</tr>
-      		<tr align="center" bgcolor="#fde8ff">
-        		<td width="430">
-          			<h3><input type="submit" value="아이디 찾기"></h3>
+      		<tr>
+        		<td align="center">
+          			<h3><input type="submit" value="아이디 찾기" style="width:150px; height:35px;"></h3>
           			${msg}
         		</td>
       		</tr>

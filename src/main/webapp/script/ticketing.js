@@ -8,25 +8,23 @@ function choiceDayCheck(  ){
 	
 	document.formm.action="ticket.do?command=ticketingCart";
 	document.formm.submit();
-	
-	//var url = "ticket.do?command=ticketingpass&tpseq="+tpseq;
+		
+	//var url = "ticket.do?command=ticketingCart&tpseq="+tpseq;
 	//var opt = "toolbar=no, menubar=no, scrollbar=no, resizable=no, width=1000, height=700";
 	//window.open(url,'ticketingCartList', opt);
 	
 }
 
-function go_CartList(  ){
-	if(document.cartlist.quantity1.value=="0"){
+function go_CartList( ){
+	var cartlist = document.cartlist;
+	if( cartlist.quantity1.value == "0" && cartlist.quantity2.value == "0" ){
 		alert("예매권 수량을 먼저 선택 해주세요.");
-		document.formm.selectedDate.focus();
-		return;
-	} else if (document.cartlist.quantity2.value=="0"){
-		alert("예매권 수량을 먼저 선택 해주세요.");
-		document.formm.selectedDate.focus();
-		return;
-	}
-	document.formm.action="ticket.do?command=ticketingCartList";
-	document.formm.submit();
+		cartlist.quantity1.focus();
+		return false;
+	}	
+	cartlist.action="ticket.do?command=ticketingCartList";
+	cartlist.submit();
+
 }
 
 

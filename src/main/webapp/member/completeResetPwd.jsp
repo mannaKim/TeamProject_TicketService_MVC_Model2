@@ -5,18 +5,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href="css/ticket.css" rel="stylesheet">
+	<link href="member/css/member.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 </head>
 <body>
-  	<center><h2>비밀번호 재설정 완료</h2></center>
-    <table align="center" bgcolor="black" cellspacing="1" width="400">
-      	<tr align="center" bgcolor="#fde8ff" height="200">
-        	<td width="230">
-          		<h3>비밀번호 재설정이 완료되었습니다.</h3>
-          		<input type="button" value="로그인 페이지로" onClick="go_login_after_FindAccount();">
-        	</td>
-      	</tr>
-    </table>
+  	<h2 align="center">비밀번호 재설정 완료</h2>
+  	<div id="complet_pwd">
+	    <table>
+	      	<tr>
+	        	<td>
+	          		<h3>비밀번호 재설정이 완료되었습니다.</h3>
+	          		<div id="completpwd_btn">
+	          			<input type="button" value="로그인 페이지로" onClick="go_login_after_FindAccount();" style="width:130px; height:30px;">
+	          		</div>
+	        	</td>
+	      	</tr>
+	    </table>
+    </div>
 </body>
 </html>

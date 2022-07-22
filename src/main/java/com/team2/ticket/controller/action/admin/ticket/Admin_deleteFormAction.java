@@ -18,16 +18,16 @@ public class Admin_deleteFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ParseException {
 		
+		
+		int tpseq = Integer.parseInt(request.getParameter("tpseq"));
+		
 		Ticket_productDao tpdao = Ticket_productDao.getInstance();
-		Ticket_productVO tpvo = new Ticket_productVO();
 		
-		int tpseq = Integer.parseInt( request.getParameter("tpseq"));
-		
+		tpdao.deleteTicket_productr_cart( tpseq );
 		tpdao.deleteTicket_productr( tpseq );
 		
-		String url = "admin/ticket/admin_ticketList.jsp";
-		RequestDispatcher dp = request.getRequestDispatcher(url);
-		dp.forward(request, response);
+		String url = "ticket.do?command=admin_ticketList";
+		request.getRequestDispatcher(url).forward(request, response);
 
 	}
 

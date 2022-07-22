@@ -32,7 +32,7 @@ public class Admin_ticketWriteAction implements Action {
 		//	url = "ticket.do?command="; 
 		//} else {
 			ServletContext context = session.getServletContext();
-			String path = context.getRealPath("ticket_images");
+			String path = context.getRealPath("ticket_image");
 			
 			MultipartRequest multi = new MultipartRequest(
 					request, path, 5*1024*1024,  "UTF-8", new DefaultFileRenamePolicy()

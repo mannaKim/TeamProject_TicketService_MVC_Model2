@@ -1,31 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="join_header.jsp" %>
-<div>
-	<ol>
-		<li>약관동의</li>
-		<li>정보입력</li>
-		<li class="">가입완료</li>
-	</ol>
-</div>
-<div class="clear"></div>
-<div>
-	<c:choose>
-		<c:when test="${result=='1'}">
-			<h1>${memberVO.name}님! 회원가입이 완료되었습니다.</h1>
-			<h2>가입하신 아이디는 <span>${memberVO.id}</span>입니다.</h2>
-			<div>
-				<input type="button" value="메인으로" onClick="location.href='ticket.do?command=index'">
-				<input type="button" value="로그인" onClick="location.href='ticket.do?command=loginForm'">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link href="member/css/member.css" rel="stylesheet">
+	<script src="member/member.js"></script>	
+</head>
+<body>
+<article id="comjoin_box">
+	<div id="comjoin_top">
+			<div id="comjoin_logo">
+				<a href="ticket.do?command=index"><img src="ticket_image/logo.png"></a>
 			</div>
-		</c:when>
-		<c:otherwise>
-			<h1>회원가입에 실패했습니다. 다시 시도하세요.</h1>
-			<h2>계속 실패하면 관리자에게 문의하세요.</h2>
-			<div>
-				<input type="button" value="메인으로" onClick="location.href='ticket.do?command=index'">
-				<input type="button" value="회원가입" onClick="location.href='ticket.do?command=termsAndConditions'">
+			<div id="comjoin_icon">
+				<ul>
+					<li>1. 약관동의</li>
+					<li>2. 정보입력</li>
+					<li>3. 가입완료</li>
+				</ul>
 			</div>
-		</c:otherwise>
-	</c:choose>
-</div>
-<%@ include file="../footer.jsp" %>
+	</div>
+	<div id="comjoin_box">
+		<c:choose>
+			<c:when test="${result!=0}">
+				<h2 align="center">회원가입이 완료되었습니다.</h2>
+				<div class="comjoin_btn">
+					<input type="button" value="메인으로" onClick="location.href='ticket.do?command=index'" style="width:140px; height:30px;">
+					<input type="button" value="로그인" onClick="location.href='ticket.do?command=loginForm'" style="width:140px; height:30px;">
+				</div>
+			</c:when>
+			<c:otherwise>
+				<h2 align="center">회원가입이 실패하였습니다.(관리자에게 문의하세요.)</h2>
+				<div class="comjoin_btn">
+					<input type="button" value="메인으로" onClick="location.href='ticket.do?command=index'" style="width:140px; height:30px;">
+					<input type="button" value="회원가입" onClick="location.href='ticket.do?command=termsAndConditions'" style="width:140px; height:30px;">
+				</div>
+			</c:otherwise>
+		</c:choose>	
+	</div>
+</article>
+</body>
+</html>

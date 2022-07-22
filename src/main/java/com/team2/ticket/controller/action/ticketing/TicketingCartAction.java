@@ -60,7 +60,7 @@ public class TicketingCartAction implements Action {
 			if (sday <= 0 && eday >= 0) {
 				url = "ticketing/ticketingCart.jsp";
 			} else {
-				request.setAttribute("message", "날짜선택을 먼저 진행해주세요.");
+				request.setAttribute("message", "기간 확인 후 날짜를 다시 선택해주세요.");
 				url = "ticket.do?command=ticketingForm";
 			}
 

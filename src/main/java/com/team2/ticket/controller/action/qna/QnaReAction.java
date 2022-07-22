@@ -20,7 +20,7 @@ public class QnaReAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "qna/qnaList.jsp";
+		String url = "qna/qnaMy.jsp";
 		// 로그인 체크
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
@@ -45,14 +45,10 @@ public class QnaReAction implements Action {
 			paging.setTotalCount(count);
 			ArrayList<QnaVO> list = qdao.listQna(mvo.getId(), paging);
 
-			//String rep = "";
-
-//			QnaVO qvo = qdao.getKind( mvo.getId());
 //			String [] kindList = { "전시", "회원안내", "관람/예약", "굿즈", "기타"};
-//
-//			int index = Integer.parseInt(qvo.getKind() ); 
+
 			
-//			System.out.println("replycnt : " + qvo.getReplycnt());
+			System.out.println("실행 확인");
 			
 //			request.setAttribute("rep", rep);
 			request.setAttribute("qnalist", list);

@@ -26,17 +26,17 @@
 		<table>
 			<tr>
 				<td><input type="text" name="key" value="${key}" style="width:170px; height:20px;">
-				<input type="button" class="btn" value="검색" onClick="go_search('adminNotice');" style="height:25px;">
-				<input type="button" class="btn" value="전체보기" onClick="go_total('adminNotice');" style="height:25px;">
-				<input type="button" class="btn" value="공지사항등록" onClick="go_nowrt();" style="height:25px;">
+				<input type="button" class="adminbtn" value="검색" onClick="go_search('adminNotice');" style="height:25px;">
+				<input type="button" class="adminbtn" value="전체보기" onClick="go_total('adminNotice');" style="height:25px;">
+				<input type="button" class="adminbtn" value="공지사항등록" onClick="go_nowrt();" style="height:25px;">
 				</td>
 			</tr>
 		</table>
 	</form>
 	<br>
 	<!-- 여기서 value값으로 보내는 command를 paging.jsp로 보내서 action태그에 value로 전달함. -->
-	<jsp:include page="/paging.jsp">
-		<jsp:param name="command" value="ticket.do?command=adminNotice" />
-	</jsp:include>
+		<jsp:include page="/paging.jsp">
+			<jsp:param name="command" value="ticket.do?command=adminNotice" />
+		</jsp:include>
 </article>
 <%@ include file="../admin_footer.jsp" %>

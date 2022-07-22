@@ -1,21 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="join_header.jsp" %>
-<div>
-	<ol>
-		<li class="">약관동의</li>
-		<li>정보입력</li>
-		<li>가입완료</li>
-	</ol>
-</div>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link href="member/css/member.css" rel="stylesheet">
+	<script src="member/member.js"></script>	
+</head>
+<body>
 <div class="clear"></div>
-<article>
-	<div>
-		<h3>
-			<span>약관에 동의해주세요</span>
-		</h3>
+<article id="teams_One">
+	<div id="teams_top">
+		<div id="teams_logo">
+			<a href="ticket.do?command=index"><img src="ticket_image/logo.png"></a>
+		</div>
+		<div id="teams_icon">
+			<ul>
+				<li>1. 약관동의</li>
+				<li>2. 정보입력</li>
+				<li>3. 가입완료</li>
+			</ul>
+		</div>
 	</div>
-	<form method="post" name="termFrm">
-		<div>
+	<form method="post" name="termFrm" id="termFrm">
+		<div id="teams_terms">
+			<h2>
+				<span>약관에 동의해주세요</span>
+			</h2>
+		</div>
+		<div id="teams_checkBox">
 			<ul>
 				<li>
 					<span>
@@ -47,9 +65,11 @@
 			</ul>
 		</div>
 		<div class="clear"></div>
-		<div>
-			<input type="button" value="회원가입" onClick="go_joinForm();">
+		<div id="teams_buttons">
+			<input type="button" value="회원가입" class="teams_btn" onClick="go_joinForm();">
+			<input type="button" value="돌아가기" class="teams_btn" onClick="location.href='ticket.do?command=index'">
 		</div>
 	</form>
 </article>
-<%@ include file="../footer.jsp" %>
+</body>
+</html>

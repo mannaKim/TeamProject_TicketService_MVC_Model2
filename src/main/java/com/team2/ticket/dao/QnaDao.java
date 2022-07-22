@@ -258,6 +258,20 @@ public class QnaDao {
 	}
 
 
+	public void deleteReply(int renum) {
+			
+		String sql = "delete from qreply where renum=?";
+		con = Dbman.getConnection();
+		try {
+		      pstmt = con.prepareStatement(sql); 
+		      pstmt.setInt(1, renum);
+		      pstmt.executeUpdate();
+		} catch (Exception e) { e.printStackTrace();
+	    } finally { Dbman.close(con, pstmt, rs); }   	
+		
+	}
+
+
 		
 	}
 

@@ -6,8 +6,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TicketService</title>
-	<link href="css/ticket.css" rel="stylesheet">
 	<script src="ticketing/ticketing.js"></script>
+	<link href="css/ticket.css" rel="stylesheet">
+	<link href="css/ticketingbtn.css" rel="stylesheet">
 	<script src="member/member.js"></script>
 </head>
 <body>

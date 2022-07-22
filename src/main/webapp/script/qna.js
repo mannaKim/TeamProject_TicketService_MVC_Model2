@@ -14,12 +14,3 @@ function go_write(){
 	}
 }
 
-function reply_check(){
-	 if(document.frm_reply.content.value == "") {
-	    alert("내용를 입력해 주세요.");	    
-	    document.frm_reply.content.focus();
-	    return false;
-	}else{
-		return true;
-	}
-}

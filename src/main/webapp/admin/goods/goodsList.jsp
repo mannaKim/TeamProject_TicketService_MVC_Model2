@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
 <article id="admin_goods">
-  	<h2>굿즈 리스트</h2>
+  	<h2 align="center">굿즈 리스트</h2>
   	<br>
     <form name="frm" method="post">
     	<table id="search_table">

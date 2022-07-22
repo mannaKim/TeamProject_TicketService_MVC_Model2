@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.team2.ticket.dto.MemberVO;
 import com.team2.ticket.dto.Ticket_CartVO;
 import com.team2.ticket.dto.Ticket_productVO;
 import com.team2.ticket.util.Dbman;
+import com.team2.ticket.util.Paging;
 
 public class Ticket_productDao {
 	
@@ -43,8 +43,6 @@ public class Ticket_productDao {
 				tpvo.setPrice3(rs.getInt("price3"));
 				tpvo.setBestyn(rs.getString("bestyn"));
 				tpvo.setIndate(rs.getTimestamp("indate"));
-				//tpvo.setEdate(rs.getTimestamp("edate"));
-				//tpvo.setSdate(rs.getTimestamp("sdate"));
 				tpvo.setEdate(rs.getString("edate"));
 				tpvo.setSdate(rs.getString("sdate"));
 				list.add(tpvo);
@@ -82,6 +80,7 @@ public class Ticket_productDao {
 				tpvo.setIndate(rs.getTimestamp("indate"));
 				tpvo.setEdate(rs.getString("edate"));
 				tpvo.setSdate(rs.getString("sdate"));
+				tpvo.setContent(rs.getString("content"));
 				//tpvo.setEdate(rs.getTimestamp("edate"));
 				//tpvo.setSdate(rs.getTimestamp("sdate"));
 			}
@@ -312,14 +311,90 @@ public class Ticket_productDao {
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setInt(1, tpseq );
-			rs = pstmt.executeQuery();
+			
+			pstmt.executeUpdate();
 		} catch (SQLException e) {	e.printStackTrace(); 		
 		} finally { Dbman.close(con, pstmt, rs); }	
 		
 	}
 
 
+	public int getAllCount(String tableName, String key) {
+		int count = 0;
+		String sql = "select count(*) as cnt from " + tableName+" where name like '%'||?||'%' ";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) count = rs.getInt("cnt");
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); 
+		}
+		return count;
+	}
+
+
+	public ArrayList<Ticket_productVO> adminlistTicket(Paging paging, String key) {
+		ArrayList<Ticket_productVO> list = new ArrayList<Ticket_productVO>();
+		String sql = "select * from ( " 
+				+ " select * from ( " 
+				+ " select rownum as rn, q.* from "
+				+ " ((select * from ticket_product where name like '%'||?||'%' order by tpseq desc) q)" 
+				+ " ) where rn>=? " 
+				+ " ) where rn<=? ";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Ticket_productVO tpvo = new Ticket_productVO();
+				tpvo.setTpseq(rs.getInt("tpseq"));
+				tpvo.setName(rs.getString("name"));
+				tpvo.setShowtime(rs.getString("showtime"));
+				tpvo.setAge(rs.getInt("age"));
+				tpvo.setImage(rs.getString("image"));
+				tpvo.setPlace(rs.getString("place"));
+				tpvo.setDaytime(rs.getString("daytime"));
+				tpvo.setPrice1(rs.getInt("price1"));
+				tpvo.setPrice2(rs.getInt("price2"));
+				tpvo.setPrice3(rs.getInt("price3"));
+				tpvo.setBestyn(rs.getString("bestyn"));
+				tpvo.setIndate(rs.getTimestamp("indate"));
+				tpvo.setEdate(rs.getString("edate"));
+				tpvo.setSdate(rs.getString("sdate"));
+				list.add(tpvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+		
+	}
+
+
+	public void deleteTicket_productr_cart(int tpseq) {
+		String sql = "delete from ticket_cart where tpseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, tpseq );
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {	e.printStackTrace(); 		
+		} finally { Dbman.close(con, pstmt, rs); }	
+		
+		
+	}
+	
 	public void insertProduct(Ticket_productVO tpvo) {
 		String sql = "insert into ticket_product(tpseq, showtime, daytime, name, age, image, price1, price2,"
 				+ " price3, place, content, sdate, edate ) "

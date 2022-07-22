@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../admin_header.jsp" %>
 <article id="admin_goods">
-	<h2>굿즈 주문 리스트</h2>
-	<br>
+	<h2 align="center">굿즈 주문 리스트</h2>
 	<table id="goods_orderTable">
 		<tr>
 			<th width="100">주문일자</th>

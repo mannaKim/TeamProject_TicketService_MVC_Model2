@@ -65,7 +65,8 @@ function go_save(){
 	}
 }
 
-function go_search( comm ){
+
+function go_ticketSearch( comm ){
 	if( document.formm.key.value == "" ){
 		alert("검색버튼 사용시에는 검색어 입력이 필수입니다");
 	 	return;
@@ -76,11 +77,12 @@ function go_search( comm ){
 }
 
 
-function go_total( comm ){
+function go_ticketTotal( comm ){
 	document.formm.key.value="";
 	document.formm.action = "ticket.do?command=" + comm + "&page=1";
 	document.formm.submit();
 }
+
 
 
 function updatePass( tpseq ){
@@ -144,14 +146,11 @@ function passCheck(){
 }
 
 function go_evwrt() {
-	document.frm.action = "ticket.do?command=adminEventInsert";
-	document.frm.submit();
+	location.href="ticket.do?command=adminEventInsert";
 }
 
 function go_event(evnum) {
-	var url ="ticket.do?command=adminEventView&evnum=" + evnum;
-	document.frm.action = url;
-	document.frm.submit();
+	location.href = "ticket.do?command=adminEventView&evnum=" + evnum;
 }
 
 function event_save() {

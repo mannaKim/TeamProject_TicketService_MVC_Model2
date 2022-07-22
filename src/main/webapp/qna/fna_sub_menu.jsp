@@ -1,51 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-  <%@ include file="../header.jsp"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp"%>
+<link href="qna/qna.css" rel="stylesheet">
 <style>
-.fnqkind {
-	position: relective;
-	margin: 0px auto;
-	width: 1500px;
-	box-sizing: border-box;
+.qna_sub_main{
+	height: 20px; width: 100%;
+}
+.fnqkind{
+	width: 800px; height: 70px;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 100px;
 }
 .allkind{
-	margin-bottom: 100px;
+	margin: 0 auto;
 	list-style: none;
 }
-
+li:first-child{
+	margin-left: 7px;
+}
 .kind {
 	text-align: center;
-	border: 1px solid gray;
-	width: 11%;
+	border: 1px solid #2F4F4F;
+	width: 19.2%;
 	float: left;
 	cursor: pointer;
+	height: 60px;
 }
 .kind a {
-	height: 66px;
+	height: 60px;
 	text-decoration : none;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 80px;
-	padding: 24px 20px;
+	line-height: 60px;
+	padding: 19px 26px;
 }
-.kind:hover{
-	 background-color: gray;
+.kind:hover, #qna_link:hover, #qna_link:active{
+	 background-color: #2F4F4F;
 	 color: white;
 }
-.kind a:hover, a:active{
- background-color: gray;
+
+#qna_link:hover, #qna_link:active{
+	 background-color: #2F4F4F;
 	 color: white;
 }
-.kind a:link, a:visited{
-	 color: black;
+
+/*1:1문의 헤드*/
+.qna_head {
+	margin-top: 220px;
+	margin-left: 20%;
+	margin-right: 20%;
+	width: 100%;
+	margin-bottom: 50px;
+	font-size: 30px;
+	color: #2F4F4F;
+	/*다크 슬레이트 색상*/
 }
+
 </style>
-<div class="fnqkind">
-    <ul class="allkind">
-    <li class="kind" ><a href="ticket.do?command=qnafnq&kind=1">전체보기</a></li>
-    <li class="kind"><a href="ticket.do?command=qnafnq&kind=2">전시</a></li>
-    <li class="kind"><a href="ticket.do?command=qnafnq&kind=3">회원안내</a></li>
-    <li class="kind"><a href="ticket.do?command=qnafnq&kind=4">관람/예약</a></li>
-    <li class="kind"><a href="ticket.do?command=qnafnq&kind=5">굿즈</a></li>
-    </ul>
-</div>
+<article>
+	<div class="qna_sub_main">
+	<div class="qna_head">
+		<h2>FAQ</h2>
+	</div>
+		<div class="fnqkind">
+		    <ul class="allkind">
+		    <li class="kind" ><a id="qna_link" href="ticket.do?command=qnafnq&kind=1">전체보기</a></li>
+		    <li class="kind"><a id="qna_link" href="ticket.do?command=qnafnq&kind=2"> &nbsp;  전시  &nbsp; </a></li>
+		    <li class="kind"><a id="qna_link" href="ticket.do?command=qnafnq&kind=3">회원안내</a></li>
+		    <li class="kind"><a id="qna_link" href="ticket.do?command=qnafnq&kind=4">관람/예약</a></li>
+		    <li class="kind"><a id="qna_link" href="ticket.do?command=qnafnq&kind=5">&nbsp;  굿즈  &nbsp; </a></li>
+		    </ul>
+		</div>
+	</div>
+</article>

@@ -1,60 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/header.jsp"%>
-
-<article>
-	<h2>1:1 문의</h2>
+<%@ include file="../admin_header.jsp"%>
+<link rel="stylesheet" href="../../qna/qna.css">
+<article  id="admin_notice">
+	<div class="qna_head">
+		<h2 align="center">1:1 문의 확인</h2>
+	</div>
 	<form>
-		<table border="1">
+		<table  id="notice_table" class="aqna_table" style="border-collapse: collaps;">
 			<tr>
-				<th>제목</th>
-				<td width="500">${qnaVO.subject}</td>
+				<th style="border-top: 0;">제목</th>
+				<td class="qna_ht" align="left" style="border-top: 0;">${qnaVO.subject}</td>
 			</tr>
 			<tr>
 				<th>등록일</th>
-				<td align="left"><fmt:formatDate value="${qnaVO.indate}"
-						type="date" /></td>
+				<td class="qna_ht" align="left"><fmt:formatDate
+						value="${qnaVO.indate}" type="date" /></td>
 			</tr>
 			<tr>
-				<th>질문내용</th>
-				<td align="left" style="text-align: left; font-size: 115%;"><pre>${qnaVO.content}</pre></td>
+				<th style="border-bottom: 0;">문의내용</th>
+				<td class="qna_ttt" align="left" style="border-bottom: 0;">${qnaVO.content}</td>
 			</tr>
 		</table>
 		<div class="clear"></div>
-		<div id="buttons" style="float: right">
-			<input type="button" value="목록" class="submit"
+		<div class="qna_bts_1">
+			<input type="button" value="목록" class="qna_bu"
 				onclick="location.href='ticket.do?command=aqna'">
 			<!-- 목록 버튼을 누르면 qnalist.jsp 로 이동합니다.  -->
 		</div>
 	</form>
 
-	<form action="ticket.do" method="post" name="frm_reply">
-	<input type="hidden" name="command" value="qnaReply" /> 
-	<input type="hidden" name="qnanum" value="${qnaVO.qseq}" />
+	<form action="ticket.do" method="post" name="frm_reply" class="qna_rp">
+		<input type="hidden" name="command" value="qnaReply" /> 
+		<input type="hidden" name="qnanum" value="${qnaVO.qseq}" />
 		<table>
 			<tr>
-				<th width="100">작성자</th>
-				<th>내용</th>
-				<th width="100">답변 작성</th>
+				<th class="qna_w">작성자</th>
+				<th align="left" class="qna_wr">답변 내용</th>
+				<th>날짜</th>
+				<th>답변 작성</th>
 			</tr>
-			<tr align="center">
-				<td>${qnaVO.id}<input type="hidden" name="id"
-					value="${qnaVO.id}"></td>
-				<td><input type="text" name="content" size="80"></td>
-				 <td><input type="submit" value="작성" onClick="return reply_check();"></td>
-						<!-- 답변 작성 버튼을 누르면 내용 확인 후 QnaReplyAction 으로 이동합니다.  -->
-
+			<tr>
+				<td align="center">${loginUser.id}<input type="hidden" name="id"
+					value="${loginUser.id}"></td>
+				<td align="left"><input type="text" name="content" size="80"
+					class="qna_h_re"></td>
+				<td></td>
+				<td><input type="submit" value="작성" class="qna_bu"
+					onClick="return reply_check();"></td>
+				<!-- 답변 작성 버튼을 누르면 내용 확인 후 QnaReplyAction 으로 이동합니다.  -->
 			</tr>
-
 			<c:forEach items="${replylist}" var="reply">
-				<tr align="center">
-					<td>${reply.id}</td>
-					<td><fmt:formatDate value="${reply.indate}" type="date" /></td>
+			<input type="hidden" name="renum" value="${reply.renum}" />
+				<tr>
+					<td align="center">${reply.id}</td>
 					<td align="left">&nbsp;${reply.content}</td>
+					<td><fmt:formatDate value="${reply.indate}" type="date" /></td>
+					<td><input type="button" value="삭제" class="qna_bu"
+						id="qna_re_d" onClick="reply_delete('${reply.renum}','${qnaVO.qseq}');"></td>
 				</tr>
 			</c:forEach>
-
-
 		</table>
 	</form>
 

@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file="../header.jsp" %>
+    <link href="css/intro.css" rel="stylesheet">
     <article>
     	<form id="noticeForm">
     	<h1>공지사항</h1>
-    		<table border="1">
+    		<table>
     			<tr>
-    				<th width="200" height="50">번호</th>
-    				<th width="400" height="50">제목</th>
+    				<th width="50" height="50">No.</th>
+    				<th width="600" height="50">제목</th>
     				<th width="100" height="50">작성자</th>
-    				<th width="150" height="50">조회수</th>
-    				<th width="300" height="50">날짜</th>
+    				<th width="100" height="50">조회</th>
+    				<th width="350" height="50">업로드날짜</th>
     			</tr>
     			<c:forEach items="${noList}" var="noticeVO">
     				<tr>
@@ -26,7 +27,7 @@
     			</c:forEach>
     		</table><br><br>
     		<!-- 여기서부터 페이지 입니다. -->
-    <div id ="paging">
+    <div id ="intro_paging">
 		<!-- 페이지가 클릭될때마다 이동할 링크 기본경로를 JSTL변수에 저장. -->
 		<c:url var = "action" value="ticket.do?command=notice"></c:url>
 		
@@ -56,7 +57,7 @@
 			<!-- 맨 오른쪽 페이지(endPage보다 1페이지 큰 페이지로 이동 -->
 		</c:if>
 	</div>
-		<div id="buttons">
+		<div id="intro_buttons">
     		<input type="button" value="돌아가기" class="submit" onClick="location.href='ticket.do?command=index'">
     	</div>
     	</form>

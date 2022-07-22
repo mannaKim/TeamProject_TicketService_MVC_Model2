@@ -7,13 +7,9 @@ function reply_check() {
 	} 
 	
 	if(document.frm_event.reply.value=="") {
-		alert("내용을 입력해주세요");
 		return false;
 	}
-	
 	return true;
 }
-
-
 
 
