@@ -20,20 +20,20 @@ function withdrawalConfirm(){
 }
 
 function go_modify(){
-	if(document.frm.pwd.value==""){
+	if(document.joinFrm.pwd.value==""){
 		alert("비밀번호를 입력하세요.")
-		document.frm.pwd.focus();
-	}else if(document.frm.pwd.value!=document.frm.pwdCheck.value){
+		document.joinFrm.pwd.focus();
+	}else if(document.joinFrm.pwd.value!=document.joinFrm.pwdCheck.value){
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
-		document.frm.pwd.focus();
-	}else if(document.frm.name.value==""){
+		document.joinFrm.pwd.focus();
+	}else if(document.joinFrm.name.value==""){
 		alert("이름을 입력하세요.")
-		document.frm.name.focus();
-	}else if(document.frm.email.value==""){
+		document.joinFrm.name.focus();
+	}else if(document.joinFrm.email.value==""){
 		alert("이메일을 입력하세요.")
-		document.frm.email.focus();
+		document.joinFrm.email.focus();
 	}else {
-		document.frm.action="ticket.do?command=modifyMember";
-		document.frm.submit();
+		document.joinFrm.action="ticket.do?command=modifyMember";
+		document.joinFrm.submit();
 	}
 }

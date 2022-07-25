@@ -22,9 +22,9 @@
 	</table>
 	<br>
 	<div id="adminEventView_btn">
-		<input type="button" value="수정" onClick="location.href='ticket.do?command=updateEvent&evnum=${event.evnum}'" style="width:70px; height:30px;">
-		<input type="button" value="삭제" onClick="location.href='ticket.do?command=deleteEvent&evnum=${event.evnum}'" style="width:70px; height:30px;">
-		<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminEvent'" style="width:100px; height:30px;">
+		<input type="button" class="adminbtn" value="수정" onClick="location.href='ticket.do?command=updateEvent&evnum=${event.evnum}'" style="width:70px; height:30px;">
+		<input type="button" class="adminbtn" value="삭제" onClick="location.href='ticket.do?command=deleteEvent&evnum=${event.evnum}'" style="width:70px; height:30px;">
+		<input type="button" class="adminbtn" value="목록으로" onClick="location.href='ticket.do?command=adminEvent'" style="width:100px; height:30px;">
 	</div>
 	</form>
 </article>

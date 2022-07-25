@@ -437,15 +437,15 @@ div#goods_remot ul li {
 
 .goodsCart table {
 	width: 1200px;
-	border-collapse: collapse;
 	text-align: center;
 }
 
 .goodsCart th {
-	background-color: white;
-	padding: 15px;
-	font-size: 18px;
-	font-weight: bold;
+	background-color: #2F4F4F;
+	color: white;
+	border-collapse: collapse;
+	padding: 10px;
+	font-size: 17px;
 	text-align: center;
 	font-weight: bold;
 }

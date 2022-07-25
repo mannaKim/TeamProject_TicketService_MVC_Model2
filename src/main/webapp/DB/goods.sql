@@ -4,6 +4,16 @@ create sequence goods_seq start with 1;
 select * from goods;
 
 insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
+values(goods_seq.nextVal,'본투리드 볼펜 (유성)','1',500,1200,700,
+'그립감 좋은 육각형 바디와 부드러운 필기감의 볼펜입니다. 부드러운 필기감의 유성 잉크에 알라딘 자체 제작 몰드로 볼펜 심의 흔들림을 최소화하였습니다.',
+'pen_1.jpg','pen_2.jpg','n');
+
+insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
+values(goods_seq.nextVal,'본투리드 초저점도 3색 볼펜','1',700,1500,800,
+'70여년의 역사를 만들어온 문화연필과 만든 끊김 없이 부드러운 필기감의 초저점도 3색 볼펜 입니다.',
+'ballpen_1.jpg','ballpen_2.jpg','n');
+
+insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
 values(goods_seq.nextVal,'샤크 샤프 0.5mm','1',800,1600,800,
 '날렵한 스타일과 부드러운 자연의 컬러 [earth color]로 다채로움을 더한 6가지 컬러 제품입니다.',
 'shark_pencil_1.jpg','shark_pencil_2.jpg','n');
@@ -63,16 +73,6 @@ insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,b
 values(goods_seq.nextVal,'본투리드 카드지갑','5',7000,11800,4800,
 '필요한 카드만 간단하게 소지하는 지갑.',
 'card_holder_1.jpg','card_holder_2.jpg','y');
-
-insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
-values(goods_seq.nextVal,'본투리드 볼펜 (유성)','1',500,1200,700,
-'그립감 좋은 육각형 바디와 부드러운 필기감의 볼펜입니다. 부드러운 필기감의 유성 잉크에 알라딘 자체 제작 몰드로 볼펜 심의 흔들림을 최소화하였습니다.',
-'pen_1.jpg','pen_2.jpg','n');
-
-insert into goods(gseq,name,kind,price1,price2,price3,content,image,detail_img,bestyn)
-values(goods_seq.nextVal,'본투리드 초저점도 3색 볼펜','1',700,1500,800,
-'70여년의 역사를 만들어온 문화연필과 만든 끊김 없이 부드러운 필기감의 초저점도 3색 볼펜 입니다.',
-'ballpen_1.jpg','ballpen_2.jpg','n');
 
 -- 신상품 view 생성
 create or replace view new_goods_view

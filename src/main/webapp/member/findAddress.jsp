@@ -10,7 +10,7 @@
   	<script src="member/member.js"></script>
 </head>
 <body>
-	<h1>우편번호 검색</h1>	
+	<h1 align="center">우편번호 검색</h1>	
 	<div id="address_box">
     <form method="post" name="frm" action="ticket.do">
       <input type="hidden" name="command" value="findAddress">

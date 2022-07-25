@@ -31,8 +31,8 @@
 			</tr>
 		</table><br>
 		<div id="adminEventWt_btn">
-			<input type="button" value="등록" onClick="event_save()" style="width:70px; height:30px;">
-			<input type="button" value="돌아가기" onClick="location.href='ticket.do?command=adminEvent'" style="width:100px; height:30px;">
+			<input type="button" class="adminbtn" value="등록" onClick="event_save()" style="width:70px; height:30px;">
+			<input type="button" class="adminbtn" value="돌아가기" onClick="location.href='ticket.do?command=adminEvent'" style="width:100px; height:30px;">
 		</div>	
 	</form>
 </article>

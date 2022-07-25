@@ -13,6 +13,7 @@ import com.team2.ticket.controller.action.Action;
 import com.team2.ticket.dao.OrderDao;
 import com.team2.ticket.dto.GOrderVO;
 import com.team2.ticket.dto.MemberVO;
+import com.team2.ticket.util.Paging;
 
 public class AllGoodsOrderListAction implements Action {
 
@@ -25,18 +26,42 @@ public class AllGoodsOrderListAction implements Action {
 		if(mvo==null) {
 			url = "ticket.do?command=loginForm";
 		}else {
-			OrderDao odao = OrderDao.getInstance();
+			Paging paging = new Paging();
+			paging.setDisplayPage(5);
+			paging.setDisplayRow(5);
+			if(request.getParameter("page")!=null) {
+				paging.setPage(Integer.parseInt(request.getParameter("page")));
+				session.setAttribute("page",Integer.parseInt(request.getParameter("page")));
+			}else if(session.getAttribute("page")!=null) {
+				paging.setPage((Integer)session.getAttribute("page"));
+			}else {
+				paging.setPage(1);
+				session.removeAttribute("page");
+			}
 			
+			OrderDao odao = OrderDao.getInstance();
 			//메서드의 리턴값이 될 list
 			ArrayList<GOrderVO> list = new ArrayList<GOrderVO>();
 			
-			//주문번호들의 리스트(중복을 없앤)
-			ArrayList<Integer> oseqList = odao.selectOseqList(mvo.getId());
+			//paging의 setTotalCount를 위해 전체 oseq를 가져옴
+			ArrayList<Integer> oseqListForPaging = odao.selectOseqList(mvo.getId());
+			int count = oseqListForPaging.size();
+			paging.setTotalCount(count);
+			//출력될 만큼만 oseq를 가져옴
+			ArrayList<Integer> oseqList = odao.selectOseqList(mvo.getId(),paging);
+			
+			//회원마다 본인의 주문내역 개수에 맞춰 주문번호 적용
+			int orderNum = oseqListForPaging.size()-((paging.getPage()-1)*paging.getDisplayRow());
+			
 			for(Integer oseq : oseqList) {
 				//주문번호에 해당하는 상품 리스트를 리턴받음
 				ArrayList<GOrderVO> orderListByOseq = odao.selectOrderList(oseq);
 				//리턴된 리스트의 첫번째 상품을 govo로 저장
 				GOrderVO govo = orderListByOseq.get(0); 
+				
+				//주문번호 - oseq는 orderDetail로 이동하기 위해 필요하므로, odseq에 저장
+				govo.setOdseq(orderNum);
+				orderNum--;
 				
 				//govo의 이름을 '[현재상품의 상품명] 외 n건' 으로 변경
 				if(orderListByOseq.size()>1) {
@@ -53,6 +78,7 @@ public class AllGoodsOrderListAction implements Action {
 				list.add(govo);
 			}
 			request.setAttribute("allGoodsOrderList", list);
+			request.setAttribute("paging", paging);
 			request.setAttribute("title", mvo.getName()+"님의 주문 내역");
 		}
 		request.getRequestDispatcher(url).forward(request, response);

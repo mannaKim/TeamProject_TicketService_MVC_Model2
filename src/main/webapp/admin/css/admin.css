@@ -38,8 +38,8 @@ form#adminNotice_serbox table{float:right; line-height:40px;}
 
 
 /* 관리자 공지사항 정보 페이지 */
-article#admin_noticeView{width:550px; min-height:300px; margin:20px auto; text-align:center;}
-article#admin_noticeView table{border-top:2px solid black; border-bottom:1px solid black;}
+article#admin_noticeView{width:1000px; min-height:300px; margin:20px auto; text-align:center;}
+article#admin_noticeView table{border-top:2px solid black; border-bottom:1px solid black; margin:0 auto;}
 article#admin_noticeView table td{border-top:1px dotted gray;}
 #noticeView_btn{width:360px; height:35px; margin:0 auto;}
 
@@ -47,13 +47,13 @@ article#admin_noticeView table td{border-top:1px dotted gray;}
 article#adminNotice_update{width:720px; min-height:500px; margin:20px auto;}
 article#adminNotice_update table{width:720px; min-height:400px; margin:15px auto; border-top:2px solid black; border-bottom:1px solid black;}
 article#adminNotice_update table td{border-bottom:1px dotted gray;}
-#adminNoticeup_btn{width:360px; height:35px; margin:0 auto;}
+#adminNoticeup_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
 
 /* 관리자 공지사항 등록 페이지 */
 article#adminNotice_write{width:720px; min-height:500px; margin:20px auto;}
 article#adminNotice_write table{width:720px; min-height:400px; margin:15px auto; border-top:2px solid black; border-bottom:1px solid black;}
 article#adminNotice_write table td{border-bottom:1px dotted gray;}
-#adminNoticewt_btn{width:360px; height:35px; margin:0 auto;}
+#adminNoticewt_btn{width:360px; height:35px; margin:0 auto; text-align:center;}
 
 
 /* 관리자 이벤트 페이지 */

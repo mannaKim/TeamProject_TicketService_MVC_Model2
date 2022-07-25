@@ -41,7 +41,7 @@
                                     <li><a href="ticket.do?command=mypage">MyPage</a></li>
                                     <li><a href="ticket.do?command=goodsCartList">Cart</a></li>
                                     <c:if test="${loginUser.admin=='1'}">	
-                                        <li><a href="ticket.do?command=adminNotice">Admin</a></li>
+                                        <li><a href="ticket.do?command=adminNotice&page=1">Admin</a></li>
                                     </c:if>
                                 </c:otherwise>
                             </c:choose>
@@ -78,11 +78,11 @@
                                 <div class="contentBx">
                                     <div class="label"><a href="ticket.do?command=goodsMain">굿즈</a></div>
                                     <div id="content03" class="content">
-                                    <p><a href="ticket.do?command=goodsCategory&kind=1">문구</a></p>
-                                    <p><a href="ticket.do?command=goodsCategory&kind=2">디지털</a></p>
-                                    <p><a href="ticket.do?command=goodsCategory&kind=3">가방 · 파우치</a></p>
-                                    <p><a href="ticket.do?command=goodsCategory&kind=4">취미용품</a></p>
-                                    <p><a href="ticket.do?command=goodsCategory&kind=5">패션 · 잡화</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=1&page=1">문구</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=2&page=1">디지털</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=3&page=1">가방 · 파우치</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=4&page=1">취미용품</a></p>
+                                    <p><a href="ticket.do?command=goodsCategory&kind=5&page=1">패션 · 잡화</a></p>
                                     </div>
                                 </div>
                                 <div class="contentBx">

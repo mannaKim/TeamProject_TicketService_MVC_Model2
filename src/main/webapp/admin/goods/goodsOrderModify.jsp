@@ -26,11 +26,11 @@
 						test="${govo.result=='0'}">처리완료</c:if></td>
 				<td><c:choose>
 						<c:when test="${govo.result=='1'}">
-							<input type="button" value="처리완료로 변경"
+							<input type="button" class="adminbtn" value="처리완료로 변경"
 								onClick="changeResult(${govo.oseq},${govo.odseq},'${govo.result}');" />
 						</c:when>
 						<c:otherwise>
-							<input type="button" value="처리중으로 변경"
+							<input type="button" class="adminbtn" value="처리중으로 변경"
 								onClick="changeResult(${govo.oseq},${govo.odseq},'${govo.result}')" />
 						</c:otherwise>
 					</c:choose></td>
@@ -38,7 +38,7 @@
 		</c:forEach>
 		<tr>
 			<th colspan="4" style="border-top: 1px dotted gray;">해당 주문 처리상태 일괄 변경</th>
-			<td colspan="2"><input type="button" value="전체 처리완료"
+			<td colspan="2"><input type="button" class="adminbtn" value="전체 처리완료"
 				onClick="changeResultAll(${goodsOrderList[0].oseq})" /></td>
 		</tr>
 	</table>
@@ -72,7 +72,7 @@
 
 	<div class="goods_buttonBox">
 
-		<input type="button" value="목록으로"
+		<input type="button" class="adminbtn" value="목록으로"
 			onClick="location.href='ticket.do?command=adminGoodsOrderList&page=1'">
 	</div>
 </article>

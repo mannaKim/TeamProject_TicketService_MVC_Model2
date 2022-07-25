@@ -22,7 +22,7 @@ public class GoodsSearchAction implements Action {
 		
 		Paging paging = new Paging();
 		paging.setDisplayPage(5);
-		paging.setDisplayRow(10);
+		paging.setDisplayRow(5);
 		if(request.getParameter("page")!=null) {
 			paging.setPage(Integer.parseInt(request.getParameter("page")));
 			session.setAttribute("page",Integer.parseInt(request.getParameter("page")));

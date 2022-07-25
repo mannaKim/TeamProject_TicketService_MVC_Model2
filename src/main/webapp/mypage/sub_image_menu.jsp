@@ -6,9 +6,9 @@
 		<nav id="mp_sub_menu">
 		  <ul class="mp_ul">
 		    <li><a href="ticket.do?command=goodsCartList">장바구니</a></li>
-		    <li><a href="ticket.do?command=ticketCartList">나의 관람 정보</a></li>
-		    <li><a href="ticket.do?command=allGoodsOrderList">나의 주문 정보</a></li>
-		    <li><a href="ticket.do?command=qnare">나의 문의 내역</a></li>
+		    <li><a href="ticket.do?command=ticketCartList&page=1">나의 관람 정보</a></li>
+		    <li><a href="ticket.do?command=allGoodsOrderList&page=1">나의 주문 정보</a></li>
+		    <li><a href="ticket.do?command=qnare&page=1">나의 문의 내역</a></li>
 		    <li><a href="#" onClick="checkPwd('modifyMemberForm');">회원정보 수정</a></li>
 		    <li><a href="#" onClick="checkPwd('withdrawalForm');">회원탈퇴</a></li>
 		  </ul>

@@ -28,9 +28,9 @@
 		</table>
 		<br>
 		<div id="adminNoticewt_btn">
-			<input type="submit" value="등록" onClick="return noticeCheck()" style="width:70px; height:30px;">
-			<input type="reset" value="다시작성" style="width:100px; height:30px;">
-			<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminNotice'" style="width:100px; height:30px;">
+			<input type="submit" class="adminbtn" value="등록" onClick="return noticeCheck()" style="width:70px; height:30px;">
+			<input type="reset" class="adminbtn" value="다시작성" style="width:100px; height:30px;">
+			<input type="button" class="adminbtn" value="목록으로" onClick="location.href='ticket.do?command=adminNotice'" style="width:100px; height:30px;">
 		</div>
 	</form>
 

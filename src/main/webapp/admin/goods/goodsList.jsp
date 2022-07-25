@@ -17,11 +17,11 @@
       		<tr>
         		<td colspan="5">
           			<input type="text" name="key" value="${key}" size="25">
-          			<input type="button" value="검색" onClick="go_searchGoodsList();">
+          			<input type="button" class="adminbtn" value="검색" onClick="go_searchGoodsList();">
         		</td>
         		<td>
         			<!-- <a href="#" onClick="go_goodsInsertForm();">상품등록</a> -->
-        			<input type="button" value="상품등록" onClick="go_goodsInsertForm();">
+        			<input type="button" class="adminbtn" value="상품등록" onClick="go_goodsInsertForm();">
         		</td>
       		</tr>
       	</table>

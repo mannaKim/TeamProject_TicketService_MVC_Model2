@@ -4,8 +4,8 @@
 <article id="admin_goods">
   	<h2>굿즈 상세</h2>
   	<div class="goods_buttonBox">
-  	  	<input type="button" value="상품수정" onClick="go_goodsModifyForm('${gvo.gseq}');">
-    	<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
+  	  	<input type="button" class="adminbtn" value="상품수정" onClick="go_goodsModifyForm('${gvo.gseq}');">
+    	<input type="button" class="adminbtn" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
   	</div>
     <table id="goods_table2">
 		<tr>

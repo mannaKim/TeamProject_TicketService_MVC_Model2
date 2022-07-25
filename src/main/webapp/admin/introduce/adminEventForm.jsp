@@ -4,7 +4,7 @@
 <article id="admin_event">
 <h2 align="center">이벤트목록</h2>
 	<div id="adminEvent_btn">
-		<input type="button" class="adevent_btn" value="이벤트등록" onClick="go_evwrt();" style="width:150px; height:35px;">
+		<input type="button" class="adminbtn" value="이벤트등록" onClick="go_evwrt();" style="width:150px; height:35px;">
 	</div>
 	<table>
 		<tr>

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Term</title>
+<meta charset="UTF-8">
+<title>Term</title>
 </head>
 <body>
 	<c:choose>
@@ -78,7 +78,8 @@
 	ㄴ. 기술상 지장이 있는 경우
 	ㄷ. 기타 귀책사유로 이용승낙이 곤란한 경우
 (4) 이용신청고객이 관계법령에서 규정하는 미성년자일 경우에 회사는 서비스 별 안내에서 정하는 바에 따라 승낙을 보류할 수 있습니다.</textarea>
-	<input type="button" value="닫기" onClick="window.close()" style="display:block; width:150px; height:30px; margin:20px auto;"> 
+			<input type="button" value="닫기" onClick="window.close()"
+				style="display: block; width: 150px; height: 30px; margin: 20px auto;">
 		</c:when>
 		<c:when test="${num=='2'}">
 			<h1>개인정보 수집 및 이용 동의</h1>
@@ -149,7 +150,8 @@
 	ㄴ. 기술상 지장이 있는 경우
 	ㄷ. 기타 귀책사유로 이용승낙이 곤란한 경우
 (4) 이용신청고객이 관계법령에서 규정하는 미성년자일 경우에 회사는 서비스 별 안내에서 정하는 바에 따라 승낙을 보류할 수 있습니다.</textarea>
-	<input type="button" value="닫기" onClick="window.close()" style="display:block; width:150px; height:30px; margin:20px auto;"> 
+			<input type="button" value="닫기" onClick="window.close()"
+				style="display: block; width: 150px; height: 30px; margin: 20px auto;">
 		</c:when>
 		<c:otherwise>
 			<h1>개인정보 수집 및 이용 동의</h1>
@@ -220,7 +222,8 @@
 	ㄴ. 기술상 지장이 있는 경우
 	ㄷ. 기타 귀책사유로 이용승낙이 곤란한 경우
 (4) 이용신청고객이 관계법령에서 규정하는 미성년자일 경우에 회사는 서비스 별 안내에서 정하는 바에 따라 승낙을 보류할 수 있습니다.</textarea>
-	<input type="button" value="닫기" onClick="window.close()" style="display:block; width:150px; height:30px; margin:20px auto;"> 
+			<input type="button" value="닫기" onClick="window.close()"
+				style="display: block; width: 150px; height: 30px; margin: 20px auto;">
 		</c:otherwise>
 	</c:choose>
 </body>

@@ -20,6 +20,10 @@
 				<span>${gvo.content}</span>
 			</div>
 		</c:forEach>
+		<jsp:include page="../paging.jsp">
+			<jsp:param value="ticket.do?command=goodsCategory" name="command" />
+		</jsp:include>
+		<br>
 	</div>
 </article>
 <%@ include file="../footer.jsp"%>

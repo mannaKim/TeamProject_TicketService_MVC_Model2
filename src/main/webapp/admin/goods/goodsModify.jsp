@@ -98,8 +98,8 @@
 			</tr>	
     	</table>
     	<div class="goods_buttonBox">
-  	  		<input type="button" value="상품수정" onClick="go_goodsModify();">
-    		<input type="button" value="수정취소" onClick="go_goodsDetail('${gvo.gseq}');">
+  	  		<input type="button" class="adminbtn" value="상품수정" onClick="go_goodsModify();">
+    		<input type="button" class="adminbtn" value="수정취소" onClick="go_goodsDetail('${gvo.gseq}');">
   		</div>
   	</form>
 </article>

@@ -5,8 +5,8 @@
 <link href="qna/qna.css" rel="stylesheet">
 
 <article style="margin-bottom: 100px;">
-	<div class="qna_head_my">
-		<h3>나의 문의</h3>
+	<div class="goodsBox">
+		<h1>나의 문의</h1>
 	</div>
 	<form name="formm" method="post">
 		<table id="qna_list">
@@ -61,8 +61,11 @@
 			</c:choose>
 		</table>
 		<div class="clear"></div>
-
-		<div id="paging" class="qna_pag">
+		<br>
+		<jsp:include page="../paging.jsp">
+				<jsp:param value="ticket.do?command=qnare" name="command" />
+		</jsp:include>
+		<%-- <div id="paging" class="qna_pag">
 			<c:url var="action" value="ticket.do?command=qnare" />
 			<c:if test="${paging.prev}">
 				<a href="${action}&page=${paging.beginPage-1}">◀</a>&nbsp;
@@ -81,11 +84,7 @@
 			<c:if test="${paging.next}">
 				<a href="${action}&page=${paging.endPage+1}">▶</a>&nbsp;
 		</c:if>
-		</div>
-		<div class="clear"></div>
-		<br>
-
-		<div class="clear"></div>
+		</div> --%>
 		<br>
 	</form>
 </article>

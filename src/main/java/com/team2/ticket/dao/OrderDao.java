@@ -137,10 +137,7 @@ public class OrderDao {
 
 	public ArrayList<Integer> selectOseqList(String id) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
-		String sql = "select distinct oseq"
-				+ " from goods_order_view"
-				+ " where id=?"
-				+ " order by oseq desc";
+		String sql = "select oseq from orders where id=? order by oseq desc";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -156,7 +153,32 @@ public class OrderDao {
 		}
 		return list;
 	}
-
+	
+	public ArrayList<Integer> selectOseqList(String id, Paging paging) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, o.* from "
+				+ "((select oseq from orders where id=? order by oseq desc) o)"
+				+ ") where rn>=?"
+				+ ") where rn<=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getInt("oseq"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			Dbman.close(con, pstmt, rs); 
+		}
+		return list;
+	}
 	
 	//admin 관련 메소드
 	public ArrayList<Integer> selectAllOseqList() {

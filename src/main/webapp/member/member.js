@@ -1,4 +1,3 @@
-
 function go_login() {
 	alert("로그인을 먼저 해주세요.");
 	location.href="ticket.do?command=loginForm";
@@ -31,7 +30,6 @@ function checkAll(){
 	}
 }
 
-
 function checkAllList(){
 	checkCount = 0;
 	for(let i=0;i<3;i++) {
@@ -45,7 +43,7 @@ function checkAllList(){
 
 function showTerm(num){
 	let url = "ticket.do?command=showTerm&num="+num;
-	let opt = "toolbar=no, menubar=no, resizable=no, width=750, height=400, scrollbars=yes, top=500, left=500";
+	let opt = "toolbar=no, menubar=no, resizable=no, width=560, height=300, scrollbars=yes, top=500, left=500";
 	window.open(url,"Term",opt);
 }
 
@@ -66,7 +64,7 @@ function idcheck(){
 		return;
 	}
 	let url = "ticket.do?command=idCheckForm&id="+document.joinFrm.id.value;
-	let opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no,";
+	let opt = "toolbar=no, menubar=no, resizable=no, width=300, height=250, scrollbars=no,";
 	opt = opt +" top=300, left=300";
 	window.open(url,"IdCheck",opt);
 }
@@ -80,7 +78,7 @@ function useId(id){
 function find_address(){
 	let url = "ticket.do?command=findAddress";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no,";
-	opt = opt +"  width=550, height=300, top=300, left=300";
+	opt = opt +" width=450, height=300, top=300, left=300";
 	window.open(url,"주소 찾기",opt);
 }
 

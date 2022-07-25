@@ -22,12 +22,12 @@
 			<div id="banner_imgs">
 				<a href="ticket.do?command=goodsMain"><img class="b_img"
 					src="goods/goods_images/sub_images/welcome_wide_1.png"></a><a
-					href="ticket.do?command=goodsDetail&gseq=21"><img class="b_img"
+					href="ticket.do?command=goodsDetail&gseq=1"><img class="b_img"
 					src="goods/goods_images/sub_images/welcome_wide_2.jpg"></a><a
-					href="ticket.do?command=goodsSearch&page=1&key=피너츠"><img
+					href="ticket.do?command=goodsSearch&page=1&key=피너츠&page=1"><img
 					class="b_img"
 					src="goods/goods_images/sub_images/welcome_wide_3.png"></a><a
-					href="ticket.do?command=goodsDetail&gseq=22"><img class="b_img"
+					href="ticket.do?command=goodsDetail&gseq=2"><img class="b_img"
 					src="goods/goods_images/sub_images/welcome_wide_4.jpg"></a>
 			</div>
 			<div id="goods_remot">
@@ -68,27 +68,27 @@
 			<tr>
 				<td><img src="goods/goods_images/sub_images/gs_icon_01.png"
 					width="140px"
-					onClick="location.href='ticket.do?command=goodsCategory&kind=1'"></td>
+					onClick="location.href='ticket.do?command=goodsCategory&kind=1&page=1'"></td>
 				<td><img src="goods/goods_images/sub_images/gs_icon_02.png"
 					width="140px"
-					onClick="location.href='ticket.do?command=goodsCategory&kind=2'"></td>
+					onClick="location.href='ticket.do?command=goodsCategory&kind=2&page=1'"></td>
 				<td><img src="goods/goods_images/sub_images/gs_icon_03.png"
 					width="140px"
-					onClick="location.href='ticket.do?command=goodsCategory&kind=3'"></td>
+					onClick="location.href='ticket.do?command=goodsCategory&kind=3&page=1'"></td>
 				<td><img src="goods/goods_images/sub_images/gs_icon_04.png"
 					width="140px"
-					onClick="location.href='ticket.do?command=goodsCategory&kind=4'"></td>
+					onClick="location.href='ticket.do?command=goodsCategory&kind=4&page=1'"></td>
 				<td><img src="goods/goods_images/sub_images/gs_icon_05.png"
 					width="140px"
-					onClick="location.href='ticket.do?command=goodsCategory&kind=5'"></td>
+					onClick="location.href='ticket.do?command=goodsCategory&kind=5&page=1'"></td>
 			</tr>
 			<tr>
-				<td><a href="ticket.do?command=goodsCategory&kind=1">문구</a></td>
-				<td><a href="ticket.do?command=goodsCategory&kind=2">디지털</a></td>
-				<td><a href="ticket.do?command=goodsCategory&kind=3">가방 ·
+				<td><a href="ticket.do?command=goodsCategory&kind=1&page=1">문구</a></td>
+				<td><a href="ticket.do?command=goodsCategory&kind=2&page=1">디지털</a></td>
+				<td><a href="ticket.do?command=goodsCategory&kind=3&page=1">가방 ·
 						파우치</a></td>
-				<td><a href="ticket.do?command=goodsCategory&kind=4">취미용품</a></td>
-				<td><a href="ticket.do?command=goodsCategory&kind=5">패션 ·
+				<td><a href="ticket.do?command=goodsCategory&kind=4&page=1">취미용품</a></td>
+				<td><a href="ticket.do?command=goodsCategory&kind=5&page=1">패션 ·
 						잡화</a></td>
 			</tr>
 		</table>

@@ -24,7 +24,7 @@
 		</table>
 		<div class="clear"></div>
 		<div class="qna_bts_1">
-			<input type="button" value="목록" class="qna_bu"
+			<input type="button" class="adminbtn" value="목록" style="width:150px;height:45px;"
 				onclick="location.href='ticket.do?command=aqna'">
 			<!-- 목록 버튼을 누르면 qnalist.jsp 로 이동합니다.  -->
 		</div>
@@ -46,7 +46,7 @@
 				<td align="left"><input type="text" name="content" size="80"
 					class="qna_h_re"></td>
 				<td></td>
-				<td><input type="submit" value="작성" class="qna_bu"
+				<td><input type="submit" class="adminbtn" value="작성" style="width:100px;height:45px;"
 					onClick="return reply_check();"></td>
 				<!-- 답변 작성 버튼을 누르면 내용 확인 후 QnaReplyAction 으로 이동합니다.  -->
 			</tr>
@@ -56,7 +56,7 @@
 					<td align="center">${reply.id}</td>
 					<td align="left">&nbsp;${reply.content}</td>
 					<td><fmt:formatDate value="${reply.indate}" type="date" /></td>
-					<td><input type="button" value="삭제" class="qna_bu"
+					<td><input type="button" class="adminbtn" value="삭제" style="width:100px;height:45px;"
 						id="qna_re_d" onClick="reply_delete('${reply.renum}','${qnaVO.qseq}');"></td>
 				</tr>
 			</c:forEach>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<%@ include file="../mypage/sub_image_menu.jsp"%>
 <link href="qna/qna.css" rel="stylesheet">
 <style>
 	article {
@@ -8,8 +9,8 @@
 	}
 </style>
 <article>
-	<div class="qna_head_m">
-		<h2>1:1 문의</h2>
+	<div class="goodsBox">
+		<h1>1:1 문의</h1>
 	</div>
 	<form>
 		<table class="qnatable">

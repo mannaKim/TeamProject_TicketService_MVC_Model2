@@ -27,9 +27,9 @@
 	</table>
 	<br>
 	<div id="adminNoticeup_btn">
-		<input type="submit" value="수정" onClick="return noticeCheck()" style="width:70px; height:30px;">
-		<input type="reset" value="다시작성" style="width:100px; height:30px;">
-		<input type="button" value="돌아가기" onClick="location.href='ticket.do?command=noticeViewNoCount&ntnum=${notice.ntnum}'" style="width:100px; height:30px;">
+		<input type="submit" class="adminbtn" value="수정" onClick="return noticeCheck()" style="width:70px; height:30px;">
+		<input type="reset" class="adminbtn" value="다시작성" style="width:100px; height:30px;">
+		<input type="button" class="adminbtn" value="돌아가기" onClick="location.href='ticket.do?command=noticeViewNoCount&ntnum=${notice.ntnum}'" style="width:100px; height:30px;">
 	</div>
 	</form>
 </article>

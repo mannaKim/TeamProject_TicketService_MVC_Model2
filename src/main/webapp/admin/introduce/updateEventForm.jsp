@@ -31,9 +31,9 @@
 			</tr>
 		</table><br>
 		<div id="adminEventUp_btn">
-			<input type="submit" value="수정" style="width:70px; height:30px;">
-			<input type="reset" value="다시작성" style="width:100px; height:30px;">
-			<input type="button" value="목록" onClick="location.href='ticket.do?command=adminEvent'" style="width:70px; height:30px;">
+			<input type="submit" class="adminbtn" value="수정" style="width:70px; height:30px;">
+			<input type="reset" class="adminbtn" value="다시작성" style="width:100px; height:30px;">
+			<input type="button" class="adminbtn" value="목록" onClick="location.href='ticket.do?command=adminEvent'" style="width:70px; height:30px;">
 		</div>
 	</form>
 </article>

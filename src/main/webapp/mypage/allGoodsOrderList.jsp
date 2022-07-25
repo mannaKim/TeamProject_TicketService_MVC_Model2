@@ -31,7 +31,7 @@
 						<c:forEach items="${allGoodsOrderList}" var="govo">
 							<tr>
 								<td><fmt:formatDate value="${govo.indate}" type="date" /></td>
-								<td>${govo.oseq}</td>
+								<td>${govo.odseq}</td><!-- allGoodsOrderList.java에서 odseq에 담아서 전달된 회원별 주문번호(DB상의 odseq와 다른 값) -->
 								<td><img src="goods/goods_images/${govo.image}"></td>
 								<td>${govo.gname}</td>
 								<td><fmt:formatNumber value="${govo.price}" type="currency" />
@@ -44,6 +44,10 @@
 							</tr>
 						</c:forEach>
 					</table>
+					<br>
+					<jsp:include page="../paging.jsp">
+						<jsp:param value="ticket.do?command=allGoodsOrderList" name="command" />
+					</jsp:include>
 					<br>
 				</div>
 			</c:otherwise>

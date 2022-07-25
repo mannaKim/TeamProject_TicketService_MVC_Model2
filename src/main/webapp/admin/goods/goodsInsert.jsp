@@ -52,8 +52,8 @@
 			</tr>	
     	</table>
     	<div class="goods_buttonBox">
-  	  		<input type="button" value="상품등록" onClick="go_goodsInsert();">
-    		<input type="button" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
+  	  		<input type="button" class="adminbtn" value="상품등록" onClick="go_goodsInsert();">
+    		<input type="button" class="adminbtn" value="목록으로" onClick="location.href='ticket.do?command=adminGoodsList&page=1'">
   		</div>
   	</form>
 </article>

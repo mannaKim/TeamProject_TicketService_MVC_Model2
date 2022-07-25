@@ -1,18 +1,18 @@
-function go_login(){
+function go_login() {
 	alert("로그인을 먼저 해주세요.");
 	location.href="ticket.do?command=loginForm";
 }
 
-function loginCheck(){
+function loginCheck() {
 	if(document.loginFrm.id.value==""){
 		alert("아이디는 필수 입력사항입니다.");
 		document.loginFrm.id.focus();
 		return false;
-	}else if(document.loginFrm.pwd.value==""){
+	} else if(document.loginFrm.pwd.value=="") {
 		alert("비밀번호는 필수 입력사항입니다.");
 		document.loginFrm.pwd.focus();
 		return false;
-	}else{
+	} else {
 		return true;
 	}
 }
@@ -43,7 +43,7 @@ function checkAllList(){
 
 function showTerm(num){
 	let url = "ticket.do?command=showTerm&num="+num;
-	let opt = "toolbar=no, menubar=no, resizable=no, width=500, height=400, scrollbars=yes, top=500, left=500";
+	let opt = "toolbar=no, menubar=no, resizable=no, width=560, height=300, scrollbars=yes, top=500, left=500";
 	window.open(url,"Term",opt);
 }
 
@@ -58,59 +58,59 @@ function go_joinForm(){
 }
 
 function idcheck(){
-	if(document.frm.id.value==""){
+	if(document.joinFrm.id.value==""){
 		alert("아이디를 입력하고 중복체크를 진행하세요.");
-		document.frm.id.focus();
+		document.joinFrm.id.focus();
 		return;
 	}
-	let url = "ticket.do?command=idCheckForm&id="+document.frm.id.value;
-	let opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250, scrollbars=no,";
+	let url = "ticket.do?command=idCheckForm&id="+document.joinFrm.id.value;
+	let opt = "toolbar=no, menubar=no, resizable=no, width=300, height=250, scrollbars=no,";
 	opt = opt +" top=300, left=300";
 	window.open(url,"IdCheck",opt);
 }
 
 function useId(id){
-	opener.frm.id.value=id;
-	opener.frm.idCheck.value=id;
+	opener.joinFrm.id.value=id;
+	opener.joinFrm.idCheck.value=id;
 	self.close();
 }
 
 function find_address(){
 	let url = "ticket.do?command=findAddress";
 	let opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no,";
-	opt = opt +"  width=550, height=300, top=300, left=300";
+	opt = opt +" width=450, height=300, top=300, left=300";
 	window.open(url,"주소 찾기",opt);
 }
 
 function save_address(zip_num,sido,gugun,dong){
 	//함수 호출 형태 : result('123-123','서울시','서대문구','대현동')
-	opener.document.frm.zip_num.value=zip_num;
-	opener.document.frm.address1.value=sido+" "+gugun+" "+dong;
+	opener.document.joinFrm.zip_num.value=zip_num;
+	opener.document.joinFrm.address1.value=sido+" "+gugun+" "+dong;
 	self.close();
 }
 
 function go_join(){
-	if(document.frm.id.value==""){
+	if(document.joinFrm.id.value==""){
 		alert("아이디를 입력하세요.")
-		document.frm.id.focus();
-	}else if(document.frm.idCheck.value!=document.frm.id.value){
+		document.joinFrm.id.focus();
+	}else if(document.joinFrm.idCheck.value!=document.joinFrm.id.value){
 		alert("아이디 중복확인을 하지 않았습니다.")
-		document.frm.id.focus();
-	}else if(document.frm.pwd.value==""){
+		document.joinFrm.id.focus();
+	}else if(document.joinFrm.pwd.value==""){
 		alert("비밀번호를 입력하세요.")
-		document.frm.pwd.focus();
-	}else if(document.frm.pwd.value!=document.frm.pwdCheck.value){
+		document.joinFrm.pwd.focus();
+	}else if(document.joinFrm.pwd.value!=document.joinFrm.pwdCheck.value){
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.")
-		document.frm.pwd.focus();
-	}else if(document.frm.name.value==""){
+		document.joinFrm.pwd.focus();
+	}else if(document.joinFrm.name.value==""){
 		alert("이름을 입력하세요.")
-		document.frm.name.focus();
-	}else if(document.frm.email.value==""){
+		document.joinFrm.name.focus();
+	}else if(document.joinFrm.email.value==""){
 		alert("이메일을 입력하세요.")
-		document.frm.email.focus();
+		document.joinFrm.email.focus();
 	}else {
-		document.frm.action="ticket.do?command=join";
-		document.frm.submit();
+		document.joinFrm.action="ticket.do?command=join";
+		document.joinFrm.submit();
 	}
 }
 
