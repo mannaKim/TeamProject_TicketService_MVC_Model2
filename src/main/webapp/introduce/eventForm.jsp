@@ -8,7 +8,7 @@
 		<c:forEach items="${event}" var="eventVO">
 			<div id="event_imgbox">
 				<a href="ticket.do?command=eventDetail&evnum=${eventVO.evnum}">
-					<img src="ticket_image/${eventVO.eimage}" style="width: 500px;" />
+					<img src="ticket_image/${eventVO.eimage}" style="width: 500px;height:185px;" />
 				</a>
 				<div id="event_text">
 					<h2 style="margin-top: 15px;">${eventVO.title}</h2>

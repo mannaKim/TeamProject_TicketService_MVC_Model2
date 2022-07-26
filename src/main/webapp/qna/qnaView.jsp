@@ -3,6 +3,7 @@
 <%@ include file="../header.jsp"%>
 <link href="qna/qna.css" rel="stylesheet">
 <article style="margin-top: 150px;">
+	<div class="qna_px">
 	<div class="qna_head_m">
 		<h2>1:1 문의</h2>
 	</div>
@@ -12,6 +13,11 @@
 				<th>제목</th>
 				<td class="qna_ht" align="left">${qnaVO.subject}</td>
 			</tr>
+			<tr>
+				<th>작성자</th>
+				<td class="qna_ht" align="left">${qnaVO.id}</td>
+			</tr>
+			<tr>
 			<tr>
 				<th>등록일</th>
 				<td class="qna_ht" align="left"><fmt:formatDate value="${qnaVO.indate}" type="date" /></td>
@@ -53,6 +59,7 @@
 			</c:forEach>
 		</table>
 	</form>
+</div>
 </article>
 
 <%@ include file="../footer.jsp"%>

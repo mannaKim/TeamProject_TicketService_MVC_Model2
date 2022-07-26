@@ -571,11 +571,16 @@ div#t_showBox {
 	float: top;
 }
 
+div#t_showBox1{
+	margin-top: -385px;
+}
+
 table#t_showBox {
 	position: relative;
 	margin: 0;
 	padding: 0;
-	top: -530px;
+	top: -145px;
+	/* top: -530px; */
 	width: 1000px;
 	margin: 0 auto;
 	color: white;

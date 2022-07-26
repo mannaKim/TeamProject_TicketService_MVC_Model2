@@ -8,7 +8,7 @@
 <form name="formm" method="post">
 <table id="t_admin_listbox">
 	<tr>
-		<th>No.</th>
+		<th>예매번호</th>
 		<th>행사명</th>
 		<th>구매자</th>
 		<th>ID</th>
@@ -29,7 +29,7 @@
 			</td>
 			<td>${tcVO.quantity1 + tcVO.quantity2}매 (일반:${tcVO.quantity1}매 어린이:${tcVO.quantity2}매)</td>
 			<td id="btn">
-				<input type="button" class="adminbtn" value="취소"  onClick="deletePass('${tcVO.tpseq}');">
+				<input type="button" class="adminbtn" value="취소"  onClick="delete2Pass('${tcVO.cseq}');">
 			</td>
 		</tr>
 	</c:forEach>
@@ -66,7 +66,7 @@
 	<a href="${action}&page=${paging.endPage+1}">▶</a>&nbsp;
 </c:if>
 </div>
-
+</form>
 
 </article>
 

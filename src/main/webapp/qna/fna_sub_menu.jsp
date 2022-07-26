@@ -4,13 +4,13 @@
 <link href="qna/qna.css" rel="stylesheet">
 <style>
 .qna_sub_main{
-	height: 20px; width: 100%;
+	height: 200px; width: 1100px;
+	margin: 0 auto;
 }
 .fnqkind{
 	width: 800px; height: 70px;
 	margin: 0 auto;
 	margin-top: 50px;
-	margin-bottom: 100px;
 }
 .allkind{
 	margin: 0 auto;
@@ -48,8 +48,7 @@ li:first-child{
 /*1:1문의 헤드*/
 .qna_head {
 	margin-top: 220px;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 200px;
 	width: 100%;
 	margin-bottom: 50px;
 	font-size: 30px;

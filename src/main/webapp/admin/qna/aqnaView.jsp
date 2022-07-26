@@ -3,6 +3,7 @@
 <%@ include file="../admin_header.jsp"%>
 <link rel="stylesheet" href="../../qna/qna.css">
 <article  id="admin_notice">
+	<div class="qna_px">
 	<div class="qna_head">
 		<h2 align="center">1:1 문의 확인</h2>
 	</div>
@@ -11,6 +12,10 @@
 			<tr>
 				<th style="border-top: 0;">제목</th>
 				<td class="qna_ht" align="left" style="border-top: 0;">${qnaVO.subject}</td>
+			</tr>
+			<tr>
+				<th>작성자</th>
+				<td class="qna_ht" align="left">${qnaVO.id}</td>
 			</tr>
 			<tr>
 				<th>등록일</th>
@@ -24,7 +29,7 @@
 		</table>
 		<div class="clear"></div>
 		<div class="qna_bts_1">
-			<input type="button" class="adminbtn" value="목록" style="width:150px;height:45px;"
+			<input type="button" value="목록" class="qna_bu"
 				onclick="location.href='ticket.do?command=aqna'">
 			<!-- 목록 버튼을 누르면 qnalist.jsp 로 이동합니다.  -->
 		</div>
@@ -33,7 +38,7 @@
 	<form action="ticket.do" method="post" name="frm_reply" class="qna_rp">
 		<input type="hidden" name="command" value="qnaReply" /> 
 		<input type="hidden" name="qnanum" value="${qnaVO.qseq}" />
-		<table>
+		<table style="width: 100%;">
 			<tr>
 				<th class="qna_w">작성자</th>
 				<th align="left" class="qna_wr">답변 내용</th>
@@ -46,7 +51,7 @@
 				<td align="left"><input type="text" name="content" size="80"
 					class="qna_h_re"></td>
 				<td></td>
-				<td><input type="submit" class="adminbtn" value="작성" style="width:100px;height:45px;"
+				<td><input type="submit" value="작성" class="qna_bu"
 					onClick="return reply_check();"></td>
 				<!-- 답변 작성 버튼을 누르면 내용 확인 후 QnaReplyAction 으로 이동합니다.  -->
 			</tr>
@@ -56,13 +61,11 @@
 					<td align="center">${reply.id}</td>
 					<td align="left">&nbsp;${reply.content}</td>
 					<td><fmt:formatDate value="${reply.indate}" type="date" /></td>
-					<td><input type="button" class="adminbtn" value="삭제" style="width:100px;height:45px;"
+					<td><input type="button" value="삭제" class="qna_bu"
 						id="qna_re_d" onClick="reply_delete('${reply.renum}','${qnaVO.qseq}');"></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</form>
-
-
-
+	</div>
 </article>

@@ -18,7 +18,6 @@
 	<script src="script/member.js"></script>
 	<script src="script/mypage.js"></script>
 	<script src="script/goods.js"></script>
-	<script src="script/banner.js"></script>
 	<script src="script/intro.js"></script>
 	<script src="script/ticketing.js"></script>
 	<script src="script/qna.js"></script>
@@ -62,9 +61,9 @@
                         <div id="sidebar" class="sidebar">
                             <div class="accordion">
                                 <div class="contentBx">
-                                    <div class="label">전시소개</div>
+                                    <div class="label">소개</div>
                                     <div class="content">
-                                    	<p><a href="ticket.do?command=introduce">전시소개</a></p>
+                                    	<p><a href="ticket.do?command=introduce">회사소개</a></p>
                                     	<p><a href="ticket.do?command=notice">공지사항</a></p>
                                     	<p><a href="ticket.do?command=event">이벤트</a></p>
                                     </div>
@@ -89,7 +88,7 @@
                                     <div class="label"><a href="ticket.do?command=qna">문의게시판</a></div>
                                      <div id="content04" class="content">
 	                                    <p><a href="ticket.do?command=qnaWriteForm">1:1문의하기</a></p>
-	                                    <p><a href="ticket.do?command=qnafnq&kind=1">F &amp; Q </a></p>
+	                                    <p><a href="ticket.do?command=qnafnq&kind=1">FAQ</a></p>
                                     </div>
                                 </div>
                             </div>

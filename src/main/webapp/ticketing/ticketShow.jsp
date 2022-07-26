@@ -8,11 +8,14 @@
 <div id="t_showBox">
 	<img src="ticket_image/back1.png"style="width:100%;" >
 </div>
+<div id="t_showBox1">
 <table id="t_showBox">
 	<tr id="t_btnn1">
 		<th colspan="3" id="title">${ticketVO.name}</th>
 		<td rowspan="8" id="img"><img src="ticket_image/${ticketVO.image}" style="width:230px;"><br>
-		<a href="ticket.do?command=ticketingForm&tpseq=${ticketVO.tpseq}"class="btnCancel1">예매하기</a>
+		
+		<a href="ticket.do?command=ticketingForm&tpseq=${ticketVO.tpseq}" class="btnCancel2">예매하기</a>
+		
 		</td>
 	</tr>
 	<tr>
@@ -31,7 +34,14 @@
 	</tr>
 	<tr>
 		<th>연령</th>
-		<td colspan="2">${ticketVO.age}세 이상</td>
+		<c:choose>
+			<c:when test="${ticketVO.age > 0}"> 
+				<td colspan="2">만 ${ticketVO.age} 세 이상 </td>	
+			</c:when>
+			<c:when test="${ticketVO.age <= 0}">
+				<td colspan="2">전체관람가</td>	
+			</c:when>
+		</c:choose>
 	</tr>
 	<tr>
 		<th id="t-boxline">관람시간</th>
@@ -46,6 +56,7 @@
 		<td colspan="2">${ticketVO.content}</td>
 	</tr>
 </table>
+</div>
 </form>
 
 </article>

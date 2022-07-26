@@ -36,6 +36,7 @@ import com.team2.ticket.controller.action.admin.qna.AQnaJustViewAction;
 import com.team2.ticket.controller.action.admin.qna.AQnaReDeleteAction;
 import com.team2.ticket.controller.action.admin.qna.AQnaViewAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_UpdateFormAction;
+import com.team2.ticket.controller.action.admin.ticket.Admin_delete2FormAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_deleteFormAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_ticketListAction;
 import com.team2.ticket.controller.action.admin.ticket.Admin_ticketWriteAction;
@@ -244,6 +245,7 @@ public class ActionFactory {
 		else if(command.equals("admin_UpdateForm")) ac = new Admin_UpdateFormAction();
 		else if(command.equals("admin_deleteForm")) ac = new Admin_deleteFormAction();
 		else if(command.equals("admin_ticketUpdate")) ac = new admin_TicketUpdateAction();
+		else if(command.equals("admin_delete2Form")) ac = new Admin_delete2FormAction();
 		// ▷ 관리자 공지사항 관련 action.
 		else if(command.equals("adminNotice"))ac = new AdminNoticeAction();
 		else if(command.equals("adminNoticeInsert"))ac = new AdminNoticeInsertAction();

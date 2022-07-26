@@ -2,6 +2,7 @@
 <%@ include file="../header.jsp" %>  
 <link href="qna/qna.css" rel="stylesheet">
 <article style="margin-top: 150px;">
+	<div class="qna_px">
 	<div class="qna_head_m">
 		<h2> 1:1 문의 </h2>
 	</div>
@@ -44,6 +45,7 @@
 			</div>
 			</div>
 	</form>
+	</div>
 </article>
 <%@ include file="../footer.jsp" %>
 

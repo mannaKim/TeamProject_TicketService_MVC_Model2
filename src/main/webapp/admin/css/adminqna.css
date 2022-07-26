@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
 .aqna_table {
-	width: 70%;
-	margin-left: 15%;
-	margin-right:15%;
+	width: 1000px;
+	margin: 0 auto;
 	text-align: center;
 }
 .aqna_table th, .aqna_table td {
@@ -85,8 +84,7 @@
 
 .qna_bts_1 {
 	margin-top: 10px;
-	margin-left: 70%;
-	margin-right: 15%;
+	margin-left: 830px;
 	margin-bottom: 70px;
 }
 .qna_bu {

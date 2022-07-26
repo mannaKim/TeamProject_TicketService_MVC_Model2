@@ -91,7 +91,7 @@ table#t_admin_listbox { width: 1000px;  margin-top: 20px; border-top:2px solid b
 table#t_admin_listbox th { text-align: center; padding: 5px -10px 3px 0px; font-size: 17px; }
 table#t_admin_listbox td#t_admin_listbox_line { border-bottom: 1px dotted black; padding: 2px 0px 0px 0px;}
 table#t_admin_listbox td#btn { float: right; }
-table#t_admin_listbox td { padding: 2px 0px 2px 4px; }
+table#t_admin_listbox td { padding: 2px 0px 2px 4px; text-align: center; }
 div#t_admin_listboxbottom{ /* margin-left: 290px; */ float: right;}
 /* admin_ticketWrite */
 table#t_writebox{ margin: 0 auto; margin-top: 25px; }

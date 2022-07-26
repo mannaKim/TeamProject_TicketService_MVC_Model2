@@ -3,6 +3,7 @@
 <link href="qna/qna.css" rel="stylesheet">
 
 <article style="margin-top: 150px;">
+	<div class="qna_px">
 	<div class="qna_head_m">
 		<h2> 1:1 문의 </h2>
 	</div>
@@ -59,33 +60,18 @@
 			</c:choose>
 		</table>
 		<div class="clear"></div>
-	
-	<div id="paging" class="qna_pag">
-		<c:url var="action" value="ticket.do?command=qna" />
-		<c:if test="${paging.prev}">
-			<a href="${action}&page=${paging.beginPage-1}">◀</a>&nbsp;
-		</c:if>
-		<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
-			<c:choose>
-				<c:when test="${paging.page==index}">
-					<span style="color:#2F4F4F">${index}&nbsp;</span>
-				</c:when>
-				<c:otherwise>
-					<a href="${action}&page=${index}">${index}</a>&nbsp;
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.next}">
-			<a href="${action}&page=${paging.endPage+1}">▶</a>&nbsp;
-		</c:if>
-	</div>
-	<div  class="clear"></div><br>
-	
+		<br>
+		<jsp:include page="/paging.jsp">
+	    	<jsp:param value="ticket.do?command=qna" name="command"/>
+	  	</jsp:include>
+		<div  class="clear"></div>
+		<br>
 	<div class="qna_bts_1">
 		<input type="button" value="1:1 문의하기"  class="qna_bu" onClick="location.href='ticket.do?command=qnaWriteForm'"> 
 		<!-- 문의하기 버튼을 누르면 QnaWirteFormAction 으로 이동합니다.  -->
 	</div>
 	<div  class="clear"></div><br>
 	</form>
+	</div>
 </article>
 <%@ include file="../footer.jsp" %>

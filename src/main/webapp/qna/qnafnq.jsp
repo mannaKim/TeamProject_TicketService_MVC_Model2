@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="fna_sub_menu.jsp"%>
 
-<br>
-<article style="margin-top: 100px;">
+<article style>
 	<div class="clear"></div>
+	<div class="qna_px">
 	<div class="box_content" style="margin-top: 50px;">
 		<div class="faq-content">
 			<button class="question" id="que-1">
@@ -125,6 +125,7 @@
 				국악, 곡예 등을 비롯 뮤지컬, 대중음악 콘서트, 오페라, 발레, 마술, 마당극, 아동극 등이 적용 대상입니다.</div>
 		</div>
 	</div>
+</div>
 </article>
 <script src="qna/fnq.js"></script>
 <%@ include file="../footer.jsp"%>

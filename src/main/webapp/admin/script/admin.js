@@ -195,3 +195,9 @@ function go_total(comm) {
 	document.frm.action = "ticket.do?command=" + comm + "&page=1";
 	document.frm.submit();
 }
+
+function delete2Pass( cseq ){
+	var url = "ticket.do?command=admin_delete2Form&cseq=" + cseq;
+	document.formm.action = url;
+	document.formm.submit();
+}

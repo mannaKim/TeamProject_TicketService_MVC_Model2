@@ -40,11 +40,11 @@ public class admin_TicketUpdateAction implements Action {
 		pvo.setContent(multi.getParameter("content"));
 
 		if (multi.getFilesystemName("image") == null) {
-			pvo.setImage(multi.getParameter("oldPicture"));
+			pvo.setImage(multi.getParameter("oldImage"));
 		} else {
 			pvo.setImage(multi.getFilesystemName("image"));
 		}
-
+		
 		Ticket_productDao pdao = Ticket_productDao.getInstance();
 		pdao.updateShow(pvo);
 

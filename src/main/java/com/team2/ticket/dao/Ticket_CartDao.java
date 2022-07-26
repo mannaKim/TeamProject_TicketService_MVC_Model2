@@ -275,6 +275,7 @@ public class Ticket_CartDao {
 		}
 		return count;
 	}
+	
 	public ArrayList<Ticket_CartVO> listTicketCart(Paging paging, String key) {
 	      ArrayList<Ticket_CartVO> list = new ArrayList<Ticket_CartVO>();
 	      
@@ -318,11 +319,22 @@ public class Ticket_CartDao {
 	      }
 	      return list;
 	   }
-	
 
-	
-	
-	
+
+	public void deleteTicket_productr_cart(int cseq) {
+		String sql = "delete from ticket_cart where cseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, cseq );
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {	e.printStackTrace(); 		
+		} finally { Dbman.close(con, pstmt, rs); }	
+		
+	}
+
 }
 	
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<script src="script/banner.js"></script>
 <article class="underHeader">
 	<!-- 굿즈 검색창 -->
 	<br><br>

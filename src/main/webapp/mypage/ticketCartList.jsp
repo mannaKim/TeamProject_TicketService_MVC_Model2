@@ -21,6 +21,7 @@
 					<table>
 						<tr>
 							<th>예매일</th>
+							<th>예매번호</th>
 							<th>주문자</th>
 							<th>공연명</th>
 							<th>관람일시</th>
@@ -36,6 +37,7 @@
 							<tr>
 								<td><fmt:formatDate pattern="yyyy.MM.dd"
 										value="${TcartVO.indate}" type="date" /></td>
+								<td>${ TcartVO.cseq }</td>
 								<td>${ TcartVO.mname }</td>
 								<td><a
 									href="ticket.do?command=ticketShowMypage&tpseq=${TcartVO.tpseq}">

@@ -107,3 +107,14 @@ input[type=text]:focus {
    width: 48%;
    height: 50px;
 }
+
+.btnCancel2 {
+	text-decoration: none; text-align: center;
+	margin-top: -2px;
+	font-size: 15px;
+	font-weight:bold; background-color: red;  width:195px; height: 50 px;
+	color: white; padding: 15px 16px; display: inline-block; border: 1px solid red;
+}
+.btnCancel2:active {
+	top: 0px; background-color: white; color:black; border-color: red; position: relative;
+}

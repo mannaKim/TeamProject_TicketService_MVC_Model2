@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="fna_sub_menu.jsp"%>
 <link href="qna/qna.css" rel="stylesheet">
-<br>
-<article style="margin-top: 100px;">
+<article>
 	<div class="clear"></div>
+	<div class="qna_px">
 	<div class="box_content" style="margin-top: 50px;">
 		<div class="faq-content">
 			<button class="question" id="que-2">
@@ -34,6 +34,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </article>
 <script src="qna/fnq.js"></script>
 <%@ include file="../footer.jsp" %>

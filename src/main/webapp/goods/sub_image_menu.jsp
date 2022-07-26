@@ -4,7 +4,7 @@
 	<br><br>
 	<div class="goods_subMenu">
         <form class="goods_searchBox" method="post" name="frm" action="ticket.do?command=goodsSearch&page=1">
-            <div class="goods_search"><input type="text" name="key" value="${key}" size="45"></div>
+            <div class="goods_search"><input type="text" name="key" value="${key}" size="30"></div>
             <div class="goods_searchBtn"><input type="submit" value=""></div>
         </form>
     </div>
