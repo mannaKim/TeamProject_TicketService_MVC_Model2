@@ -28,6 +28,7 @@ public class QnaReplyAction implements Action {
 		
 		QnaDao qdao = QnaDao.getInstance();
 		qdao.insertReply(qrvo);
+//		qdao.UdateRe(qnanum);
 
 		// 게시물 번호와 함께 view로 전송
 		response.sendRedirect("ticket.do?command=aqnaReView&qnanum="+qnanum);

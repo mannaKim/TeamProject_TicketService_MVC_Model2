@@ -9,7 +9,9 @@
 			<tr>	<th width="100" height="40">번호</th>
     		<th width="300" height="40">제목</th>
     		<th width="100" height="40">등록일</th>
-    		<th width="200" height="40">작성자</th></tr>
+    		<th width="200" height="40">작성자</th>
+    		<th width="100" height="40">답변여부</th>
+    		</tr>
 			<c:forEach items="${qnalist}"  var="qnaVO">
 				<tr ><td height="50"> ${qnaVO.qseq}</td>    
 		    		<td height="50"><a href="ticket.do?command=aqnaView&qseq=${qnaVO.qseq}">
@@ -38,10 +40,10 @@
 							</td>           
 		       		<td height="50"><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
 		       		<td height="50"> ${qnaVO.id} </td>
-		       		<!-- <td><c:choose>
+		       		<td height="50"><c:choose>
 						<c:when test="${qnaVO.rep=='1' }"> N </c:when>
-						<c:when test="${qnaVO.rep=='2' } "> Y </c:when>
-					</c:choose></td>   답변여부는 해결을 하지 못해 나중에 해보는 것으로... -->
+						<c:otherwise> Y </c:otherwise>
+					</c:choose></td> 
 		   		</tr>
 		  	</c:forEach>
 		</table>

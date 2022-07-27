@@ -16,6 +16,7 @@
 					<th align="left" class="qna_wr">제목</th>
 					<th>등록일</th>
 					<th>작성자</th>
+					<th>답변여부</th>
 				</tr>
 				<c:choose>
 					<c:when test="${empty qnalist}">
@@ -52,10 +53,12 @@
 									</c:if></td>
 								<td><fmt:formatDate value="${qnaVO.indate}" type="date" /></td>
 								<td>${qnaVO.id}</td>
-								<!-- <td><c:choose>
-					<c:when test="${qnaVO.rep=='1' }"> N </c:when>
-					<c:when test="${qnaVO.rep=='2' } "> Y </c:when>
-				</c:choose></td>   답변여부는 해결을 하지 못해 나중에 해보는 것으로... -->
+								<td>
+									<c:choose>
+										<c:when test="${qnaVO.rep=='1' }"> N </c:when>
+										<c:otherwise> Y </c:otherwise>
+									</c:choose>
+								</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>

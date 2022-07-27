@@ -60,7 +60,7 @@ public class QnaAction implements Action {
 					rep = "2";
 				}
 				qvo.setRep(rep);
-				System.out.println("rep : " + qvo.getRep());
+				qdao.UdateRe(qvo.getQseq(), rep);
 			}
 
 //			QnaVO qvo = qdao.getKind( mvo.getId());

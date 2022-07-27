@@ -66,7 +66,7 @@ public class AQnaAction implements Action {
 						rep = "2";
 					}
 					qvo.setRep(rep);
-					System.out.println("rep : " + qvo.getRep());
+					qdao.UdateRe(qvo.getQseq(), rep);
 				}
 				
 				request.setAttribute("qnalist", qnaList);  // 변경

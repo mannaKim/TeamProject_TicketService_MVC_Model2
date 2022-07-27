@@ -24,6 +24,21 @@ public class QnaDao {
 	ResultSet rs = null;
 	
 	
+	public void UdateRe( int qnanum, String rep) {
+		String sql = "update qna set rep=? where qseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rep);
+			pstmt.setInt(2, qnanum);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+	}
+	
 	public void insertQna(QnaVO qvo) {
 		
 		String sql = "insert into qna(qseq, subject, content, kind, id)"

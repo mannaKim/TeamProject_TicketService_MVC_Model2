@@ -45,8 +45,21 @@ public class QnaReAction implements Action {
 			paging.setTotalCount(count);
 			ArrayList<QnaVO> list = qdao.listQna(mvo.getId(), paging);
 
-//			String [] kindList = { "전시", "회원안내", "관람/예약", "굿즈", "기타"};
+			String rep = "";
+			for( QnaVO qvo:list) {
+				System.out.println("getQseq : "+ qvo.getQseq());
+				count = qdao.getReplycnt( qvo.getQseq() );
+				qvo.setReplycnt( count );
 
+				System.out.println("replycnt : " + qvo.getReplycnt());
+				if (qvo.getReplycnt() == 0) {
+					rep = "1";
+				} else {
+					rep = "2";
+				}
+				qvo.setRep(rep);
+				qdao.UdateRe(qvo.getQseq(), rep);
+			}
 			
 			System.out.println("실행 확인");
 			
